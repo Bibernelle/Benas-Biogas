@@ -1,23 +1,44 @@
 <?php
-
+session_start();
 require_once ("class.Database.php");
 class DataAccess extends Database
 {
 	private $SleepDelay = 50000;
 	private $Timeout = 50000000;
-	function __construct($servername, $database, $username, $password)
+	function __construct($filename)
 	{
-		parent::__construct($servername, $database, $username, $password);
+		parent::__construct($filename);
 	}
 
-	public function AddMeasure($temperature, $humidity, $wantedTemperature, $wantedHumidity, $IsVentilating, $isIlluminating, $isChannelAActive, $isChannelBActive)
+	public function AddUser($name, $password)
 	{
-
-		$sql = "insert into Measures (Temperature,Humidity,WantedTemperature,WantedHumidity,IsVentilating,IsIlluminating,IsChannelAActive,IsChannelBActive ) 
-	 			VALUES($temperature,$humidity, $wantedTemperature, $wantedHumidity, $IsVentilating,$isIlluminating,$isChannelAActive,$isChannelBActive);";
+        $salt = base64_encode(random_bytes(10));
+        $hash = password_hash($password. $salt, PASSWORD_DEFAULT)."\n";
+		$sql = "insert into User (Name,Password,Salt) 
+	 			VALUES($name,$hash, $salt);";
 		$this -> databaseHandle -> exec($sql);
 
 	}
+
+    public function LoginUser($name, $password)
+    {
+        $user = $this -> GetUser($name);
+        $hash = password_hash($password. $user -> Salt, PASSWORD_DEFAULT)."\n";
+
+        if($hash == $user -> Password)
+        {
+            $_SESSION['username'] = $name;
+            return true;
+        }
+        return false;
+    }
+
+	public function GetUser($name)
+    {
+        $sql = "select * from User where Name = '$name'";
+		$sth = $this -> databaseHandle -> prepare($sql);
+        return $sth -> fetch(PDO::FETCH_ASSOC);
+    }
 
 	public function GetMeasures($from, $to)
 	{

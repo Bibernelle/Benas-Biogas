@@ -12,27 +12,100 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="class.Database.php" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/class.Database.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="17">
+                    <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+                    <folding>
+                      <marker date="1513522381071" expanded="true" signature="636:664" ph="SELECT 1 FRO... ${$table}" />
+                      <marker date="1513522381071" expanded="true" signature="935:946" ph="DROP TABLE $... " />
+                      <marker date="1513522381071" expanded="true" signature="1414:1662" ph="CREATE table... User" />
+                      <marker date="1513522381071" expanded="true" signature="1775:1992" ph="CREATE table... IsInUserRole" />
+                      <marker date="1513522381071" expanded="true" signature="2099:2265" ph="CREATE table... UserRole" />
+                      <marker date="1513522381071" expanded="true" signature="2370:2495" ph="CREATE table... Image" />
+                      <marker date="1513522381071" expanded="true" signature="2370:2557" ph="CREATE table... Image" />
+                      <marker date="1513522381071" expanded="true" signature="2694:2919" ph="CREATE table... IsInImageGallery" />
+                      <marker date="1513522381071" expanded="true" signature="3045:3143" ph="CREATE table... WantedValues" />
+                      <marker date="1513522381071" expanded="true" signature="3271:3357" ph="CREATE table... Article" />
+                      <marker date="1513522381071" expanded="true" signature="3271:3498" ph="CREATE table... Article" />
+                      <marker date="1513522381071" expanded="true" signature="3649:3661" ph="delete from ${$table}... " />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="class.Database.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/class.Database.php">
+      <file leaf-file-name="class.DataAccess.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class.DataAccess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+            <state relative-caret-position="153">
+              <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
               <folding>
-                <marker date="1513519547274" expanded="true" signature="681:709" ph="SELECT 1 FRO... ${$table}" />
-                <marker date="1513519547274" expanded="true" signature="980:991" ph="DROP TABLE $... " />
-                <marker date="1513519547274" expanded="true" signature="1459:1677" ph="CREATE table... User" />
-                <marker date="1513519547274" expanded="true" signature="1790:2007" ph="CREATE table... IsInUserRole" />
-                <marker date="1513519547274" expanded="true" signature="2114:2280" ph="CREATE table... UserRole" />
-                <marker date="1513519547274" expanded="true" signature="2385:2510" ph="CREATE table... Image" />
-                <marker date="1513519547274" expanded="true" signature="2385:2572" ph="CREATE table... Image" />
-                <marker date="1513519547274" expanded="true" signature="2709:2934" ph="CREATE table... IsInImageGallery" />
-                <marker date="1513519547274" expanded="true" signature="3060:3158" ph="CREATE table... WantedValues" />
-                <marker date="1513519547274" expanded="true" signature="3286:3372" ph="CREATE table... Article" />
-                <marker date="1513519547274" expanded="true" signature="3286:3513" ph="CREATE table... Article" />
-                <marker date="1513519547274" expanded="true" signature="3664:3676" ph="delete from ${$table}... " />
+                <marker date="1513522381606" expanded="true" signature="407:477" ph="insert into User... " />
+                <marker date="1513522381606" expanded="true" signature="913:954" ph="select * fro... User" />
+                <marker date="1513522381606" expanded="true" signature="926:954" ph="insert into User... " />
+                <marker date="1513522381606" expanded="true" signature="1151:1695" ph="SELECT * FRO... unix_timestamp" />
+                <marker date="1513522381606" expanded="true" signature="1180:1658" ph="select unix_... " />
+                <marker date="1513522381606" expanded="true" signature="1946:2341" ph="SELECT unix_... " />
+                <marker date="1513522381606" expanded="true" signature="2836:2873" ph="select Chann... " />
+                <marker date="1513522381606" expanded="true" signature="3154:3382" ph="select Chann... TimeSpans" />
+                <marker date="1513522381606" expanded="true" signature="3700:3845" ph="select Times... " />
+                <marker date="1513522381606" expanded="true" signature="4062:4255" ph="select CONCA... " />
+                <marker date="1513522381606" expanded="true" signature="4833:4975" ph="select Times... " />
+                <marker date="1513522381606" expanded="true" signature="5178:5199" ph="delete from TimeSpans... " />
+                <marker date="1513522381606" expanded="true" signature="5304:5468" ph="insert into TimeSpans... " />
+                <marker date="1513522381606" expanded="true" signature="5626:5675" ph="delete from WantedValues... " />
+                <marker date="1513522381606" expanded="true" signature="5783:5926" ph="insert into WantedValues... " />
+                <marker date="1513522381606" expanded="true" signature="6090:6142" ph="delete from WantedValues... " />
+                <marker date="1513522381606" expanded="true" signature="6248:6394" ph="insert into WantedValues... " />
+                <marker date="1513522381606" expanded="true" signature="6539:6704" ph="select max(u... " />
+                <marker date="1513522381606" expanded="true" signature="6942:7000" ph="insert into SettingsVersion... " />
+                <marker date="1513522381606" expanded="true" signature="7116:7146" ph="select ID fr... SettingsVersion" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.SQLLitePDO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class.SQLLitePDO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="2" lean-forward="true" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding>
+                <element signature="e#430#475#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.Programm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class.Programm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -42,7 +115,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/class.SQLLitePDO.php" />
         <option value="$PROJECT_DIR$/class.Database.php" />
+        <option value="$PROJECT_DIR$/class.DataAccess.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -61,11 +137,11 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="810" />
-    <option name="y" value="125" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="47" />
+    <option name="y" value="23" />
+    <option name="width" value="1838" />
+    <option name="height" value="1408" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -132,13 +208,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2356000" />
+    <option name="totallyTimeSpent" value="5129000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="47" y="23" width="1838" height="1408" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13515624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1899012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -180,30 +256,78 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/class.Programm.php">
+    <entry file="file://$PROJECT_DIR$/class.SQLLitePDO.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="27" column="2" lean-forward="true" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/class.Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="17">
+          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
           <folding>
-            <marker date="1513519547274" expanded="true" signature="681:709" ph="SELECT 1 FRO... ${$table}" />
-            <marker date="1513519547274" expanded="true" signature="980:991" ph="DROP TABLE $... " />
-            <marker date="1513519547274" expanded="true" signature="1459:1677" ph="CREATE table... User" />
-            <marker date="1513519547274" expanded="true" signature="1790:2007" ph="CREATE table... IsInUserRole" />
-            <marker date="1513519547274" expanded="true" signature="2114:2280" ph="CREATE table... UserRole" />
-            <marker date="1513519547274" expanded="true" signature="2385:2510" ph="CREATE table... Image" />
-            <marker date="1513519547274" expanded="true" signature="2385:2572" ph="CREATE table... Image" />
-            <marker date="1513519547274" expanded="true" signature="2709:2934" ph="CREATE table... IsInImageGallery" />
-            <marker date="1513519547274" expanded="true" signature="3060:3158" ph="CREATE table... WantedValues" />
-            <marker date="1513519547274" expanded="true" signature="3286:3372" ph="CREATE table... Article" />
-            <marker date="1513519547274" expanded="true" signature="3286:3513" ph="CREATE table... Article" />
-            <marker date="1513519547274" expanded="true" signature="3664:3676" ph="delete from ${$table}... " />
+            <marker date="1513522381071" expanded="true" signature="636:664" ph="SELECT 1 FRO... ${$table}" />
+            <marker date="1513522381071" expanded="true" signature="935:946" ph="DROP TABLE $... " />
+            <marker date="1513522381071" expanded="true" signature="1414:1662" ph="CREATE table... User" />
+            <marker date="1513522381071" expanded="true" signature="1775:1992" ph="CREATE table... IsInUserRole" />
+            <marker date="1513522381071" expanded="true" signature="2099:2265" ph="CREATE table... UserRole" />
+            <marker date="1513522381071" expanded="true" signature="2370:2495" ph="CREATE table... Image" />
+            <marker date="1513522381071" expanded="true" signature="2370:2557" ph="CREATE table... Image" />
+            <marker date="1513522381071" expanded="true" signature="2694:2919" ph="CREATE table... IsInImageGallery" />
+            <marker date="1513522381071" expanded="true" signature="3045:3143" ph="CREATE table... WantedValues" />
+            <marker date="1513522381071" expanded="true" signature="3271:3357" ph="CREATE table... Article" />
+            <marker date="1513522381071" expanded="true" signature="3271:3498" ph="CREATE table... Article" />
+            <marker date="1513522381071" expanded="true" signature="3649:3661" ph="delete from ${$table}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class.Programm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class.DataAccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <marker date="1513522381606" expanded="true" signature="407:477" ph="insert into User... " />
+            <marker date="1513522381606" expanded="true" signature="913:954" ph="select * fro... User" />
+            <marker date="1513522381606" expanded="true" signature="926:954" ph="insert into User... " />
+            <marker date="1513522381606" expanded="true" signature="1151:1695" ph="SELECT * FRO... unix_timestamp" />
+            <marker date="1513522381606" expanded="true" signature="1180:1658" ph="select unix_... " />
+            <marker date="1513522381606" expanded="true" signature="1946:2341" ph="SELECT unix_... " />
+            <marker date="1513522381606" expanded="true" signature="2836:2873" ph="select Chann... " />
+            <marker date="1513522381606" expanded="true" signature="3154:3382" ph="select Chann... TimeSpans" />
+            <marker date="1513522381606" expanded="true" signature="3700:3845" ph="select Times... " />
+            <marker date="1513522381606" expanded="true" signature="4062:4255" ph="select CONCA... " />
+            <marker date="1513522381606" expanded="true" signature="4833:4975" ph="select Times... " />
+            <marker date="1513522381606" expanded="true" signature="5178:5199" ph="delete from TimeSpans... " />
+            <marker date="1513522381606" expanded="true" signature="5304:5468" ph="insert into TimeSpans... " />
+            <marker date="1513522381606" expanded="true" signature="5626:5675" ph="delete from WantedValues... " />
+            <marker date="1513522381606" expanded="true" signature="5783:5926" ph="insert into WantedValues... " />
+            <marker date="1513522381606" expanded="true" signature="6090:6142" ph="delete from WantedValues... " />
+            <marker date="1513522381606" expanded="true" signature="6248:6394" ph="insert into WantedValues... " />
+            <marker date="1513522381606" expanded="true" signature="6539:6704" ph="select max(u... " />
+            <marker date="1513522381606" expanded="true" signature="6942:7000" ph="insert into SettingsVersion... " />
+            <marker date="1513522381606" expanded="true" signature="7116:7146" ph="select ID fr... SettingsVersion" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding>
+            <element signature="e#430#475#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

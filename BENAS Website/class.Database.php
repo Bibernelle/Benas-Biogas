@@ -1,11 +1,11 @@
 <?php
-
+require_once ('class.SQLLitePDO.php');
 class Database
 {
 	protected $databaseHandle;
-	function __construct($servername, $database, $username, $password)
+	function __construct($filename)
 	{
-		$this -> databaseHandle = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+		$this -> databaseHandle = new SQLitePDO($filename);
 		// set the PDO error mode to exception
 		$this -> databaseHandle -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this -> createDataStructure();
@@ -58,6 +58,7 @@ class Database
 		{
 			$sql = "CREATE table User(
 					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+					     Name text NOT NULL,
 					     Salt NVARCHAR(255) NOT NULL, 
 					     Password NVARCHAR(255) NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
