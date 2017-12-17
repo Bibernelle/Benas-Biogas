@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Übersicht</title>
+</head>
+<body>
+
+<ul>
+
+
+    {% for program in programs %}
+        <li><a href="index.php?id={{ program.id }}"> {{ program.id }}:{{ program.title }}</a></li>
+    {% endfor %}
+
+
+</ul>
+
+</body>
+</html>
