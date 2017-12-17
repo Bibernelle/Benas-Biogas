@@ -1,0 +1,901 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Lato';
+    src: url('Fonts/Lato-Black.ttf') format('truetype'), url('Fonts/Lato-Bold.ttf') format('truetype'), url('Fonts/Lato-Hairline.ttf') format('truetype'), url('Fonts/Lato-Heavy.ttf') format('truetype'), url('Fonts/Lato-Light.ttf') format('truetype'), url('Fonts/Lato-Medium.ttf') format('truetype'), url('Fonts/Lato-Regular.ttf') format('truetype'), url('Fonts/Lato-Semibold.ttf') format('truetype'), url('Fonts/Lato-Thin.ttf') format('truetype');
+}
+@keyframes xfade9 {
+    0% {
+        opacity: 1;
+    }
+    11% {
+        opacity: 1;
+    }
+    11.1111% {
+        opacity: 1;
+    }
+    99.9999% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes xfade4 {
+    0% {
+        opacity: 1;
+    }
+    24.9% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    99.9999% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes xfade3 {
+    0% {
+        opacity: 1;
+    }
+    33.32% {
+        opacity: 1;
+    }
+    33.333333% {
+        opacity: 1;
+    }
+    99.999% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes xfade1 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+* {
+    padding: 0;
+    margin: 0;
+    color: #242322;
+}
+body {
+    font-family: 'Lato', 'helvetica', sans-serif;
+    background-color: #FBF9F5;
+}
+/* Laut W3schools.com ist der ::selection Pseudoselector nicht mehr in CSS3 vorhanden, wir wollten den Effekt allerdings beibehalten und machen über diesen Kommentar darauf aufmerksam, dass wir wissen, dass es nicht valide ist */
+
+::selection {
+    color: #FFFDF9;
+    background-color: #7EB880;
+}
+body.home {
+    background: url(Images/Home.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background: url(Images/Home.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body.das-team {
+    background: url(Images/team2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*body.biogas,
+body.das-team,
+body.anlage,
+body.rohstoffmanagement,
+body.weitere-infos,
+body.kontakt,
+body.anfahrt,
+body.impressum,
+body.timeline,
+body.dokumentation {
+    background: url(Images/ContentBG.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
+
+img.resize{
+   width:360px;
+   height:270px;
+}
+
+footer {
+    background: #000;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    opacity: 0.8;
+    font-size: 0.6em;
+}
+footer p,
+footer a {
+    bottom: 0px;
+    text-align: center;
+    color: #FFFDF9;
+}
+/*absichtlich grün wegen internem link*/
+
+footer a:hover {
+    color: #7EB880;
+}
+h1 {
+    text-transform: uppercase;
+    color: #333231;
+}
+.links a:visited {
+    color: green;
+}
+.links a:active {
+    color: blue;
+}
+.mail-link:active {
+    color: blue;
+}
+.links a:hover {
+    color: blue;
+}
+.mail-link:hover {
+    color: blue;
+}
+.logo {
+    position: relative;
+    left: 50%;
+    margin-left: -198.5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 397px;
+    height: 160px;
+}
+.menu-mobile {
+    opacity: 0.9;
+    width: 100%;
+    text-align: left;
+}
+.menu-mobile a {
+    display: block;
+    padding: 25px 0 30px 30px;
+    border-bottom: 1px solid #374041;
+    color: #FFF;
+}
+.menu-mobile a:hover {
+    background: #014A02;
+    color: #FFFFFF;
+}
+.menu-mobile a:active {
+    background: #014A02;
+    color: #FFFFFF;
+}
+.menu-desktop {
+    display: none;
+}
+.menu-mobile {
+    width: 240px;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    bottom: 0;
+    left: -240px;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+.menu-mobile a {
+    font-size: 1.3em;
+    text-decoration: none;
+}
+.menu-icon {
+    padding: 10px 20px;
+    background: #7EB880;
+    color: #111;
+    cursor: pointer;
+    float: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.menu-icon:active {
+    background: #333;
+    color: #FFFDF9;
+}
+#menuToggle {
+    display: none;
+}
+#menuToggle:checked ~ .menu-mobile {
+    position: absolute;
+    left: 0;
+}
+.menu-mobile ul li:active,
+body.home li.home,
+body.biogas li.biogas,
+body.das-team li.das-team,
+body.anlage li.anlage,
+body.rohstoffmanagement li.rohstoffmanagement,
+body.weitere-infos li.weitere-infos,
+body.kontakt li.kontakt,
+body.anfahrt li.anfahrt,
+body.dokumentation li.dokumentation,
+body.timeline li.timeline {
+    background-color: #7EB880;
+}
+.menu-mobile {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.dokumentation,
+.timeline {
+    background: #333;
+}
+.home-wrapper {
+    background: rgba(0, 0, 0, .6);
+
+  
+
+}
+.home-wrapper p {
+    font-family: 'lato light', 'helvetica', sans-serif;
+    color: #FFFDF9;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 3.2em;
+    text-transform: uppercase;
+}
+.das-team-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.das-team-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.das-team-content-wrapper p {
+    text-align: left;
+    margin: 50px;
+}
+.biogas-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.biogas-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.biogas-content-wrapper h1 {
+    padding-top: 15px;
+}
+.biogas-content-wrapper p {
+    text-align: left;
+    margin: 50px;
+}
+#anlage-headtext {
+     text-shadow: 2px 2px #000;
+    color: white;
+    margin: 50px;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'lato light', 'helvetica', sans-serif;
+}
+.anlage-content-wrapper {
+    position: relative;
+    text-align: center;
+    width: 600px;
+    height: 710px;
+    left: 50%;
+    margin-left: -300px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.anlage-content {
+    
+    text-align: left;
+
+    left: 50%;
+    
+margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+.anlage-content-wrapper h1 {
+    padding-top: 20px;
+}
+.anlage-content-wrapper ul {
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: left;
+}
+
+#rohstoffmanagement-headtext {
+    margin: 50px;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'lato light', 'helvetica', sans-serif;
+}
+.rohstoffmanagement-content-wrapper {
+    position: relative;
+    text-align: center;
+    width: 600px;
+    height: 710px;
+    left: 50%;
+    margin-left: -300px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.rohstoffmanagement-content {
+    
+    text-align: left;
+
+    left: 50%;
+    
+margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.rohstoffmanagement-content-wrapper h1 {
+    padding-top: 20px;
+}
+.rohstoffmanagement-content-wrapper ul {
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: left;
+}
+.weitere-infos-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.weitere-infos-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.weitere-infos-content-wrapper h1 {
+    margin: 25px;
+}
+.weitere-infos-content-wrapper ul {
+    list-style: none;
+}
+.weitere-infos-content-wrapper ul li {
+    margin-bottom: 20px;
+}
+.kontakte-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.kontakte-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.kontakte-content-wrapper h1 {
+    margin: 15px;
+}
+.kontakte-content-wrapper h2 {
+    padding: 15px;
+}
+.kontakte-content-wrapper ul {
+    list-style: none;
+}
+form {
+    padding-top: 25px;
+}
+label {
+    display: block;
+    cursor: pointer;
+}
+input#absender,
+textarea {
+    width: 300px;
+    border: 1px solid #8c8c8c;
+    margin-bottom: 1em;
+    resize: none;
+}
+textarea {
+    height: 7em;
+}
+input:focus,
+textarea:focus {
+    background-color: #FAFAFA;
+}
+input[type=submit] {
+    padding: 5px 15px;
+    background: #333;
+    color: #FFFDF9;
+    border: 0 none;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background: #7EB880;
+}
+.anfahrt-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.anfahrt-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.big-frame {
+    display: none;
+}
+.small-frame {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.impressum-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.impressum-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.impressum-content-wrapper p {
+    text-align: center;
+    margin: 50px;
+}
+.timeline p {
+    font-family: 'lato thin', 'helvetica', sans-serif;
+    font-size: 1.3em;
+    color: #FFFDF9;
+}
+.timelinethumbs {
+    display: inline-block;
+    width: 25%;
+    height: 25%;
+    min-width: 200px;
+    margin: 20px;
+}
+.content {
+    text-align: center;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 30px;
+    background-color: #333;
+}
+.timeline-verticalline {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    margin-top: 20px;
+    background-color: #333;
+    height: 3000px;
+}
+.first-date-line {
+    position: absolute;
+    right: 50%;
+    width: 4%;
+    margin-left: -1px;
+    margin-top: 200px;
+    background-color: #333;
+    height: 4px;
+}
+.first {
+    position: absolute;
+    right: 50%;
+    margin-right: 4%;
+    margin-top: 120px;
+}
+.second-date-line {
+    position: absolute;
+    left: 50%;
+    width: 4%;
+    margin-right: -1px;
+    margin-top: 600px;
+    background-color: #333;
+    height: 4px;
+}
+.second {
+    position: absolute;
+    left: 50%;
+    margin-left: 4%;
+    margin-top: 420px;
+}
+.third-date-line {
+    position: absolute;
+    right: 50%;
+    width: 4%;
+    margin-left: -1px;
+    margin-top: 1000px;
+    background-color: #333;
+    height: 4px;
+}
+.third {
+    position: absolute;
+    right: 50%;
+    margin-right: 4%;
+    margin-top: 900px;
+}
+.fourth-date-line {
+    position: absolute;
+    left: 50%;
+    width: 4%;
+    margin-right: -1px;
+    margin-top: 1400px;
+    background-color: #333;
+    height: 4px;
+}
+.fourth {
+    position: absolute;
+    left: 50%;
+    margin-left: 4%;
+    margin-top: 1300px;
+}
+.fifth {
+    position: absolute;
+    left: 50%;
+    max-width: 400px;
+    margin-left: -240px;
+    margin-top: 3020px;
+    margin-bottom: 200px;
+}
+.dokumentation-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
+}
+.dokumentation-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+    box-shadow: 10px 10px 20px #D4D0CC;
+}
+.dokumentation-content-wrapper p {
+    text-align: left;
+    margin: 50px;
+}
+.slideshow {
+    position: absolute;
+    max-width: 600px;
+    height: 450px;
+    bottom: 0px;
+}
+.slideshow figure {
+    margin-left: 20px;
+    max-width: 580px;
+    height: 420px;
+    background: #000;
+    position: absolute;
+}
+img {
+    max-width: 580px;
+    height: 420px;
+}
+.slideshow figcaption p {
+    position: absolute;
+    margin-top: 250px;
+    padding-top: 40px;
+    width: 560px;
+    height: 75px;
+    top: 0;
+    color: white;
+    background: rgba(0, 0, 0, .8);
+    font-family: 'lato thin';
+    font-size: 1.45em;
+    opacity: 0;
+    transition: opacity .5s;
+}
+.slideshow:hover figure figcaption p {
+    transition: opacity .5s;
+    opacity: 1;
+}
+.slideshow:active figure figcaption p {
+    transition: opacity .5s;
+    opacity: 1;
+}
+.slideshow figure {
+    opacity: 0;
+}
+.slideshow.neun figure:nth-child(1) {
+    animation: xfade9 54s 48s infinite;
+}
+.slideshow.neun figure:nth-child(2) {
+    animation: xfade9 54s 42s infinite;
+}
+.slideshow.neun figure:nth-child(3) {
+    animation: xfade9 54s 36s infinite;
+}
+.slideshow.neun figure:nth-child(4) {
+    animation: xfade9 54s 30s infinite;
+}
+.slideshow.neun figure:nth-child(5) {
+    animation: xfade9 54s 24s infinite;
+}
+.slideshow.neun figure:nth-child(6) {
+    animation: xfade9 54s 18s infinite;
+}
+.slideshow.neun figure:nth-child(7) {
+    animation: xfade9 54s 12s infinite;
+}
+.slideshow.neun figure:nth-child(8) {
+    animation: xfade9 54s 6s infinite;
+}
+.slideshow.neun figure:nth-child(9) {
+    animation: xfade9 54s 0s infinite;
+}
+
+.slideshow.vier figure:nth-child(1) {
+    animation: xfade4 24s 18s infinite;
+}
+.slideshow.vier figure:nth-child(2) {
+    animation: xfade4 24s 12s infinite;
+}
+.slideshow.vier figure:nth-child(3) {
+    animation: xfade4 24s 6s infinite;
+}
+.slideshow.vier figure:nth-child(4) {
+    animation: xfade4 24s 0s infinite;
+}
+.slideshow.drei figure:nth-child(1) {
+    animation: xfade3 18s 12s infinite;
+}
+.slideshow.drei figure:nth-child(2) {
+    animation: xfade3 18s 6s infinite;
+}
+.slideshow.drei figure:nth-child(3) {
+    animation: xfade3 18s 0s infinite;
+}
+.slideshow.eins figure:nth-child(1) {
+    animation: xfade1 6s 0s infinite;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    text-align: center;
+    background-color: #f40405; 
+    color: white;
+    margin-bottom: 15px;
+} 
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+@media (min-width: 640px) {
+    .das-team-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .biogas-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .weitere-infos-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .kontakte-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .anfahrt-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .impressum-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+    .dokumentation-wrapper {
+        display: block;
+        margin-left: 9%;
+        margin-right: 10%;
+    }
+}
+
+@media (max-height: 640px) {
+    .home-wrapper {
+        display: none;
+    }
+}
+
+@media (min-width: 1224px) {
+    .home-wrapper {
+    position: fixed;
+       bottom: 10%;
+        width: 100%;
+       
+    }
+    .home-wrapper p {
+    margin-right: 240px;
+    }
+    
+    .das-team-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .biogas-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .weitere-infos-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .kontakte-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .anfahrt-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .impressum-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .dokumentation-wrapper {
+        display: block;
+        margin-left: 19%;
+        margin-right: 20%;
+    }
+    .menu-desktop {
+        display: inherit;
+    }
+    .menu-mobile {
+        display: none;
+    }
+    .menu-icon {
+        display: none;
+    }
+    .menu-desktop ul {
+        opacity: 0.8;
+        width: 100%;
+        background: #000;
+        padding: 0;
+        text-align: center;
+    }
+    .menu-desktop ul li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    .menu-desktop ul li a {
+        position: relative;
+        display: block;
+        padding: 25px 25px 25px 25px;
+        color: white;
+        text-decoration: none;
+        z-index: 1;
+    }
+    .menu-desktop ul li a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        background-color: #014A02;
+        transition: all 250ms;
+        z-index: -1;
+    }
+    .menu-desktop ul li a:hover::before {
+        height: 100%;
+    }
+    .menu-desktop ul li:active,
+    body.home li.home,
+    body.biogas li.biogas,
+    body.das-team li.das-team,
+    body.anlage li.anlage,
+    body.rohstoffmanagement li.rohstoffmanagement,
+    body.weitere-infos li.weitere-infos,
+    body.kontakt li.kontakt,
+    body.anfahrt li.anfahrt,
+    body.dokumentation li.dokumentation,
+    body.timeline li.timeline {
+        background-color: #7EB880;
+    }
+    .big-frame {
+        display: block;
+        margin: 0 auto;
+        padding: 25px;
+        padding-bottom: 75px;
+    }
+    .small-frame {
+        display: none;
+    }
+}
