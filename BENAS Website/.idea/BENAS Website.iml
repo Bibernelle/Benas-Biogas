@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-<<<<<<< HEAD
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-=======
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
@@ -33,6 +28,5 @@
         </SOURCES>
       </library>
     </orderEntry>
->>>>>>> 7b1de6c44ace58001979103077b4fe60d658e6e2
   </component>
 </module>
