@@ -46,72 +46,86 @@ class Database
 	{
 		if ($dropExisting)
 		{
-			$this -> DropTable("Measures");
-			$this -> DropTable("Settings");
-			$this -> DropTable("TimeSpans");
-			$this -> DropTable("WantedValues");
-			$this -> DropTable("SettingsVersion");
+			$this -> DropTable("User");
+			$this -> DropTable("IsInUserRole");
+			$this -> DropTable("UserRole");
+			$this -> DropTable("Image");
+			$this -> DropTable("ImageGallery");
+            $this -> DropTable("IsInImageGallery");
+            $this -> DropTable("Article");
 		}
-		if (!$this -> tableExists('Measures'))
+		if (!$this -> tableExists('User'))
 		{
-			$sql = "CREATE table Measures(
+			$sql = "CREATE table User(
 					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-					     Temperature FLOAT NOT NULL, 
-					     Humidity FLOAT NOT NULL,
-						 WantedTemperature FLOAT NOT NULL, 
-					     WantedHumidity FLOAT NOT NULL,
-						 IsVentilating bit NOT NULL,
-						 IsIlluminating bit NOT NULL,
-						 IsChannelAActive bit NOT NULL,
-						 IsChannelBActive bit NOT NULL,
+					     Salt NVARCHAR(255) NOT NULL, 
+					     Password NVARCHAR(255) NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 			$this -> databaseHandle -> exec($sql);
 		}
 		
-		if (!$this -> tableExists('SettingsVersion'))
+		if (!$this -> tableExists('IsInUserRole'))
 		{
-			$sql = "CREATE table SettingsVersion(
+			$sql = "CREATE table IsInUserRole(
 					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+					     UserID INT( 11 ) NOT NULL,
+					     RoleID INT( 11 ) NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 			$this -> databaseHandle -> exec($sql);
 		}
 
-		if (!$this -> tableExists('Settings'))
+		if (!$this -> tableExists('UserRole'))
 		{
-			$sql = "CREATE table Settings(
+			$sql = "CREATE table UserRole(
 						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-						WantedTemperature FLOAT NOT NULL,
-						WantedHumidity FLOAT NOT NULL,
-						VentilationTimesKey int not null,
-						IlluminationTimesKey int not null,
-						ChannelATimesKey int not null,
-						ChannelBTimesKey int not null,
+						Name NVARCHAR(255) NOT NULL,
 						Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
 			$this -> databaseHandle -> exec($sql);
 		}
 
-		if (!$this -> tableExists('TimeSpans'))
+		if (!$this -> tableExists('Image'))
 		{
-			$sql = "CREATE table TimeSpans(
+			$sql = "CREATE table Image(
 						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-						Channel text NOT NULL,
-						Start datetime NOT NULL,
-						End datetime NOT NULL);";
+						Path text NOT NULL,
+						UserID INT( 11 ) NOT NULL,
+						Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
 			$this -> databaseHandle -> exec($sql);
 		}
 
-		if (!$this -> tableExists('WantedValues'))
+        if (!$this -> tableExists('IsInImageGallery'))
+        {
+            $sql = "CREATE table IsInImageGallery(
+					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+					     ImageID INT( 11 ) NOT NULL,
+					     GalleryID INT( 11 ) NOT NULL,
+					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
+            $this -> databaseHandle -> exec($sql);
+        }
+
+		if (!$this -> tableExists('ImageGallery'))
 		{
-			$sql = "CREATE table WantedValues(
+			$sql = "CREATE table ImageGallery(
 						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-						Channel text NOT NULL,
-						Timestamp datetime NOT NULL,
-						Value double NOT NULL);";
+						Name text NOT NULL;";
 
 			$this -> databaseHandle -> exec($sql);
 		}
+
+        if (!$this -> tableExists('Article'))
+        {
+            $sql = "CREATE table Article(
+						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+						Header text,
+						Text text,
+                        ImageID INT( 11 ),
+                        Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
+
+            $this -> databaseHandle -> exec($sql);
+        }
+
 
 	}
 
