@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 require_once("class.Programm.php");
 require_once("class.Controller.php");
 require_once("class.DataAccess.php");
-$dal = new DataAccess();
+$dal = new DataAccess("Database.db");
 $dal -> AddUser("michi", "krankarsch");
 if($dal -> LoginUser("michi", "krankarsch"))
 {

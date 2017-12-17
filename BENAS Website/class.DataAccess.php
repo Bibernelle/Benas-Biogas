@@ -12,11 +12,12 @@ class DataAccess extends Database
 
 	public function AddUser($name, $password)
 	{
-        $salt = base64_encode(random_bytes(10));
+        $salt = uniqid();
         $hash = password_hash($password. $salt, PASSWORD_DEFAULT)."\n";
 		$sql = "insert into User (Name,Password,Salt) 
-	 			VALUES($name,$hash, $salt);";
+	  		VALUES('$name','$hash','$salt');";
 		$this -> databaseHandle -> exec($sql);
+
 
 	}
 

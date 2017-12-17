@@ -1,11 +1,12 @@
 <?php
 require_once ('class.SQLLitePDO.php');
+
 class Database
 {
 	protected $databaseHandle;
 	function __construct($filename)
 	{
-		$this -> databaseHandle = new SQLitePDO($filename);
+        $this -> databaseHandle = new PDO('sqlite:'.$filename);
 		// set the PDO error mode to exception
 		$this -> databaseHandle -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this -> createDataStructure();
@@ -57,7 +58,7 @@ class Database
 		if (!$this -> tableExists('User'))
 		{
 			$sql = "CREATE table User(
-					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+					     ID INTEGER PRIMARY KEY,
 					     Name text NOT NULL,
 					     Salt NVARCHAR(255) NOT NULL, 
 					     Password NVARCHAR(255) NOT NULL,
@@ -68,9 +69,9 @@ class Database
 		if (!$this -> tableExists('IsInUserRole'))
 		{
 			$sql = "CREATE table IsInUserRole(
-					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-					     UserID INT( 11 ) NOT NULL,
-					     RoleID INT( 11 ) NOT NULL,
+					     ID INTEGER PRIMARY KEY,
+					     UserID INTEGER NOT NULL,
+					     RoleID INTEGER NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 			$this -> databaseHandle -> exec($sql);
 		}
@@ -78,7 +79,7 @@ class Database
 		if (!$this -> tableExists('UserRole'))
 		{
 			$sql = "CREATE table UserRole(
-						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+						ID INTEGER PRIMARY KEY,
 						Name NVARCHAR(255) NOT NULL,
 						Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
@@ -88,9 +89,9 @@ class Database
 		if (!$this -> tableExists('Image'))
 		{
 			$sql = "CREATE table Image(
-						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+						ID INTEGER PRIMARY KEY,
 						Path text NOT NULL,
-						UserID INT( 11 ) NOT NULL,
+						UserID INTEGER NOT NULL,
 						Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
 			$this -> databaseHandle -> exec($sql);
@@ -99,9 +100,9 @@ class Database
         if (!$this -> tableExists('IsInImageGallery'))
         {
             $sql = "CREATE table IsInImageGallery(
-					     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-					     ImageID INT( 11 ) NOT NULL,
-					     GalleryID INT( 11 ) NOT NULL,
+					     ID INTEGER PRIMARY KEY,
+					     ImageID INTEGER NOT NULL,
+					     GalleryID INTEGER NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
             $this -> databaseHandle -> exec($sql);
         }
@@ -109,8 +110,8 @@ class Database
 		if (!$this -> tableExists('ImageGallery'))
 		{
 			$sql = "CREATE table ImageGallery(
-						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-						Name text NOT NULL;";
+						ID INTEGER PRIMARY KEY,
+						Name text NOT NULL);";
 
 			$this -> databaseHandle -> exec($sql);
 		}
@@ -118,10 +119,10 @@ class Database
         if (!$this -> tableExists('Article'))
         {
             $sql = "CREATE table Article(
-						ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+						ID INTEGER PRIMARY KEY,
 						Header text,
 						Text text,
-                        ImageID INT( 11 ),
+                        ImageID INTEGER,
                         Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
             $this -> databaseHandle -> exec($sql);
