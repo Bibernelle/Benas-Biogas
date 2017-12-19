@@ -60,8 +60,8 @@ class Database
 			$sql = "CREATE table User(
 					     ID INTEGER PRIMARY KEY,
 					     Name text NOT NULL,
-					     Salt NVARCHAR(255) NOT NULL, 
-					     Password NVARCHAR(255) NOT NULL,
+					     Salt text NOT NULL, 
+					     Password text NOT NULL,
 					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 			$this -> databaseHandle -> exec($sql);
 		}
@@ -80,7 +80,7 @@ class Database
 		{
 			$sql = "CREATE table UserRole(
 						ID INTEGER PRIMARY KEY,
-						Name NVARCHAR(255) NOT NULL,
+						Name text NOT NULL,
 						Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
 			$this -> databaseHandle -> exec($sql);

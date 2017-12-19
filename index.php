@@ -7,6 +7,8 @@ require_once("class.Controller.php");
 require_once("class.DataAccess.php");
 $dal = new DataAccess("Database.db");
 $dal -> AddUser("michi", "krankarsch");
+$dal -> AddRole("Administrator");
+$dal -> AssignUserRole("michi", "Administrator");
 if($dal -> LoginUser("michi", "krankarsch"))
 {
     echo "logged in";
