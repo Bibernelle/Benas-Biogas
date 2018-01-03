@@ -10,9 +10,12 @@ class Controller
 {
     private $twig;
     private $Programs = array();
-
-    function __construct()
+    private $commands = array();
+    public $dataAccess;
+    function __construct($filename)
     {
+        $this -> dataAccess = new DataAccess($filename);
+        //array_push($commands, new AdministratorCommand())
         $loader = new \Twig_Loader_Filesystem(
             realpath(dirname(__FILE__)) . '/templates');
         $this->twig = new \Twig_Environment($loader, [
@@ -34,14 +37,26 @@ class Controller
         return new Response($html, Response::HTTP_OK);
     }
 
-    public function programmAction($id)
+    public function programmAction($id, $request)
     {
         foreach ($this->Programs as $program) {
             if ($program->id == $id) {
+                switch($id){
+                    case 'assignRole':
+                        $command = new AssignRoleCommand($this -> dataAccess);
+                        $html = $command -> DoRender($request);
+                }
                 $html = $this->twig->render('program.twig',['program' => $program]);
                 break;
             }
         }
+        return new Response($html, Response::HTTP_OK);
+    }
+
+    public function assignRole()
+    {
+        $html = $this->twig->render('list.twig',
+            ['programs' => $this->Programs]);
         return new Response($html, Response::HTTP_OK);
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<form action="index.php?Controller=Admincontroller&Action=LoginUser" method="post">
+    <label for="username">username</label>
+    <input name="username" type="text"/>
+    <br />
+    <label for="password">password</label>
+    <input name="password" type="password"/>
+    <input type="submit" value="Login"/>
+</form>
+{% include 'list.twig' %}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeleteUser</title>
+</head>
+<body>
+
+<form action="index.php?Controller=Admincontroller&Action=DeleteUser" method="post">
+    <label for="username">username</label>
+    <select name="username" type="text">
+        {% for user in users %}
+            <option value="{{ user }}">{{ user }}</option>
+        {% endfor %}
+    </select>
+    <br />
+    <input type="submit" value="Delete"/>
+</form>
+{% include 'list.twig' %}
+
+</body>
+</html>

@@ -5,34 +5,56 @@ error_reporting(E_ALL);
 require_once("class.Programm.php");
 require_once("class.Controller.php");
 require_once("class.DataAccess.php");
+require_once("Admincontroller.php");
 $dal = new DataAccess("Database.db");
 $dal -> AddUser("michi", "krankarsch");
 $dal -> AddRole("Administrator");
+$dal -> AddRole("Employee");
 $dal -> AssignUserRole("michi", "Administrator");
-if($dal -> LoginUser("michi", "krankarsch"))
-{
-    echo "logged in";
-}
-else {
-    echo "not logged in";
-}
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-$controller = new Controller();
-$request = Request::createFromGlobals();
 
+$request = Request::createFromGlobals();
 $uri = $request->getPathInfo();
 
 
-if (null != $request->query->get('id')) {
-
-    $response = $controller->programmAction($request->query->get('id'));
+if (null != $request->query->get('Controller')) {
+    switch($request->query->get('Controller'))
+    {
+        case 'Admincontroller':
+            $controller = new Admincontroller('Database.db');
+            switch($request->query->get('Action'))
+            {
+                case 'CreateUser':
+                    $response = $controller->CreateUser($request);
+                    break;
+                case 'LoginUser':
+                    $response = $controller->LoginUser($request);
+                    break;
+                case 'AssignRole':
+                    $response = $controller->AssignRole($request);
+                    break;
+                case 'DeleteUser':
+                    $response = $controller->DeleteUser($request);
+                    break;
+                case 'LogoutUser':
+                    $response = $controller->LogoutUser($request);
+                    break;
+            }
+            break;
+        case 'Contentcontroller':
+            $controller = new Contentcontroller();
+         //   $response = $controller->
+    }
+    //$response = $controller->programmAction($request->query->get('id'));
 }
 else {
+    $controller = new Controller('Database.db');
     $response = $controller->listAction();
 
 
