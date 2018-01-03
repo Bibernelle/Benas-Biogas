@@ -27,8 +27,8 @@ $uri = $request->getPathInfo();
 
 if (null != $request->query->get('Controller')) {
     switch ($request->query->get('Controller')) {
-        case 'Admincontroller':
-            $controller = new Admincontroller('Database.db');
+        case 'AdminController':
+            $controller = new AdminController('Database.db');
             switch ($request->query->get('Action')) {
                 case 'CreateUser':
                     $response = $controller->CreateUser($request);

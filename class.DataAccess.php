@@ -251,19 +251,23 @@ class DataAccess extends Database
             print_r($this->databaseHandle->errorInfo());
             return false;
         }
-        $sqlReturn = "select ID from Image where Path = '$path';";
-        return $sqlReturn;
+        $sql = "select ID from Image where Path = '$path';";
+        foreach ($this->databaseHandle->query($sql) as $row) {
+            return $row ['ID'];
+        }
+        return false;
     }
 
-    public function AddArticle($username, $header, $text)
+    public function AddArticle($username, $header, $text, $imagePath)
     {
         if(!$this->UserExists($username))
         {
             return null;
         }
         $userID = $this -> GetUserID($username);
+        $imageID = $this -> AddImage($imagePath, $userID);
         $sql = "insert into Article (Header,Text,ImageID) 
-	  		VALUES('$header','$text','$userID');";
+	  		VALUES('$header','$text','$imageID');";
         $stmt = $this -> databaseHandle -> prepare($sql);
 
         $stmt -> execute();

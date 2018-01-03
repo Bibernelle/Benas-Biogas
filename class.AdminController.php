@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once("class.BaseController.php");
 
-class Admincontroller extends BaseController
+class AdminController extends BaseController
 {
 
     private $administratorRole = 'Administrator';
 
-public function CreateUser(Request $request)
+    public function CreateUser(Request $request)
     {
         if (!isset($_SESSION['username']) || !($this->dataAccess->IsUserInRole($_SESSION['username'], $this->administratorRole))) {
             $html = $this->twig->render('Error.twig',
@@ -123,6 +123,32 @@ public function CreateUser(Request $request)
             $roles = $this->dataAccess->GetAllRoles();
             $users = $this->dataAccess->GetAllUsers();
             $html = $this->twig->render('AssignRole.twig', array('users' => $users, 'roles' => $roles));
+        }
+
+        return new Response($html, Response::HTTP_OK);
+    }
+
+    public function CreateArticle(Request $request)
+    {
+        if (!isset($_SESSION['username'])) {
+            $html = $this->twig->render('Error.twig',
+                ['error' => 'User not logged in or not permitted']);
+            return new Response($html, Response::HTTP_FORBIDDEN);
+        }
+        $data = $request->request->all();
+        if (isset($data['username'], $data['password'], $data['role'])) {
+            if ($this->dataAccess->AddUser($data['username'], $data['password'])) {
+                $html = $this->twig->render('UserCreated.twig',
+                    array('username' => $data['username'], 'role' => $data['role']));
+                $this->dataAccess->AssignUserRole($data['username'], $data['role']);
+            } else {
+                $html = $this->twig->render('Error.twig',
+                    ['error' => "Can't create user"]);
+                return new Response($html, Response::HTTP_FORBIDDEN);
+            }
+        } else {
+            $roles = $this->dataAccess->GetAllRoles();
+            $html = $this->twig->render('CreateArticle.twig', ['roles' => $roles]);
         }
 
         return new Response($html, Response::HTTP_OK);
