@@ -25,8 +25,8 @@ $request = Request::createFromGlobals();
 $uri = $request->getPathInfo();
 
 
-if (null != $request->query->get('PagesController')) {
-    switch ($request->query->get('PagesController')) {
+if (null != $request->query->get('Controller')) {
+    switch ($request->query->get('Controller')) {
         case 'Admincontroller':
             $controller = new Admincontroller('Database.db');
             switch ($request->query->get('Action')) {
@@ -48,28 +48,38 @@ if (null != $request->query->get('PagesController')) {
 
                 default:
 
-                    die("Die Action " . $request->query->get('Action') . " wurde nicht gefunden!");
+                    echo "Die Action:  " . $request->query->get('Action') . " wurde nicht gefunden!";
+                    die();
+
+                    break;
             }
             break;
 
-        case 'Pagescontroller':
+        case 'PagesController':
 
-            $controller = new Pagescontroller('Database.db');
+            $controller = new PagesController('Database.db');
             switch ($request->query->get('Action')) {
                 case 'home':
 
-                    $response = $controller->CreateUser($request);
+                    $response = $controller->home($request);
 
                     break;
 
                 default:
-                    die("Die Action:  " . $request->query->get('Action') . " wurde nicht gefunden!");
 
+                    echo "Die Action:  " . $request->query->get('Action') . " wurde nicht gefunden!";
+                    die();
+
+                    break;
             }
 
+            break;
         default:
 
-            die("Der Controller " . $request->query->get('PagesController') . " wurde nicht gefunden!");
+            echo "Der Controller:  " . $request->query->get('Controller') . " wurde nicht gefunden!";
+            die();
+
+break;
     }
 
 }
