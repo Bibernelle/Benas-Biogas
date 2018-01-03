@@ -23,7 +23,6 @@ class DataAccess extends Database
             return false;
         }
         $salt = uniqid();
-        //$hash = password_hash($password. $salt, PASSWORD_DEFAULT)."\n";
         $hash = sha1($password.$salt);
 		$sql = "insert into User (Name,Password,Salt) 
 	  		VALUES('$name','$hash','$salt');";
@@ -75,7 +74,6 @@ class DataAccess extends Database
 
         $user = $this -> GetUser($name);
 
-        //$hash = password_hash($password. $user ["Salt"], PASSWORD_DEFAULT)."\n";
         $hash = sha1($password.$user ["Salt"]);
 
         if($hash == $user ["Password"])
@@ -104,6 +102,13 @@ class DataAccess extends Database
             return $row;
         }
         return null;
+    }
+
+    public function GetUserID($name)
+    {
+
+        $sql = "select UserID from User where Name = '$name'";
+        return $sql;
     }
 
     public function GetAllUsers()
@@ -234,5 +239,40 @@ class DataAccess extends Database
         return $this -> IsUserInRole($username, 'Administrator');
     }
 
+    public function AddImage($path, $userID)
+    {
+        $sql = "insert into Image (Path, UserID) 
+	  		VALUES('$path','$userID';";
+        $stmt = $this -> databaseHandle -> prepare($sql);
+
+        $stmt -> execute();
+        if (!$stmt) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($this->databaseHandle->errorInfo());
+            return false;
+        }
+        $sqlReturn = "select ID from Image where Path = '$path';";
+        return $sqlReturn;
+    }
+
+    public function AddArticle($username, $header, $text)
+    {
+        if(!$this->UserExists($username))
+        {
+            return null;
+        }
+        $userID = $this -> GetUserID($username);
+        $sql = "insert into Article (Header,Text,ImageID) 
+	  		VALUES('$header','$text','$userID');";
+        $stmt = $this -> databaseHandle -> prepare($sql);
+
+        $stmt -> execute();
+        if (!$stmt) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($this->databaseHandle->errorInfo());
+            return false;
+        }
+        return true;
+    }
 }
 ?>
