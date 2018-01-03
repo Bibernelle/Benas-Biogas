@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once("class.Programm.php");
-require_once("class.Controller.php");
+//require_once("class.Controller.php");
 require_once("class.DataAccess.php");
-require_once("Admincontroller.php");
+require_once("class.AdminController.php");
 $dal = new DataAccess("Database.db");
 $dal -> AddUser("michi", "krankarsch");
 $dal -> AddRole("Administrator");
@@ -26,8 +26,8 @@ $uri = $request->getPathInfo();
 if (null != $request->query->get('Controller')) {
     switch($request->query->get('Controller'))
     {
-        case 'Admincontroller':
-            $controller = new Admincontroller('Database.db');
+        case 'class.AdminController':
+            $controller = new AdminController('Database.db');
             switch($request->query->get('Action'))
             {
                 case 'CreateUser':
@@ -44,6 +44,9 @@ if (null != $request->query->get('Controller')) {
                     break;
                 case 'LogoutUser':
                     $response = $controller->LogoutUser($request);
+                    break;
+                case 'BlogPost':
+                    $response = $controller->AddArticle($request);
                     break;
             }
             break;
