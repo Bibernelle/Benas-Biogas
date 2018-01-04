@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>DeleteUser</title>
-</head>
-<body>
+{# templates/DeleteUser.twig #}
+{% extends 'layout.twig' %}
 
-<form action="index.php?Controller=AdminController&Action=DeleteUser" method="post">
-    <label for="username">username</label>
-    <select name="username" type="text">
-        {% for user in users %}
-            <option value="{{ user }}">{{ user }}</option>
-        {% endfor %}
-    </select>
-    <br />
-    <input type="submit" value="Delete"/>
-</form>
-{% include 'list.twig' %}
+{% block title %} DeleteUser {% endblock %}
 
-</body>
-</html>
+{% block bodyClass %}DeleteUser{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
+
+    <form action="../../index.php/Admin/DeleteUser" method="post">
+        <label for="username">username</label>
+        <select name="username" type="text">
+            {% for user in users %}
+                <option value="{{ user }}">{{ user }}</option>
+            {% endfor %}
+        </select>
+        <br />
+        <input type="submit" value="Delete"/>
+    </form>
+    {% include 'list.twig' %}
+
+
+{% endblock %}

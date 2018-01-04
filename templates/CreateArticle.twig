@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CreateArticle</title>
-</head>
-<body>
+{# templates/CreateArticle.twig #}
+{% extends 'layout.twig' %}
 
-<form action="index.php?Controller=AdminController&Action=CreateArticle" method="post" enctype="multipart/form-data">
+{% block title %} CreateArticle {% endblock %}
+
+{% block bodyClass %}CreateArticle{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
+<form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
     <label for="header">Header</label>
     <input name="header" type="text">
 
     </input>
     <label for="text">Text</label>
-    <input name="text" type="text">
+    <textarea name="text" type="text" rows="20" cols="5"></textarea>
 
-    </input>
+
     <br />
     <label for="image">Bild</label>
     <input name="fileToUpload" type="file" id="fileToUpload">
@@ -23,13 +27,15 @@
     <input type="submit" value="Post"/>
 
     {% for article in articles %}
-        <h2 value="{{ article.Header }}">{{ article.Header }}</h2>
-        <p value="{{ article.Text }}">{{ article.Text }}</p>
-        <img src="{{ article.ImagePath }}"> </img>
-        <p value="{{ article.Timestamp }}">{{ article.Timestamp }}</p>
+        <div class="article">
+        <h2>{{ article.Header }}</h2>
+        <h3>{{ article.UserName }}</h3>
+        <p>{{ article.Text }}</p>
+        <img src="../../{{ article.ImagePath }}"> </img>
+        <p>{{ article.Timestamp }}</p>
+        </div>
     {% endfor %}
+
 </form>
-
-
-</body>
-</html>
+    {% include 'list.twig' %}
+{% endblock %}

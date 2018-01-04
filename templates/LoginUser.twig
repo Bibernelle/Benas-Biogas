@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-<form action="index.php?Controller=AdminController&Action=LoginUser" method="post">
+{# templates/LoginUser.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} LoginUser {% endblock %}
+
+{% block bodyClass %}LoginUser{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
+<form action="../../index.php/Admin/LoginUser" method="post">
     <label for="username">username</label>
     <input name="username" type="text"/>
-    <br />
     <label for="password">password</label>
     <input name="password" type="password"/>
     <input type="submit" value="Login"/>
 </form>
 {% include 'list.twig' %}
-
-</body>
-</html>
+{% endblock %}

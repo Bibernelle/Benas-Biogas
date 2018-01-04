@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Successfully logged in</title>
-</head>
-<body>
+{# templates/LoggedIn.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} LoggedIn {% endblock %}
+
+{% block bodyClass %}LoggedIn{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
 <p> {{ username }} logged in</p>
 {% include 'list.twig' %}
-</body>
-</html>
+{% endblock %}

@@ -3,6 +3,7 @@
     font-family: 'Lato';
     src: url('../../Fonts/Lato-Black.ttf') format('truetype'), url('../../Fonts/Lato-Bold.ttf') format('truetype'), url('../../Fonts/Lato-Hairline.ttf') format('truetype'), url('../../Fonts/Lato-Heavy.ttf') format('truetype'), url('../../Fonts/Lato-Light.ttf') format('truetype'), url('../../Fonts/Lato-Medium.ttf') format('truetype'), url('../../Fonts/Lato-Regular.ttf') format('truetype'), url('../../Fonts/Lato-Semibold.ttf') format('truetype'), url('../../Fonts/Lato-Thin.ttf') format('truetype');
 }
+
 @keyframes xfade9 {
     0% {
         opacity: 1;
@@ -435,6 +436,11 @@ margin-top: 30px;
 .kontakte-content-wrapper ul {
     list-style: none;
 }
+.article{
+    border-top: 1px solid rgba(0, 0, 0, .6);
+    margin-top: 10px;
+    padding: 5px;
+}
 form {
     padding-top: 25px;
 }
@@ -742,6 +748,8 @@ img {
 .closebtn:hover {
     color: black;
 }
+
+
 
 @media (min-width: 640px) {
     .das-team-wrapper {

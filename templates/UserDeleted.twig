@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>UserDeleted</title>
-</head>
-<body>
+{# templates/UserDeleted.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} UserDeleted {% endblock %}
+
+{% block bodyClass %}UserDeleted{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
 <p> {{ username }} is no more</p>
 {% include 'list.twig' %}
-
-</body>
-</html>
+{% endblock %}

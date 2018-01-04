@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Successfully logged out</title>
-</head>
-<body>
+{# templates/LoggedOut.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} LoggedOut {% endblock %}
+
+{% block bodyClass %}LoggedOut{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
 <p>succesfully logged out</p>
 {% include 'list.twig' %}
-
-</body>
-</html>
+{% endblock %}

@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AssignRole</title>
-</head>
-<body>
+{# templates/AssignRole.twig #}
+{% extends 'layout.twig' %}
 
-<form action="index.php?Controller=AdminController&Action=AssignRole" method="post">
+{% block title %} AssignRole {% endblock %}
+
+{% block bodyClass %}AssignRole{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
+<form action="../../index.php/Admin/AssignRole" method="post">
     <label for="username">username</label>
     <select name="username" type="text">
         {% for user in users %}
@@ -23,6 +27,4 @@
     <input type="submit" value="OK"/>
 </form>
 {% include 'list.twig' %}
-
-</body>
-</html>
+{% endblock %}

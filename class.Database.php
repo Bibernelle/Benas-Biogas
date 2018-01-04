@@ -123,6 +123,7 @@ class Database
 						Header text,
 						Text text,
                         ImageID INTEGER,
+                        UserID INTEGER,
                         Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
 
             $this -> databaseHandle -> exec($sql);

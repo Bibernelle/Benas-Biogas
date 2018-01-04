@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Europe/Berlin");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -28,10 +29,9 @@ $uri = $request->getPathInfo();
 $parts = explode("/", $uri);
 
 
-if (count($parts) == 2 && ($parts [0]) != "" && ($parts [1]) != "") {
+if (count($parts) == 3 && ($parts [1]) != "" && ($parts [2]) != "") {
 
 
-    print_r($parts);
     $controllerName = $parts[1];
 
     $actionName = $parts[2];
@@ -51,23 +51,20 @@ if (count($parts) == 2 && ($parts [0]) != "" && ($parts [1]) != "") {
 
         default:
 
-            $controller = new PagesController('Database.db');
-
-            $controller->home($request);
+            header('Location: index.php/Pages/home', true, 301);
             break;
 
     }
 
     $response = $controller->{$actionName}($request);
+    $response->send();
 } else {
 
-    $controller = new PagesController('Database.db');
-
-    $response = $controller->home($request);
+    header('Location: index.php/Pages/home', true, 301);
 
 }
 
-$response->send();
+
 
 
 

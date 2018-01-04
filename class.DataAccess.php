@@ -128,7 +128,7 @@ class DataAccess extends Database
     {
         if($this->RoleExists($name))
         {
-            print "User: $name already exists";
+
             return;
         }
 
@@ -194,17 +194,17 @@ class DataAccess extends Database
     {
         if(!$this->RoleExists($rolename))
         {
-            print "Role: $rolename doesnt exist";
+
             return false;
         }
         if(!$this->UserExists($username))
         {
-            print "User: $username doesnt exist";
+
             return false;
         }
         if($this->IsUserInRole($username, $rolename))
         {
-            print "User: $username is already $rolename";
+
             return false;
         }
         $user = $this -> GetUser($username);
@@ -246,43 +246,39 @@ class DataAccess extends Database
 
         $stmt -> execute();
         if (!$stmt) {
-            echo "\nPDO::errorInfo():\n";
-            print_r($this->databaseHandle->errorInfo());
-            return false;
+            throw new Exception("\nPDO::errorInfo():\n");
         }
         $sql = "select ID from Image where Path = '$path';";
         foreach ($this->databaseHandle->query($sql) as $row) {
             return $row ['ID'];
         }
-        return false;
+        throw new Exception("Image not found.");
     }
 
     public function AddArticle($username, $header, $text, $imagePath)
     {
         if(!$this->UserExists($username))
         {
-            return null;
+            throw new Exception("User does not exist.");
         }
         $userID = $this -> GetUserID($username);
         $imageID = $this -> AddImage($imagePath, $userID);
-        $sql = "insert into Article (Header,Text,ImageID) 
-	  		VALUES('$header','$text','$imageID');";
+        $sql = "insert into Article (UserID,Header,Text,ImageID) 
+	  		VALUES('$userID','$header','$text','$imageID');";
         $stmt = $this -> databaseHandle -> prepare($sql);
 
         $stmt -> execute();
         if (!$stmt) {
-            echo "\nPDO::errorInfo():\n";
-            print_r($this->databaseHandle->errorInfo());
-            return false;
+            throw new Exception("\nPDO::errorInfo():\n");
         }
-        return true;
     }
 
     public function GetAllArticles()
     {
         $results = array();
-        $sql = "select Article.Header Header, Article.Text Text, Article.Timestamp Timestamp, Image.Path ImagePath from Article 
-              LEFT JOIN Image ON (Article.ImageID=Image.ID)";
+        $sql = "select User.Name UserName, Article.Header Header, Article.Text Text, Article.Timestamp Timestamp, Image.Path ImagePath from Article 
+              LEFT JOIN Image ON (Article.ImageID=Image.ID) 
+              LEFT JOIN User ON (Article.UserID=User.ID)";
         foreach ($this->databaseHandle->query($sql) as $row) {
             array_push($results, $row);
             // print_r($results);

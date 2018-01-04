@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CreateUser</title>
-</head>
-<body>
+{# templates/CreateUser.twig #}
+{% extends 'layout.twig' %}
 
-<form action="index.php?Controller=AdminController&Action=CreateUser" method="post">
+{% block title %} CreateUser {% endblock %}
+
+{% block bodyClass %}CreateUser{% endblock %}
+
+{% block wrapperPrefix %}biogas{% endblock %}
+
+
+{% block content %}
+<form action="../../index.php/Admin/CreateUser" method="post">
     <label for="username">username</label>
     <input name="username" type="text"/>
     <br />
@@ -22,5 +26,4 @@
 </form>
 {% include 'list.twig' %}
 
-</body>
-</html>
+{% endblock %}
