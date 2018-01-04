@@ -107,8 +107,7 @@ class DataAccess extends Database
     public function GetUserID($name)
     {
 
-        $sql = "select UserID from User where Name = '$name'";
-        return $sql;
+        return $this -> GetUser($name) ['ID'];
     }
 
     public function GetAllUsers()
@@ -242,7 +241,7 @@ class DataAccess extends Database
     public function AddImage($path, $userID)
     {
         $sql = "insert into Image (Path, UserID) 
-	  		VALUES('$path','$userID';";
+	  		VALUES('$path','$userID')";
         $stmt = $this -> databaseHandle -> prepare($sql);
 
         $stmt -> execute();
@@ -277,6 +276,19 @@ class DataAccess extends Database
             return false;
         }
         return true;
+    }
+
+    public function GetAllArticles()
+    {
+        $results = array();
+        $sql = "select Article.Header Header, Article.Text Text, Article.Timestamp Timestamp, Image.Path ImagePath from Article 
+              LEFT JOIN Image ON (Article.ImageID=Image.ID)";
+        foreach ($this->databaseHandle->query($sql) as $row) {
+            array_push($results, $row);
+            // print_r($results);
+
+        }
+        return $results;
     }
 }
 ?>
