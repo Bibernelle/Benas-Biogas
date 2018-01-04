@@ -20,69 +20,41 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 $request = Request::createFromGlobals();
+
+// $uri = "Pages/home"
 $uri = $request->getPathInfo();
 
+$parts = explode("/", $uri);
 
-if (null != $request->query->get('Controller')) {
-    switch ($request->query->get('Controller')) {
-        case 'AdminController':
-            $controller = new AdminController('Database.db');
-            switch ($request->query->get('Action')) {
-                case 'CreateUser':
-                    $response = $controller->CreateUser($request);
-                    break;
-                case 'LoginUser':
-                    $response = $controller->LoginUser($request);
-                    break;
-                case 'AssignRole':
-                    $response = $controller->AssignRole($request);
-                    break;
-                case 'DeleteUser':
-                    $response = $controller->DeleteUser($request);
-                    break;
-                case 'LogoutUser':
-                    $response = $controller->LogoutUser($request);
-                    break;
+$controllerName = $parts[1];
 
-                default:
+$actionName = $parts[2];
 
-                    echo "Die Action:  " . $request->query->get('Action') . " wurde nicht gefunden!";
-                    die();
+print($uri);
+switch ($controllerName) {
 
-                    break;
-            }
-            break;
+    case 'Admin':
+        $controller = new AdminController('Database.db');
 
-        case 'PagesController':
+        break;
 
-            $controller = new PagesController('Database.db');
-            switch ($request->query->get('Action')) {
-                case 'home':
+    case 'Pages':
 
-                    $response = $controller->home($request);
+        $controller = new PagesController('Database.db');
 
-                    break;
+        break;
 
-                default:
+    default:
+        echo "Der Controller:  " . $controllerName . " wurde nicht gefunden!";
+        die();
 
-                    echo "Die Action:  " . $request->query->get('Action') . " wurde nicht gefunden!";
-                    die();
-
-                    break;
-            }
-
-            break;
-        default:
-
-            echo "Der Controller:  " . $request->query->get('Controller') . " wurde nicht gefunden!";
-            die();
-
-break;
-    }
+        break;
 
 }
+
+$response = $controller->{$actionName}($request);
+
 
 $response->send();
 
