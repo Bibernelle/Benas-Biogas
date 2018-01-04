@@ -1,0 +1,49 @@
+{# templates/kontakt.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} kontakte {% endblock %}
+
+{% block bodyClass %}kontakt{% endblock %}
+
+{% block wrapperPrefix %}kontakte{% endblock %}
+
+
+{% block content %}
+    <h1>BENAS GmbH</h1>
+    <h2>Kontakt Vorwerk</h2>
+    <ul>
+        <li>Diekweg 1</li>
+        <li>27412 Vorwerk</li>
+        <li>
+            <a href="mailto:mail@benas-biogas.com?cc=C.Heitmann@benas-biogas.com&subject=Email%20via%20Website&body=Ihr%20Text%20hier">mail@benas-biogas.com</a>
+        </li>
+        <li>04288 - 265</li>
+        <li>04288 - 928950</li>
+    </ul>
+    <h2>Kontakt Ottersberg</h2>
+    <ul>
+        <li>Kreuzbuchen 2</li>
+        <li>28870 Ottersberg</li>
+        <li>
+            <a href="mailto:C.Heitmann@benas-biogas.com?cc=mail@benas-biogas.com&subject=Email%20via%20Website&body=Ihr%20Text%20hier">C.Heitmann@benas-biogas.com</a>
+        </li>
+        <li>04205 - 3195 440</li>
+        <li>04205 - 3195 441</li>
+    </ul>
+    <h2>Kontaktformular</h2>
+    <form id="kontaktformular" name="kontaktformular" action="MAILTO:michael.j.heitmann@gmail.com"
+          method="post" enctype="text/plain">
+        <div>
+            <label for="absender">Ihre E-Mail-Adresse:</label>
+            <input type="text" id="absender" name="absender"/>
+        </div>
+        <div>
+            <label for="nachricht">Ihre Nachricht:</label>
+            <textarea id="nachricht" name="nachricht" cols="20" rows="5"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="nicht abschicken"/>
+        </div>
+    </form>
+
+{% endblock %}

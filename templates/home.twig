@@ -1,54 +1,18 @@
-<!DOCTYPE html>
-<html lang="de-DE">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>BENAS GmbH - Home</title>
-      <meta name="description" content="Die Startseite">
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body class="home">
-      <header>
-         <input type="checkbox" id="menuToggle">
-         <label for="menuToggle" class="menu-icon">&#9776;</label>
-         <a href="index.html" title="Home"><img class="logo" src="Images/Logo.png" alt="Benas Logo" /></a>
-         <nav class="menu-mobile">
-            <ul class="menu-ul">
-               <li class="home"><a href="index.html">Home</a></li>
-               <li class="das-team"><a href="das-team.html">Das Team</a></li>
-               <li class="biogas"><a href="biogas.html">Biogas</a></li>
-               <li class="anlage"><a href="anlage.html">Die Anlagen</a></li>
-                <li class="rohstoffmanagement"><a href="rohstoffmanagement.html">Rohstoffmanagement</a></li>
-               <li class="weitere-infos"><a href="weitere-infos.html">Weitere Links</a></li>
-               <li class="kontakt"><a href="kontakt.html">Kontakt</a></li>
-                <li class="aktuelles"><a href="aktuelles.html">Aktuelles</a></li>
-               <li class="anfahrt"><a href="anfahrt.html">Anfahrt</a></li>
-            </ul>
-         </nav>
-         <nav class="menu-desktop">
-            <ul class="menu-ul">
-               <li class="home"><a href="index.html">Home</a></li>
-               <li class="das-team"><a href="das-team.html">Das Team</a></li>
-               <li class="biogas"><a href="biogas.html">Biogas</a></li>
-               <li class="anlage"><a href="anlage.html">Die Anlagen</a></li>
-                <li class="rohstoffmanagement"><a href="rohstoffmanagement.html">Rohstoffmanagement</a></li>
-               <li class="weitere-infos"><a href="weitere-infos.html">Weitere Links</a></li>
-               <li class="kontakt"><a href="kontakt.html">Kontakt</a></li>
-                <li class="aktuelles"><a href="aktuelles.html">Aktuelles</a></li>
-               <li class="anfahrt"><a href="anfahrt.html">Anfahrt</a></li>
-            </ul>
-         </nav>
-      </header>
+{# templates/home.twig #}
+{% extends 'layout.twig' %}
 
-      <div class="home-wrapper">
-         <p>Biologisch</p>
-         <p>Energetische</p>
-         <p>Nutzbarmachung</p>
-         <p>von</p>
-         <p>Abfallstoffen</p>
-      </div>
-      <footer>
-         <p>© 2016 BENAS Biogasanlage GmbH | <a href="impressum.html">Impressum</a></p>
-      </footer>
-   </body>
-</html>
+{% block title %} Home {% endblock %}
+
+{% block wrapperPrefix %}home{% endblock %}
+
+{% block content %}
+    <p>Biologisch</p>
+    <p>Energetische</p>
+    <p>Nutzbarmachung</p>
+    <p>von</p>
+    <p>Abfallstoffen</p>
+{% endblock %}
+
+
+
+

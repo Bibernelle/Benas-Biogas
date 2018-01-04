@@ -1,7 +1,7 @@
 @charset "utf-8";
 @font-face {
     font-family: 'Lato';
-    src: url('Fonts/Lato-Black.ttf') format('truetype'), url('Fonts/Lato-Bold.ttf') format('truetype'), url('Fonts/Lato-Hairline.ttf') format('truetype'), url('Fonts/Lato-Heavy.ttf') format('truetype'), url('Fonts/Lato-Light.ttf') format('truetype'), url('Fonts/Lato-Medium.ttf') format('truetype'), url('Fonts/Lato-Regular.ttf') format('truetype'), url('Fonts/Lato-Semibold.ttf') format('truetype'), url('Fonts/Lato-Thin.ttf') format('truetype');
+    src: url('../../Fonts/Lato-Black.ttf') format('truetype'), url('../../Fonts/Lato-Bold.ttf') format('truetype'), url('../../Fonts/Lato-Hairline.ttf') format('truetype'), url('../../Fonts/Lato-Heavy.ttf') format('truetype'), url('../../Fonts/Lato-Light.ttf') format('truetype'), url('../../Fonts/Lato-Medium.ttf') format('truetype'), url('../../Fonts/Lato-Regular.ttf') format('truetype'), url('../../Fonts/Lato-Semibold.ttf') format('truetype'), url('../../Fonts/Lato-Thin.ttf') format('truetype');
 }
 @keyframes xfade9 {
     0% {
@@ -78,7 +78,7 @@ body {
     background-color: #7EB880;
 }
 body.home {
-    background: url(Images/Home.jpg) no-repeat center center fixed;
+    background: url(../../Images/Home.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -86,7 +86,7 @@ body.home {
 }
 
 body {
-    background: url(Images/Home.jpg) no-repeat center center fixed;
+    background: url(../../Images/Home.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -94,7 +94,7 @@ body {
 }
 
 body.das-team {
-    background: url(Images/team2.jpg) no-repeat center center fixed;
+    background: url(../../Images/team2.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -110,7 +110,7 @@ body.anfahrt,
 body.impressum,
 body.timeline,
 body.dokumentation {
-    background: url(Images/ContentBG.jpg) no-repeat center center fixed;
+    background: url(../../Images/ContentBG.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
