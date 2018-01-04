@@ -27,34 +27,45 @@ $uri = $request->getPathInfo();
 
 $parts = explode("/", $uri);
 
-$controllerName = $parts[1];
 
-$actionName = $parts[2];
+if (count($parts) == 2 && ($parts [0]) != "" && ($parts [1]) != "") {
 
-print($uri);
-switch ($controllerName) {
 
-    case 'Admin':
-        $controller = new AdminController('Database.db');
+    print_r($parts);
+    $controllerName = $parts[1];
 
-        break;
+    $actionName = $parts[2];
 
-    case 'Pages':
+    switch ($controllerName) {
 
-        $controller = new PagesController('Database.db');
+        case 'Admin':
+            $controller = new AdminController('Database.db');
 
-        break;
+            break;
 
-    default:
-        echo "Der Controller:  " . $controllerName . " wurde nicht gefunden!";
-        die();
+        case 'Pages':
 
-        break;
+            $controller = new PagesController('Database.db');
+
+            break;
+
+        default:
+
+            $controller = new PagesController('Database.db');
+
+            $controller->home($request);
+            break;
+
+    }
+
+    $response = $controller->{$actionName}($request);
+} else {
+
+    $controller = new PagesController('Database.db');
+
+    $response = $controller->home($request);
 
 }
-
-$response = $controller->{$actionName}($request);
-
 
 $response->send();
 
