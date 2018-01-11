@@ -12,28 +12,19 @@ class Database
 		$this -> createDataStructure();
 	}
 
-	public function LocalDate($utcDate)
-	{
-		return date('c',strtotime($utcDate));
-
-	}
-
 	public function TableExists($table)
 	{
 
-		// Try a select statement against the table
-		// Run it in try/catch in case PDO is in ERRMODE_EXCEPTION.
 		try
 		{
 			$result = $this -> databaseHandle -> query("SELECT 1 FROM $table LIMIT 1");
 		}
 		catch (Exception $e)
 		{
-			// We got an exception == table not found
+
 			return FALSE;
 		}
 
-		// Result is either boolean FALSE (no table found) or PDOStatement Object (table found)
 		return $result !== FALSE;
 	}
 
@@ -51,8 +42,6 @@ class Database
 			$this -> DropTable("IsInUserRole");
 			$this -> DropTable("UserRole");
 			$this -> DropTable("Image");
-			$this -> DropTable("ImageGallery");
-            $this -> DropTable("IsInImageGallery");
             $this -> DropTable("Article");
 		}
 		if (!$this -> tableExists('User'))
@@ -97,24 +86,7 @@ class Database
 			$this -> databaseHandle -> exec($sql);
 		}
 
-        if (!$this -> tableExists('IsInImageGallery'))
-        {
-            $sql = "CREATE table IsInImageGallery(
-					     ID INTEGER PRIMARY KEY,
-					     ImageID INTEGER NOT NULL,
-					     GalleryID INTEGER NOT NULL,
-					     Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
-            $this -> databaseHandle -> exec($sql);
-        }
 
-		if (!$this -> tableExists('ImageGallery'))
-		{
-			$sql = "CREATE table ImageGallery(
-						ID INTEGER PRIMARY KEY,
-						Name text NOT NULL);";
-
-			$this -> databaseHandle -> exec($sql);
-		}
 
         if (!$this -> tableExists('Article'))
         {
@@ -139,7 +111,6 @@ class Database
 
             $this -> databaseHandle -> exec($sql);
         }
-
 
 	}
 

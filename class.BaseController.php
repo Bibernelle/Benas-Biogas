@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class BaseController
+abstract class BaseController
 {
     protected $twig;
     protected $dataAccess;
@@ -21,7 +21,7 @@ class BaseController
         ]);
     }
 
-    public function IsAdmin(){
+    protected function IsAdmin(){
         if(!isset($_SESSION['username'])){
             return false;
         }

@@ -3,12 +3,9 @@ session_start();
 require_once ("class.Database.php");
 class DataAccess extends Database
 {
-	private $SleepDelay = 50000;
-	private $Timeout = 50000000;
 
 	function __construct($filename)
 	{
-
 		parent::__construct($filename);
 	}
 

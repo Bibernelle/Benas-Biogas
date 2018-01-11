@@ -5,13 +5,8 @@ require_once("class.BaseController.php");
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class PagesController extends BaseController
 {
-
-
-
-
     public function home($request)
     {
         $data = $request->request->all();

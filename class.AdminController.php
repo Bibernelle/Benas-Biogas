@@ -71,7 +71,6 @@ class AdminController extends BaseController
 
     public function LoginUser(Request $request)
     {
-        // print_r($request->request->all());
 
         $data = $request->request->all();
 
@@ -93,8 +92,6 @@ class AdminController extends BaseController
 
     public function LogoutUser()
     {
-        // print_r($request->request->all());
-
         unset($_SESSION['username']);
         $html = $this->twig->render('LoggedOut.twig');
         return new Response($html, Response::HTTP_OK);
@@ -102,7 +99,6 @@ class AdminController extends BaseController
 
     public function AssignRole(Request $request)
     {
-        // print_r($request->request->all());
         if (!isset($_SESSION['username']) || !($this->dataAccess->IsUserInRole($_SESSION['username'], $this->administratorRole))) {
             $html = $this->twig->render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
@@ -165,7 +161,7 @@ class AdminController extends BaseController
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
+
         if (isset($_POST["submit"])) {
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if ($check !== false) {
@@ -176,16 +172,16 @@ class AdminController extends BaseController
 
             }
         }
-// Check if file already exists
+
         if (file_exists($target_file)) {
             throw new Exception("Sorry, file already exists.");
         }
-// Check file size
+
         if ($_FILES["fileToUpload"]["size"] > 500000) {
             throw new Exception("Sorry, your file is too large.");
 
         }
-// Allow certain file formats
+
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif") {
             throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
