@@ -21,6 +21,12 @@ class BaseController
         ]);
     }
 
+    public function IsAdmin(){
+        if(!isset($_SESSION['username'])){
+            return false;
+        }
+        return $this->dataAccess->isAdministrator($_SESSION['username']);
+    }
 }
 
 

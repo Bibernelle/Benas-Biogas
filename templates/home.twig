@@ -6,13 +6,25 @@
 {% block wrapperPrefix %}home{% endblock %}
 
 {% block content %}
-    <p>Biologisch</p>
-    <p>Energetische</p>
-    <p>Nutzbarmachung</p>
-    <p>von</p>
-    <p>Abfallstoffen</p>
+    {% if IsAdmin %}
+        <form action="../../index.php/Pages/home" method="post">
+            <textarea name="content" id="content" rows="10" cols="80">
+                {{ HomeContent }}
+            </textarea>
+            <input type="submit" value="save"/>
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#content' ) )
+                .catch( error => {
+                console.error( error );
+            } );
+        </script>
+    </form>
+{% else %}
+    {% autoescape %}
+        
+    {{ HomeContent|raw }}
+    {% endautoescape %}
+    {% endif %}
 {% endblock %}
-
-
-
 

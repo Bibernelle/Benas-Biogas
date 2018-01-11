@@ -12,9 +12,15 @@ class PagesController extends BaseController
 
 
 
-    public function home()
+    public function home($request)
     {
-        $html = $this->twig->render('home.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('HomeContent', $data['content']);
+        }
+
+        $html = $this->twig->render('home.twig', array('IsAdmin'=>$this->IsAdmin(), 'HomeContent'=>$this->dataAccess->GetContent('HomeContent')));
         return new Response($html, Response::HTTP_OK);
     }
     public function dasTeam()

@@ -9,6 +9,18 @@
 
 
 {% block content %}
+    <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor1' ) )
+                .catch( error => {
+                console.error( error );
+            } );
+        </script>
+    </form>
     <h1>BENAS GmbH</h1>
     <h2>Kontakt Vorwerk</h2>
     <ul>

@@ -129,6 +129,17 @@ class Database
             $this -> databaseHandle -> exec($sql);
         }
 
+        if (!$this -> tableExists('Content'))
+        {
+            $sql = "CREATE table Content(
+						ID INTEGER PRIMARY KEY,
+						[Index] text,
+						Content text,
+                        Timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);";
+
+            $this -> databaseHandle -> exec($sql);
+        }
+
 
 	}
 

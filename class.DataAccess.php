@@ -286,5 +286,65 @@ class DataAccess extends Database
         }
         return $results;
     }
+
+    public function AddContent($index, $content)
+    {
+
+        if($this->ContentExists($index))
+        {
+            $this -> UpdateContent($index, $content);
+            return;
+        }
+
+        $sql = "insert into Content ([Index], Content) 
+	  		VALUES('$index', '$content');";
+        $stmt = $this -> databaseHandle -> prepare($sql);
+
+        $stmt -> execute();
+        if (!$stmt) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($this->databaseHandle->errorInfo());
+        }
+
+    }
+
+    public function ContentExists($index)
+    {
+
+        $sql = "select * from Content where [Index] = '$index'";
+        foreach ($this->databaseHandle->query($sql) as $row) {
+            return true;
+        }
+        return false;
+    }
+
+    public function UpdateContent($index, $content)
+    {
+        if(!$this->ContentExists($index))
+        {
+
+            return;
+        }
+
+        $sql = "update Content set Content = '$content' where [Index] = '$index';";
+        $stmt = $this -> databaseHandle -> prepare($sql);
+
+        $stmt -> execute();
+        if (!$stmt) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($this->databaseHandle->errorInfo());
+        }
+
+    }
+
+    public function GetContent($index)
+    {
+        $sql = "select Content from Content where [Index] = '$index'";
+        foreach ($this->databaseHandle->query($sql) as $row) {
+            return $row ['Content'];
+        }
+        return '';
+    }
+
 }
 ?>

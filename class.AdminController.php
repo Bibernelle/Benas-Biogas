@@ -18,7 +18,7 @@ class AdminController extends BaseController
 
     public function CreateUser(Request $request)
     {
-        if (!isset($_SESSION['username']) || !($this->dataAccess->IsUserInRole($_SESSION['username'], $this->administratorRole))) {
+        if (!$this->IsAdmin()) {
             $html = $this->twig->render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
