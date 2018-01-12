@@ -1,3 +1,109 @@
+{# templates/dokumentation.twig #}
+{% extends 'layout.twig' %}
+
+{% block title %} BENAS|Dokumentation {% endblock %}
+
+{% block bodyClass %}dokumentation{% endblock %}
+
+{% block wrapperPrefix %}dokumentation{% endblock %}
+
+{% block content %}
+
+   <h1>Dokumentation</h1>
+   <h2>Michael Heitmann mihe9986 520149</br>
+       Oliver Klemm olkl7552 520148</h2>
+
+   <p>Für das bereits in der GOM Hausarbeit entworfene Frontend Design desWebauftritts des Unternehmenes Benas GmbH, welches im Bereich der Energieerzeugung aus nachwachsenden Rohstoffen tätig ist, haben wir das entsprechende Backend für bereits bestehenden Content, sowie neu implementierter Funktionen entsprechend der Vorgaben der Hausarbeitsanforderungen realisiert.</p>
+
+   <p>Nach Absprache mit dem Unternehmen wurde ein internener Mitarbeiter Blog implementiert, welcher ausschliesslich für registrierte, bzw. eingelogte Benutzer erreichbar ist.
+      Dieser Bereich ist unter dem Navigationselement Mitarbeiter zu finden.
+      Hier haben User die Möglichkeit sich ein- und auszuloggen und Artikel zu verfassen, sowie pro Artikel ein Bild hoch zu laden.
+      Die Artikel beinhalten zusätzlich zum verfassten Text und Bild eine Überschrift, eine Zeile mit Verfasser des Artikels sowie einen Timestamp.
+      Der Administrator, der bereits in der Datenbank angelegt ist, kann neue Mitarbeiter Accounts anlegen, diese wieder löschen, ihnen Rollen zuweisen (Administrator oder Employee) und das implementierte Contentmanagement System bedienen, um Inhalte auf der Website verwalten zu können.
+      Die Employee Accounts haben lediglich Zugriff auf das interne Blog System.</p>
+
+   <p>Die Umsetzung der Anwendung erfolgte mittels einer mehrschichtigen Architektur.
+      Die Database Klasse übernimmt die Erzeugung des Datenmodells.
+      Sie stellt dabei das databaseHandle bereit, welches eine Instanz von PDO mit enem sqlite binding darstellt.
+      Weiter wird hier die Erzeugung der Datenstruktur vorgenommen.
+      Die entsprechenden Tabellen werden nur erzeugt, wenn sie nicht bereits vorhanden sind.
+      Die darüberliegende Abstraktionsschicht ist durch die Klasse DataAcces realisiert, welche Methoden für die elementaren CRUD-Funktionen der entsprechenden und folgenden Entitätstypen bereit stellt:</p>
+
+   <p>("User");</br>
+      ("IsInUserRole");</br>
+      ("UserRole");</br>
+      ("Image");</br>
+      ("Article");</br>
+      ("Content");</p>
+
+   <p>Die Methoden, z.B. AddUser überführen hier die Daten entsprechend in das normalisierte Datenmodell.
+      So sind bsw. einem Benutzer Rollen (Administrator und Employee) zugeordnet und einem Artikel Bilder usw.
+      Die Klasse AdminController stellt Methoden bereit die für die Verwaltung von Benutzern und Berechtigungen erforderlich sind.
+      Die Klasse PagesController stellt Methoden bereit, die für das Rendering der einzelnen Unterseiten der Website benötigt werden.
+      Die Controller Actions beider Klassen nehmen jeweils ein request Objekt des Symphony Frameworks entgegen,um ggf. request Parameter verarbeiten zu können.
+      Beide Klassen sind von der Klasse BaseController abgeleitet, welche neben einer Instanz der Twig Template Engine außerdem eine Instanz der Klasse DataAcces für die abgeleiteten Klassen bereit stellt.
+      Die Methoden des AdminControllers funktionieren in der Regel so, dass hier ein gerendertes Html-Formular bereit gestellt wird, welches beim absenden die entsprechenden Parameter an die Controller Methode übergibt.
+      Wenn in der Methode nun die entsprechenden Parameter vorhanden sind, wird statt des Formulars eine entsprechende Erfolgs- bzw. Fehler-Meldung zurück gegeben.
+      Auf diese Weise kann die Erhebung sowie Verarbeitung der Daten in einer einzelnen Methode gekapselt werden.
+      Den einzigen Einstiegspunkt der Anwendung stellt die Datei index.php dar, welche für die Instanziierung der Controller sowie die Ausführung der entsprechenden Controller-Methoden (Actions) verantwortlich ist.
+      Das Routing auf Controller -> Action wird mit Hilfe der getPathInfo Methode des requests Objekts des Symphony Frameworks realisiert.
+      ->  index.php/Pages/biogas
+      Konvention ist hierbei, dass der Unterordner hinter der index.php den Namen des Controllers darstellt und der Unterordner hinter dem Namen des Controllers die entsprechende Action darstellt.
+      Die Anwendung implementiert das MVC Entwurfsmuster, wobei die Entitätstypen die Models, die von Twig gerenderten Templates die Views und die Klassen Admin- und Pages-Controller die Controller darstellen.
+      Um die Twig Templates der gerenderten Unterseiten möglichst schlank zu gestalten und Redundanzen zu vermeiden, wurden diese von einem Basis Template abgeleitet.
+      Das Basistemplate enthält hierbei das Markup, welches sich auf allen Seiten wiederholt, wie bsw. Die Navigation und der Footer.
+      Die abgeleiteten Templates überschreiben jeweils nur die Blöcke der Contentbereiche, die sich vom Basistemplate unterscheiden.
+      Um die Inhalte der Unterseiten dynamisch verwalten zu können, wird dem angemeldeten Administrator, also dem Benutzer, dem die Rolle Admisnistrator zugeordnet ist, statt dem Inhalt ein Formular mit einem Richtext Editor (CK Editor) angezeigt, in dem die entsprechenden Inhalte eingepflegt werden können.
+      Wird das Formular nun abgesendet, wird der neue Content an die entsprechende Methode des Pages Controllers übergeben, welcher die Daten an die  DataAcces-Schicht zur dauerhaften Speicherung übergibt.
+      Durch die Kapselung der Logik auf den entsprechenden Abstraktionssichten kann Fehleranfälligkeit und Redundanz von Programmecode minimiert werden.
+      Außerdem kann so eine hohe Wiederverwendbarkeit und Reduktion der Komplexität erzielt werden.</p>
+
+   <p>Bei der Umsetzung der Anwendung gab es keine strikte Aufgabentrennung, da wir mittels TeamView, Git und anderen technischen Raffinessen zusammen gearbeitet haben.
+      Als vorhandene Lösungen haben wir u.a. das bereits in der GOM Hausarbeit erstellte Frontend der Website, die Twig Dokumentation sowie Samples der PHP.net verwendet.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="de-DE">
    <head>
@@ -41,21 +147,7 @@
       </header>
       <div class="dokumentation-wrapper">
          <div class="dokumentation-content-wrapper">
-            <h1>Dokumentation</h1>
-             <h2>Michael Heitmann mihe9986 520149</br>
-            Manuel Tiede mati9561 551181</h2>
-            <p>Für die Umsetzung der Hausarbeit haben wir uns dafür entschieden eine Website für die BENAS GmbH zu erstellen.  Zuerst haben wir uns dafür überlegt in welchen Stil wir diese Website umsetzen möchten und was genau das Hauptziel sein soll, welches man mit ihr erreichen möchte. Da diese Website in erster Linie dazu dienen soll schnell an Informationen zu kommen, haben wir uns dazu entschlossen der Website ein eher schlichtes, aber dennoch zeitgemäßes Design zu geben.  Somit sollte die Website ein übersichtliches Menü ohne viele Untermenüs bekommen, damit man nicht lange suchen muss um an die gesuchten Informationen zu gelangen. Zudem sollten die einzelnen Menüpunkte selbsterklärend und klar ersichtlich sein. Auch ein aufgeräumtes und übersichtliches Design bzw. eine übersichtliche Anordnung der einzelnen Elemente wie z.B. die Bildergalerie oder ‘Textboxen‘ war uns sehr wichtig.</p>
-            <p>Um eine bessere Vorstellung davon zu bekommen, wie wir unsere Vorstellung von der Website später in HTML und CSS umsetzen können, haben wir 3 Style Tiles angefertigt.  Mit Hilfe der Style Tiles haben wir dann versucht rauszufinden wie wir die einzelnen Objekte gestalten könnten und welche Farbkombinationen zu unseren Vorstellungen der Website passen könnten.  Letztendlich haben wir uns dann aber für den zweiten Entwurf entschieden. Einer der Hauptgründe war, dass es mit dem nur leichten Farbunterschied eher schlicht, aber auch modern wirkt. Wohingegen die anderen beiden, einen doch schon eher zu starken Kontrast oder eine zu kalte Atmosphäre haben. Zusätzlich wirkt das Style Tile mit den schlichten Boxen für den Text und dem einfachen Menü aufgeräumter und übersichtlicher.</p>
-            <p>Da wir uns nun für ein Style Tile entschieden haben, wollten wir dieses noch weiter verändern und unsere Vorstellung der Seite näher bringen. Wir haben uns im Zuge dessen dazu entschieden, die Menüleiste noch größer zu gestalten und kontrastreicher, aber auch übersichtlicher erscheinen zu lassen. Zusätzlich haben wir uns noch mit mit der Frage beschäftigt, welche Farben später wirklich genutzt werden sollen und welche Schriftart wir benutzen. Bei der Farbe wollten wir, wie vorher schon festgelegt einen weichen Übergang der Farben im Hintergrund haben. Zusätzlich wollten wir das Grün, welches sich auch im Logo der Firma wiederfindet mit in den Stil der Seite mit einfließen lassen, damit die Seite nicht zu dunkel bzw. farblos wirkt. </p>
-            <p>Während des Umsetzen der Website, haben wir dann dieses Grün als ‘Hauptkontrastfarbe‘ gegenüber dem dunklem grau und den hellen Farben auf der Website gewählt. Dazu haben wir die einzelnen Menüpunkte mit einer grünen Animation versehen und auch die Farbe bei dem markieren eines Testes auf grün gesetzt. Darüber hinaus haben wir ein leicht schwächeres grün gewählt, um den Menüpunkt in dem man sich aktuell befindet auch sichtbar zu markieren. Auch die noch nicht besuchten Links der Seite wurden grün eingefärbt, die dann nach dem Besuch die Farbe auf Blau wechseln.  Bei der Schriftart haben wir uns für serifenlose Schriftart Lato entschieden. Da diese Schriftart schlicht gehalten ist, passt sie gut zu dem einfachen und aufgeräumten Design der Website.</p>
-            <p>Die von uns verwendeten Weißtöne: #FFFDF9, #FBF9F5, #FCFCFC, #FFFFFF</p>
-            <p>Die von uns verwendeten Grautöne: #D4D0CC;</p>
-            <p>Die von uns verwendeten Schwarztöne: #333231; #242322;</p>
-            <p>Die von uns verwendeten Grüntöne: #7EB880, #014A02</p>
-            <p>Für die Positionen der einzelnen Elemente auf der Homepage haben wir eine Skizze angefertigt, auf der wir versucht haben ein modernes und aufgeräumtes Erscheinungsbild zu erschaffen. Das Menü sollte ganz oben auf der Website platziert sein. Darunter sollte dann mit ein wenig Abstand das Logo der Firma. Die einzelnen Texte und auch die Bilder sollten auf den einzelnen Boxen platziert werden, damit wir ein aufgeräumtes und modernes Design bekommen. Diese Boxen sollten dann mit ein klein wenig Abstand unter dem Logo platziert werden.</p>
-            <p>Während des Gestaltungsprozesses haben wir gemerkt, dass wir ein moderner und übersichtlicheres Design erzielen könne, wenn wir die Menüleiste ein wenig höher gestalten und diese dann wesentlich tiefer platzieren.  Ferner haben wir noch gemerkt, dass es in der Galerie viel übersichtlicher und moderner wirkt, wenn wir die Bilder unter dem Punkt ‘Anlage‘ nicht nebeneinander oder untereinander positionieren. Sondern diese als Slideshow in dem passendem Block laufen zulassen und haben diesen dann einen hover Effekt gegeben, der Informationen über das jeweils gerade angezeigte Bild liefert. Bei dem Footer waren wir uns vor der fast fertigen Website nicht sicher ob wir diesen fest am Ende der Website oder doch immer am Boden vom aktuellen Bildschirmrand platzieren sollen. Allerdings haben wir uns, nachdem wir auf der, bis auf den footer, fertigen Seite beide Varianten probiert haben, dafür entschieden, den Footer am Boden des Bildschirms zu platzieren.</p>
-            <p>Für die Umsetzung des responsiven Webdesigns haben wir uns dazu entschieden unsere Website für Smartphones und für Desktoprechner zu gestalten. Für die mobile Version wollten wir eine komplett andere Menüführung und haben dementsprechend den für Smartphones üblichen Menüknopf und die dazu passende Menüleiste erstellt. Die Positionierung des Knopfes oben rechts und das Menü Links haben wir absichtlich so gewählt, da man diesen so besser mit den Daumen erreichen kann. Danach haben wir dann angefangen den Content und die Elemente so zu platzieren, dass sie auf dem Smartphone gut lesbar, erreichbar und bedienbar sind. Mit Hilfe der Media Queries das Layout für die Desktop Version angepasst. Wir mussten bei der Realisierung der Standardanzeige per Google Maps noch eine weiter Media Querie hinzufügen, da sich sonst die Karten beim zusammenschieben schon über die Box geschoben hat, bevor die Website in den mobilen Modus gewechselt ist. Als nächstes haben wir uns dann um das Layout der Desktopversion gekümmert. Hier haben wir dann auch die große Menüleiste gestaltet und diese dann platziert. Als nächstes haben wir uns auch hier noch um die Schriftgröße, Größe und Positionen der einzelnen Elemente gekümmert.</p>
-         </div>
+
       </div>
       <footer>
          <p>© 2016 BENAS Biogasanlage GmbH | <a href="../impressum.html">Impressum</a></p>
