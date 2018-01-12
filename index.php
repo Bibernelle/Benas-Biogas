@@ -3,7 +3,7 @@ date_default_timezone_set("Europe/Berlin");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once("class.Programm.php");
+
 require_once("class.BaseController.php");
 require_once("class.DataAccess.php");
 require_once("class.AdminController.php");
