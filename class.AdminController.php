@@ -126,8 +126,9 @@ class AdminController extends BaseController
     {
 
 
-        if ($this->IsLoggedIn()) {
+        if (!$this->IsLoggedIn()) {
             header('Location: ../../index.php/Admin/LoginUser', true, 301);
+            return;
         }
         $data = $request->request->all();
         if (isset($data['header'], $data['text'])) {

@@ -9,7 +9,9 @@
 
 
 {% block content %}
+    {% include 'list.twig' %}
 <form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
+
     <h1>Der BENAS Blog</h1>
     <h2>eigenen Blogpost erstellen:</h2>
     <label for="header">Überschrift</label>
@@ -41,5 +43,5 @@
     {% endfor %}
 
 </form>
-    {% include 'list.twig' %}
+
 {% endblock %}

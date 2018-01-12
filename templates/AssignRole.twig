@@ -9,6 +9,7 @@
 
 
 {% block content %}
+    {% include 'list.twig' %}
 <form action="../../index.php/Admin/AssignRole" method="post">
     <label for="username">username</label>
     <select name="username" type="text">
@@ -26,5 +27,5 @@
     <br />
     <input type="submit" value="OK"/>
 </form>
-{% include 'list.twig' %}
+
 {% endblock %}

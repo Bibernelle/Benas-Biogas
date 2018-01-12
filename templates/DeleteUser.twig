@@ -9,7 +9,7 @@
 
 
 {% block content %}
-
+    {% include 'list.twig' %}
     <form action="../../index.php/Admin/DeleteUser" method="post">
         <label for="username">username</label>
         <select name="username" type="text">
@@ -20,7 +20,7 @@
         <br />
         <input type="submit" value="Delete"/>
     </form>
-    {% include 'list.twig' %}
+
 
 
 {% endblock %}
