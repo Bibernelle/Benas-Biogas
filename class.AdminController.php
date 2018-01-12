@@ -177,7 +177,7 @@ class AdminController extends BaseController
             throw new Exception("Sorry, file already exists.");
         }
 
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
+        if ($_FILES["fileToUpload"]["size"] > 5000000) {
             throw new Exception("Sorry, your file is too large.");
 
         }

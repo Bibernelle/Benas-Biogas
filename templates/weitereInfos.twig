@@ -7,9 +7,8 @@
 
 {% block wrapperPrefix %}weitere-infos{% endblock %}
 
-{% block content %}
-
-<h1>Lohnunternehmen</h1>
+{% set weitereInfosInitContent %}
+    <h1>Lohnunternehmen</h1>
     <div class="links">
         <ul>
             <li><a href="http://jacobs-hof.de/">Dirk Gieschen</a></li>
@@ -20,6 +19,37 @@
             <li><a href="http://www.kompost.de/startseite/">Bundesgütegemeinschaft Kompost eV</a></li>
         </ul>
     </div>
+{% endset %}
+
+{% block content %}
+    {% if IsAdmin %}
+        <form action="../../index.php/Pages/weitereInfos" method="post">
+            <textarea name="content" id="content" rows="10" cols="80">
+                {% if WeitereInfosContent|length > 0 %}
+                    {{ WeitereInfosContent }}
+                {% else %}
+                    {{ weitereInfosInitContent }}
+                {% endif %}
+            </textarea>
+            <input type="submit" value="save"/>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#content' ) )
+                    .catch( error => {
+                    console.error( error );
+                } );
+            </script>
+        </form>
+    {% else %}
+        {% autoescape %}
+            {% if WeitereInfosContent|length > 0 %}
+                {{ WeitereInfosContent|raw }}
+            {% else %}
+                {{ weitereInfosInitContent }}
+            {% endif %}
+        {% endautoescape %}
+    {% endif %}
+
     {% endblock %}
 
 

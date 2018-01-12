@@ -1,26 +1,13 @@
 {# templates/kontakt.twig #}
 {% extends 'layout.twig' %}
 
-{% block title %} kontakte {% endblock %}
+{% block title %} kontakt {% endblock %}
 
 {% block bodyClass %}kontakt{% endblock %}
 
 {% block wrapperPrefix %}kontakte{% endblock %}
 
-
-{% block content %}
-    <form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#editor1' ) )
-                .catch( error => {
-                console.error( error );
-            } );
-        </script>
-    </form>
+{% set kontaktInitContent %}
     <h1>BENAS GmbH</h1>
     <h2>Kontakt Vorwerk</h2>
     <ul>
@@ -42,6 +29,39 @@
         <li>04205 - 3195 440</li>
         <li>04205 - 3195 441</li>
     </ul>
+{% endset %}
+
+{% block content %}
+    {% if IsAdmin %}
+        <form action="../../index.php/Pages/kontakt" method="post">
+            <textarea name="content" id="content" rows="10" cols="80">
+                {% if KontaktContent|length > 0 %}
+                {{ KontaktContent }}
+                {% else %}
+                    {{ kontaktInitContent }}
+                {% endif %}
+            </textarea>
+            <input type="submit" value="save"/>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#content' ) )
+                    .catch( error => {
+                    console.error( error );
+                } );
+            </script>
+        </form>
+
+    {% else %}
+        {% autoescape %}
+            {% if KontaktContent|length > 0 %}
+                {{ KontaktContent|raw }}
+            {% else %}
+                {{ kontaktInitContent }}
+
+            {% endif %}
+        {% endautoescape %}
+    {% endif %}
+
     <h2>Kontaktformular</h2>
     <form id="kontaktformular" name="kontaktformular" action="MAILTO:michael.j.heitmann@gmail.com"
           method="post" enctype="text/plain">

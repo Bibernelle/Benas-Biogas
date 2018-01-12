@@ -24,41 +24,76 @@ class PagesController extends BaseController
         return new Response($html, Response::HTTP_OK);
     }
 
-
-    public function biogas()
+    public function biogas($request)
     {
-        $html = $this->twig->render('biogas.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('BiogasContent', $data['content']);
+        }
+
+        $html = $this->twig->render('biogas.twig', array('IsAdmin'=>$this->IsAdmin(), 'BiogasContent'=>$this->dataAccess->GetContent('BiogasContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
-    public function anlage()
+    public function anlage($request)
     {
-        $html = $this->twig->render('anlage.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('AnlageContent', $data['content']);
+        }
+
+        $html = $this->twig->render('anlage.twig', array('IsAdmin'=>$this->IsAdmin(), 'AnlageContent'=>$this->dataAccess->GetContent('AnlageContent')));
         return new Response($html, Response::HTTP_OK);
     }
-    public function rohstoffmanagement()
+    public function rohstoffmanagement($request)
     {
-        $html = $this->twig->render('rohstoffmanagement.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('RohstoffmanagementContent', $data['content']);
+        }
+
+        $html = $this->twig->render('rohstoffmanagement.twig', array('IsAdmin'=>$this->IsAdmin(), 'RohstoffmanagementContent'=>$this->dataAccess->GetContent('RohstoffmanagementContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
-    public function weitereInfos()
+    public function weitereInfos($request)
     {
-        $html = $this->twig->render('weitereInfos.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('WeitereInfosContent', $data['content']);
+        }
+
+        $html = $this->twig->render('weitereInfos.twig', array('IsAdmin'=>$this->IsAdmin(), 'WeitereInfosContent'=>$this->dataAccess->GetContent('WeitereInfosContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
 
-    public function kontakt()
+    public function kontakt($request)
     {
-        $html = $this->twig->render('kontakt.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('KontaktContent', $data['content']);
+        }
+
+        $html = $this->twig->render('kontakt.twig', array('IsAdmin'=>$this->IsAdmin(), 'KontaktContent'=>$this->dataAccess->GetContent('KontaktContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
 
-    public function aktuelles()
+    public function aktuelles($request)
     {
-        $html = $this->twig->render('aktuelles.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('AktuellesContent', $data['content']);
+        }
+
+        $html = $this->twig->render('aktuelles.twig', array('IsAdmin'=>$this->IsAdmin(), 'AktuellesContent'=>$this->dataAccess->GetContent('AktuellesContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -70,6 +105,12 @@ class PagesController extends BaseController
     public function impressum()
     {
         $html = $this->twig->render('impressum.twig');
+        return new Response($html, Response::HTTP_OK);
+    }
+
+    public function documentation()
+    {
+        $html = $this->twig->render('dokumentation.twig');
         return new Response($html, Response::HTTP_OK);
     }
 

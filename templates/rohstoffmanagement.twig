@@ -7,24 +7,37 @@
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
-{% block content %}
-<h1>In Arbeit</h1>
-<p>In Arbeit</p>
+{% set rohstoffmanagementInitContent %}
+    <h1>In Arbeit</h1>
+    <p>Inhalt folgt in Kürze</p>
+{% endset %}
 
-<!--
-<div class="rohstoffmanagement-wrapper">
-  <div class="rohstoffmanagement-content-wrapper">
-     <h1>Lohnunternehmen</h1>
-     <div class="links">
-        <ul>
-           <li><a href="http://jacobs-hof.de/">Dirk Gieschen</a></li>
-        </ul>
-        <h1>Sonstiges</h1>
-        <ul>
-           <li><a href="http://biogas.org/edcom/webfvb.nsf/ID/DE_Homepage/">Fachverband Biogas eV</a></li>
-           <li><a href="http://www.kompost.de/startseite/">Bundesgütegemeinschaft Kompost eV</a></li>
-        </ul>
-     </div>
-  </div>
-</div> -->
+{% block content %}
+    {% if IsAdmin %}
+        <form action="../../index.php/Pages/rohstoffmanagement" method="post">
+            <textarea name="content" id="content" rows="10" cols="80">
+                {% if RohstoffmanagementContent|length > 0 %}
+                    {{ RohstoffmanagementContent }}
+                {% else %}
+                    {{ rohstoffmanagementInitContent }}
+                {% endif %}
+            </textarea>
+            <input type="submit" value="save"/>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#content' ) )
+                    .catch( error => {
+                    console.error( error );
+                } );
+            </script>
+        </form>
+    {% else %}
+        {% autoescape %}
+            {% if RohstoffmanagementContent|length > 0 %}
+                {{ RohstoffmanagementContent|raw }}
+            {% else %}
+                {{ rohstoffmanagementInitContent }}
+            {% endif %}
+        {% endautoescape %}
+    {% endif %}
 {% endblock %}

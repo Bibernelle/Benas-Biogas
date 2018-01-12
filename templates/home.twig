@@ -5,11 +5,23 @@
 
 {% block wrapperPrefix %}home{% endblock %}
 
+{% set homeInitContent %}
+    <p>biologisch</p>
+    <p>energetische</p>
+    <p>nutzbarmachung</p>
+    <p>von</p>
+    <p>abfallstoffen</p>
+{% endset %}
+
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/home" method="post">
             <textarea name="content" id="content" rows="10" cols="80">
-                {{ HomeContent }}
+                {% if HomeContent|length > 0 %}
+                    {{ HomeContent }}
+                {% else %}
+                    {{ homeInitContent }}
+                {% endif %}
             </textarea>
             <input type="submit" value="save"/>
         <script>
@@ -22,8 +34,11 @@
     </form>
 {% else %}
     {% autoescape %}
-        
-    {{ HomeContent|raw }}
+        {% if HomeContent|length > 0 %}
+            {{ HomeContent|raw }}
+        {% else %}
+            {{ homeInitContent }}
+        {% endif %}
     {% endautoescape %}
     {% endif %}
 {% endblock %}
