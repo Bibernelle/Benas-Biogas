@@ -108,7 +108,7 @@ class PagesController extends BaseController
         return new Response($html, Response::HTTP_OK);
     }
 
-    public function documentation()
+    public function dokumentation()
     {
         $html = $this->twig->render('dokumentation.twig');
         return new Response($html, Response::HTTP_OK);
