@@ -76,6 +76,7 @@ class DataAccess extends Database
         if($hash == $user ["Password"])
         {
             $_SESSION['username'] = $name;
+            $_SESSION['csrf_token'] = uniqid('', true);
             return true;
         }
         return false;

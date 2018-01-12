@@ -14,8 +14,6 @@ require_once("class.BaseController.php");
 class AdminController extends BaseController
 {
 
-    private $administratorRole = 'Administrator';
-
     public function CreateUser(Request $request)
     {
         if (!$this->IsAdmin()) {
@@ -44,7 +42,7 @@ class AdminController extends BaseController
 
     public function DeleteUser(Request $request)
     {
-        if (!isset($_SESSION['username']) || !($this->dataAccess->IsUserInRole($_SESSION['username'], $this->administratorRole))) {
+        if (!$this->isAdmin()) {
             $html = $this->twig->render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
@@ -99,7 +97,7 @@ class AdminController extends BaseController
 
     public function AssignRole(Request $request)
     {
-        if (!isset($_SESSION['username']) || !($this->dataAccess->IsUserInRole($_SESSION['username'], $this->administratorRole))) {
+        if (!$this->isAdmin()) {
             $html = $this->twig->render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
@@ -128,13 +126,18 @@ class AdminController extends BaseController
     {
 
 
-        if (!isset($_SESSION['username'])) {
+        if ($this->IsLoggedIn()) {
             header('Location: ../../index.php/Admin/LoginUser', true, 301);
         }
         $data = $request->request->all();
         if (isset($data['header'], $data['text'])) {
             try {
-                $path = $this->UploadFile();
+
+                $path = null;
+
+                if(isset($data['fileToUpload'])) {
+                    $path = $this->UploadFile();
+                }
 
                 $this->dataAccess->AddArticle($_SESSION['username'], $data['header'], $data['text'], $path);
 

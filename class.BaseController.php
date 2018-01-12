@@ -22,10 +22,49 @@ abstract class BaseController
     }
 
     protected function IsAdmin(){
+/*        if(isset($_GET['csrf'])){
+            if($_GET['csrf'] !== $_SESSION['csrf_token']) {
+                return false;
+            }
+
+        }
+        elseif(isset($_POST['csrf'])){
+            if($_POST['csrf'] !== $_SESSION['csrf_token']) {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+*/
         if(!isset($_SESSION['username'])){
             return false;
         }
         return $this->dataAccess->isAdministrator($_SESSION['username']);
+    }
+
+    protected function IsLoggedIn(){
+ /*       if(isset($_GET['csrf'])){
+            if($_GET['csrf'] !== $_SESSION['csrf_token']) {
+                return false;
+            }
+
+        }
+        elseif(isset($_POST['csrf'])){
+            if($_POST['csrf'] !== $_SESSION['csrf_token']) {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+*/
+        if(!isset($_SESSION['username'])){
+            return false;
+        }
+        return true;
     }
 }
 

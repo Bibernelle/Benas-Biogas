@@ -41,10 +41,15 @@ class PagesController extends BaseController
         $data = $request->request->all();
 
         if (isset($data['content'])) {
-            $this->dataAccess->AddContent('AnlageContent', $data['content']);
+            for ($i = 0; $i < count($data['content']); $i++) {
+                $this->dataAccess->AddContent('AnlageContent'.$i, $data['content'][$i]);
+            }
         }
-
-        $html = $this->twig->render('anlage.twig', array('IsAdmin'=>$this->IsAdmin(), 'AnlageContent'=>$this->dataAccess->GetContent('AnlageContent')));
+        $content = array();
+        for($i = 0; $i < 11; $i++){
+            array_push($content, $this -> dataAccess -> GetContent('AnlageContent'.$i));
+        }
+        $html = $this->twig->render('anlage.twig', array('IsAdmin'=>$this->IsAdmin(), 'AnlageContent'=>$content));
         return new Response($html, Response::HTTP_OK);
     }
     public function rohstoffmanagement($request)

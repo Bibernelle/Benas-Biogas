@@ -10,7 +10,9 @@
 
 {% block content %}
 <form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
-    <label for="header">Header</label>
+    <h1>Der BENAS Blog</h1>
+    <h2>eigenen Blogpost erstellen:</h2>
+    <label for="header">Überschrift</label>
     <input name="header" type="text">
 
     </input>
@@ -29,9 +31,11 @@
     {% for article in articles %}
         <div class="article">
         <h2>{{ article.Header }}</h2>
-        <h3>{{ article.UserName }}</h3>
+        <h4>erstellt von {{ article.UserName }}</h4>
         <p>{{ article.Text }}</p>
+        {% if article.ImagePath|length > 0 %}
         <img src="../../{{ article.ImagePath }}"> </img>
+        {%  endif %}
         <p>{{ article.Timestamp }}</p>
         </div>
     {% endfor %}

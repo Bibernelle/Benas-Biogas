@@ -10,345 +10,631 @@
 
 
 {% block content %}
+    {% if IsAdmin %}
+        <form action="../../index.php/Pages/anlage" method="post">
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[0]|length > 0 %}
+                    {{ AnlageContent[0] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
 
-<h1 id="anlage-headtext">Die Anlage Vorwerk</h1>
-<p id="anlage-headtext">Vom Herbst 1999 bis in das Frühjahr 2000 wurde am Standort Vorwerk<br> eine
-    Biomasse-Vergärungsanlage nach den Plänen von Herrn Jürgen Heitmann errichtet.
-</p>
-<div class="anlage-content-wrapper">
-    <h1>Die Anlage im Einzelnen</h1>
-    <p class="anlage-content">Die BENAS GmbH besteht seit 01.05.1999. Alleiniger Gesellschafter und Geschäftsführer ist
-        Jürgen Heitmann. Gärvolumen ca. 5.000m³, geplante Leistung 800kW elektrisch. Diese Anlage wurde mit Rindergülle,
-        nachwachsenden Rohstoffen und Kofermenten aus der Lebensmittelindustrie betrieben. Bis zum Jahr 2006 wurde diese
-        Anlage stetig weiterentwickelt und ausgebaut. So wurde eine Hygienisierungsanlage und eine Gaskühlung errichtet,
-        der Feststoffeintrag erneuert und weitere Blockheizkraftwerke angeschafft.</p>
+            <input type="submit" value="save"/>
+            <img class="resize" alt="Anlage Vorwerk" src="../../Images/vorwerk1.jpg" title="Anlage Vorwerk"/>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[1]|length > 0 %}
+                    {{ AnlageContent[1] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
 
-    <p class="anlage-content">Derzeit ist die Anlage mit einer installierten elektrischen Leistung von 2.200 kW
-        ausgerüstet. Im Winter 06/07 wurde ein weiterer Gärbehälter mit einem Volumen von 5.000 m³ errichtet. Seit 2007
-        wird diese Anlage nur noch mit nachwachsenden Rohstoffen und Hühnertrockenkot betrieben (NaWaRo-Anlage).</p>
-    <img class="resize" alt="Anlage Vorwerk" src="../../Images/vorwerk1.jpg" title="Anlage Vorwerk">
-    <p class="anlage-content">Im Jahr 2004 begannen die Pläne zur Errichtung einer Vergärungsanlage in Ottersberg.</p>
-
-    <!--<ul>
-       <li>Gärvolumen ca. 5.000m³</li>
-       <li>Geplante Leistung 800kW elektrisch</li>
-       <li>Hydraulische Verweilzeit ca. 150 Tage</li>
-       <li>Installierte elektrische Leistung 5.240 kW (5 Blockheizkraftwerke GE-Jenbacher JGC 320, jeweils 1.048 kW elektrisch, Wirkungsgrad 40,9%)</li>
-       <li>Lagerplatz Fahrsilo 130 x 65 Meter, 3 Meter Wandhöhe</li>
-    </ul> -->
-</div>
-<h1 id="anlage-headtext">Die Anlage Ottersberg</h1>
-<p id="anlage-headtext">Am Standort 28870 Ottersberg, Kreuzbuchen 2 wird von der BENAS Biogasanlage GmbH eine
-    Biomasse-Vergärungsanlage betrieben.<br> Die Auslegung, Planung und Bauleitung hat die BENAS selbst durchgeführt.
-</p>
-
-<div class="anlage-content-wrapper">
-    <h1>Die Anlage im Einzelnen</h1>
-    <ul>
-        <li>Genehmigte Jahresmenge 175.000 Tonnen; derzeitiger Betrieb: NawaRo (Nachwachsende Rohstoffe)</li>
-        <li>Thermophiler Betrieb 50°C</li>
-        <li>Hydraulische Verweilzeit ca. 150 Tage</li>
-        <li>Installierte elektrische Leistung 5.240 kW (5 Blockheizkraftwerke GE-Jenbacher JGC 320, jeweils 1.048 kW
-            elektrisch, Wirkungsgrad 40,9%)
-        </li>
-        <li>Lagerplatz Fahrsilo 130 x 65 Meter, 3 Meter Wandhöhe</li>
-    </ul>
-    <div id="slideshow">
-        <div class="slide-wrapper">
-            <div class="slide">
-                <figure class="slide-img">
-                    <img alt="Anlage01.jpg" src="../../Images/Anlage01.jpg"/>
-                    <figcaption>
-                        <p> Blockheizkraftwerke GE-Jenbacher JGC 320</p>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="slide">
-                <figure class="slide-img">
-                    <img alt="Anlage02.jpg" src="../../Images/Anlage02.jpg"/>
-                    <figcaption>
-                        <p> Blockheizkraftwerk</p>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="slide">
-                <figure class="slide-img">
-                    <img alt="Anlage03.jpg" src="../../Images/Anlage03.jpg"/>
-                    <figcaption>
-                        <p> GE-Jenbacher JGC 320 (Detail)</p>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="slide">
-                <figure class="slide-img">
-                    <img alt="Anlage04.jpg" src="../../Images/Anlage04.jpg"/>
-                    <figcaption>
-                        <p> Lagerplatz Fahrsilo</p>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="anlage-content-wrapper">
-    <h1>Eintragssystem</h1>
-    <ul>
-        <li>Annahme- und Produktionshalle 30 x 50 Meter, 2 Gassen zur Flüssigannahme, 1 Gasse für nachwachsende
-            Rohstoffe ausgerüstet mit Schubboden für 200m³ Silage
-        </li>
-        <li>Annahmebereich mit Luftabsaugung und Gasdetektoren (CO, H2S)</li>
-        <li>Zentrale Saug-Druckstation für flüssige Stoffe mit Verteilstation</li>
-        <li>Einbringung der nachwachsenden Rohstoffe über Schubboden</li>
-    </ul>
-    <div id="slideshow">
-        <div class="slide-wrapper">
-            <div class="slide">
-                <figure class="slide-img">
-            <img alt="Stoffannahme01.jpg" src="../../Images/Stoffannahme01.jpg"/>
-            <figcaption>
-                <p>Zentrale Saug-Druckstation</p>
-            </figcaption>
-        </figure>
-                <div class="slide">
-                    <figure class="slide-img">
-            <img alt="Stoffannahme02.jpg" src="../../Images/Stoffannahme02.jpg"/>
-            <figcaption>
-                <p>Einbringung der nachwachsenden Rohstoffe</p>
-            </figcaption>
-        </figure>
-                </div>
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
                     <div class="slide">
                         <figure class="slide-img">
-            <img alt="Stoffannahme03.jpg" src="../../Images/Stoffannahme03.jpg"/>
-            <figcaption>
-                <p>Einbringung der nachwachsenden Rohstoffe(Detail)</p>
-            </figcaption>
-        </figure>
+                            <img alt="Anlage01.jpg" src="../../Images/Anlage01.jpg"/>
+                            <figcaption>
+                                <p> Blockheizkraftwerke GE-Jenbacher JGC 320</p>
+                            </figcaption>
+                        </figure>
                     </div>
-    </div>
-</div>
-    </div>
-</div>
-<div class="anlage-content-wrapper">
-    <h1>Gärbehälter</h1>
-    <ul>
-        <li>2 Fermenter Spannbetonbehälter, Durchmesser 33 Meter, Höhe 5,80 Meter, Tragluftgasspeichersystem BAUR,
-            jeweils 2 Tauchmotorrührwerke, 2 Wandrührwerke, 2 Serviceschächte
-        </li>
-        <li>2 Nachgärer Spannbetonbehälter, Durchmesser 33 Meter, Höhe 5,80 Meter, Tragluftgasspeichersystem BAUR,
-            jeweils 2 Tauchmotorrührwerke, 2 Wandrührwerke, 2 Serviceschächte
-        </li>
-        <li>2 Endlager Spannbetonbehälter, Durchmesser 33 Meter, Höhe 5,80 Meter, Tragluftgasspeichersystem BAUR,
-            jeweils 2 Tauchmotorrührwerke, 2 Wandrührwerke, 2 Serviceschächte
-        </li>
-    </ul>
-    <div id="slideshow">
-        <div class="slide-wrapper">
-            <div class="slide">
-                <figure class="slide-img">
-            <img alt="Gärbehälter01.jpg" src="../../Images/Gärbehälter01.jpg"/>
-            <figcaption>
-                <p>Fermenter</p>
-            </figcaption>
-        </figure>
-    </div>
-</div>
-    </div>
-</div>
-<div class="anlage-content-wrapper">
-    <h1>Gasleitung/Aufbereitung</h1>
-    <ul>
-        <li>Gasentnahme von allen Behältern über Serviceschächte auf zwei im Erdreich verlegte Gasrohre, Gaskühlung und
-            –verdichtung zentral
-        </li>
-    </ul>
-    <div id="slideshow">
-        <div class="slide-wrapper">
-            <div class="slide">
-                <figure class="slide-img">
-            <img alt="Gasleitung01.jpg" src="../../Images/Gasleitung01.jpg"/>
-            <figcaption>
-                <p>Serviceschächte</p>
-            </figcaption>
-        </figure>
-    </div>
-</div>
-    </div>
-</div>
-<div class="anlage-content-wrapper">
-    <h1>Ammonium-Strippanlage</h1>
-    <ul>
-        <li>Stickstoffentfernung aus dem Gärrest mittels einer Ammonium-Strippanlage, Durchsatz 25m³/h</li>
-    </ul>
-</div>
-
-    <div class="anlage-content-wrapper">
-        <h1>Entwässerung</h1>
-        <ul>
-            <li>Entwässerung des Gärrest durch Zugabe von Flockmittel und Dekanter, 25m³/h</li>
-        </ul>
-        <div id="slideshow">
-            <div class="slide-wrapper">
-                <div class="slide">
-                    <figure class="slide-img">
-                <img alt="Entwässerung01.jpg" src="../../Images/Entwässerung01.jpg"/>
-                <figcaption>
-                    <p>Entwässerungssektion</p>
-                </figcaption>
-            </figure>
-        </div>
-    </div>
-        </div>
-    </div>
-    <div class="anlage-content-wrapper">
-        <h1>Trocknung Gärrest</h1>
-        <ul>
-            <li>Trocknung des entwässerten Schlammes von 25% auf >90% TS mittels Drehrohrtrockner, 2.500 kg/h
-                Wasserverdampfung
-            </li>
-        </ul>
-        <div id="slideshow">
-            <div class="slide-wrapper">
-                <div class="slide">
-                    <figure class="slide-img">
-                <img alt="Gärrest01.jpg" src="../../Images/Gärrest01.jpg"/>
-                <figcaption>
-                    <p>Drehrohrtrockner</p>
-                </figcaption>
-            </figure>
-        </div>
-            </div>
-    </div>
-    </div>
-    <div class="anlage-content-wrapper">
-        <h1>Trocknung Hackschnitzel etc.</h1>
-        <ul>
-            <li>Trocknung von Hackschnitzel, Rinde, Sägemehl, Scheitholz in einer Trocknungshalle 18 x 30 Meter, 2 x
-                1.000 m³ Volumen
-            </li>
-        </ul>
-        <div id="slideshow">
-            <div class="slide-wrapper">
-                <div class="slide">
-                    <figure class="slide-img">
-                <img alt="Hackschnitzel01.jpg" src="../../Images/Hackschnitzel01.jpg"/>
-                <figcaption>
-                    <p>Trocknungshalle</p>
-                </figcaption>
-            </figure>
-        </div>
-            </div>
-    </div>
-    </div>
-    <div class="anlage-content-wrapper">
-        <h1>Lager-, Umschlagshalle</h1>
-        <ul>
-            <li>Halle 25 x 50 Meter, eine Seite offen mit Schleppdach, Fußbodenheizung für Lagerung und Umschlag von
-                getrockneten Gärresten, Hackschnitzel, Rinde etc.
-            </li>
-        </ul>
-        <div id="slideshow">
-            <div class="slide-wrapper">
-                <div class="slide">
-                    <figure class="slide-img">
-                <img alt="Umschlagshalle01.jpg" src="../../Images/Umschlagshalle01.jpg"/>
-                <figcaption>
-                    <p>Umschlagshalle</p>
-                </figcaption>
-            </figure>
-        </div>
-            </div>
-    </div>
-    </div>
-    <div class="anlage-content-wrapper">
-        <h1>Fuhrpark</h1>
-        <ul>
-            <li>9 Sattelzugmaschinen</li>
-            <li>4 Edelstahl Pump-Tankwagen</li>
-            <li>1 Vakuumtankauflieger, 3 Alu-Kippauflieger, 3 Schubbodenauflieger</li>
-            <li>3 Radlader, 2 Teleskoplader</li>
-            <li>14 Schlepper</li>
-            <li>1 Maishäcksler, 1 Mähdrescher</li>
-            <li>7 Häckseltransportwagen</li>
-            <li>3 Güllefässer</li>
-        </ul>
-        <div id="slideshow">
-            <div class="slide-wrapper">
-                <div class="slide">
-                    <figure class="slide-img">
-                <img alt="Fuhrpark01.jpg" src="../../Images/Fuhrpark01.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                </div>
                     <div class="slide">
                         <figure class="slide-img">
-                <img alt="Fuhrpark02.jpg" src="../../Images/Fuhrpark02.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
+                            <img alt="Anlage02.jpg" src="../../Images/Anlage02.jpg"/>
+                            <figcaption>
+                                <p> Blockheizkraftwerk</p>
+                            </figcaption>
+                        </figure>
                     </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage03.jpg" src="../../Images/Anlage03.jpg"/>
+                            <figcaption>
+                                <p> GE-Jenbacher JGC 320 (Detail)</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage04.jpg" src="../../Images/Anlage04.jpg"/>
+                            <figcaption>
+                                <p> Lagerplatz Fahrsilo</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[2]|length > 0 %}
+                    {{ AnlageContent[2] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Stoffannahme01.jpg" src="../../Images/Stoffannahme01.jpg"/>
+                            <figcaption>
+                                <p>Zentrale Saug-Druckstation</p>
+                            </figcaption>
+                        </figure>
                         <div class="slide">
                             <figure class="slide-img">
-                <img alt="Fuhrpark03.jpg" src="../../Images/Fuhrpark03.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
+                                <img alt="Stoffannahme02.jpg" src="../../Images/Stoffannahme02.jpg"/>
+                                <figcaption>
+                                    <p>Einbringung der nachwachsenden Rohstoffe</p>
+                                </figcaption>
+                            </figure>
                         </div>
-                            <div class="slide">
-                                <figure class="slide-img">
-                <img alt="Fuhrpark04.jpg" src="../../Images/Fuhrpark04.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                            </div>
-                                <div class="slide">
-                                    <figure class="slide-img">
-                <img alt="Fuhrpark05.jpg" src="../../Images/Fuhrpark05.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                                </div>
-                                    <div class="slide">
-                                        <figure class="slide-img">
-                <img alt="Fuhrpark06.jpg" src="../../Images/Fuhrpark06.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                                    </div>
-                                        <div class="slide">
-                                            <figure class="slide-img">
-                <img alt="Fuhrpark07.jpg" src="../../Images/Fuhrpark07.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                                        </div>
-                                            <div class="slide">
-                                                <figure class="slide-img">
-                <img alt="Fuhrpark08.jpg" src="../../Images/Fuhrpark08.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                                            </div>
-                                                <div class="slide">
-                                                    <figure class="slide-img">
-                <img alt="Fuhrpark09.jpg" src="../../Images/Fuhrpark09.jpg"/>
-                <figcaption>
-                    <p>[ ]</p>
-                </figcaption>
-            </figure>
-                                                </div>
-        </div>
+                        <div class="slide">
+                            <figure class="slide-img">
+                                <img alt="Stoffannahme03.jpg" src="../../Images/Stoffannahme03.jpg"/>
+                                <figcaption>
+                                    <p>Einbringung der nachwachsenden Rohstoffe(Detail)</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[3]|length > 0 %}
+                    {{ AnlageContent[3] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gärbehälter01.jpg" src="../../Images/Gärbehälter01.jpg"/>
+                            <figcaption>
+                                <p>Fermenter</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[4]|length > 0 %}
+                    {{ AnlageContent[4] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gasleitung01.jpg" src="../../Images/Gasleitung01.jpg"/>
+                            <figcaption>
+                                <p>Serviceschächte</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[5]|length > 0 %}
+                    {{ AnlageContent[5] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[6]|length > 0 %}
+                    {{ AnlageContent[6] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Entwässerung01.jpg" src="../../Images/Entwässerung01.jpg"/>
+                            <figcaption>
+                                <p>Entwässerungssektion</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[7]|length > 0 %}
+                    {{ AnlageContent[7] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Hackschnitzel01.jpg" src="../../Images/Hackschnitzel01.jpg"/>
+                            <figcaption>
+                                <p>Trocknungshalle</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[8]|length > 0 %}
+                    {{ AnlageContent[8] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gärrest01.jpg" src="../../Images/Gärrest01.jpg"/>
+                            <figcaption>
+                                <p>Drehrohrtrockner</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[9]|length > 0 %}
+                    {{ AnlageContent[9] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Umschlagshalle01.jpg" src="../../Images/Umschlagshalle01.jpg"/>
+                            <figcaption>
+                                <p>Umschlagshalle</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <textarea name="content[]" class="content" rows="10" cols="80">
+                {% if AnlageContent[10]|length > 0 %}
+                    {{ AnlageContent[10] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+            </textarea>
+
+            <input type="submit" value="save"/>
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark01.jpg" src="../../Images/Fuhrpark01.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark02.jpg" src="../../Images/Fuhrpark02.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark03.jpg" src="../../Images/Fuhrpark03.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark04.jpg" src="../../Images/Fuhrpark04.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark05.jpg" src="../../Images/Fuhrpark05.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark06.jpg" src="../../Images/Fuhrpark06.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark07.jpg" src="../../Images/Fuhrpark07.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark08.jpg" src="../../Images/Fuhrpark08.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark09.jpg" src="../../Images/Fuhrpark09.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $('.content').each(function(i,l){
+                    ClassicEditor
+                        .create( l )
+                        .catch( error => {
+                        console.error( error );
+                } );
+                });
+
+            </script>
+        </form>
+
+    {% else %}
+        {% autoescape %}
+
+                {% if AnlageContent[0]|length > 0 %}
+                    {{ AnlageContent[0] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+
+
+            <img class="resize" alt="Anlage Vorwerk" src="../../Images/vorwerk1.jpg" title="Anlage Vorwerk"/>
+
+                {% if AnlageContent[1]|length > 0 %}
+                    {{ AnlageContent[1] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage01.jpg" src="../../Images/Anlage01.jpg"/>
+                            <figcaption>
+                                <p> Blockheizkraftwerke GE-Jenbacher JGC 320</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage02.jpg" src="../../Images/Anlage02.jpg"/>
+                            <figcaption>
+                                <p> Blockheizkraftwerk</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage03.jpg" src="../../Images/Anlage03.jpg"/>
+                            <figcaption>
+                                <p> GE-Jenbacher JGC 320 (Detail)</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Anlage04.jpg" src="../../Images/Anlage04.jpg"/>
+                            <figcaption>
+                                <p> Lagerplatz Fahrsilo</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[2]|length > 0 %}
+                    {{ AnlageContent[2] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Stoffannahme01.jpg" src="../../Images/Stoffannahme01.jpg"/>
+                            <figcaption>
+                                <p>Zentrale Saug-Druckstation</p>
+                            </figcaption>
+                        </figure>
+                        <div class="slide">
+                            <figure class="slide-img">
+                                <img alt="Stoffannahme02.jpg" src="../../Images/Stoffannahme02.jpg"/>
+                                <figcaption>
+                                    <p>Einbringung der nachwachsenden Rohstoffe</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="slide">
+                            <figure class="slide-img">
+                                <img alt="Stoffannahme03.jpg" src="../../Images/Stoffannahme03.jpg"/>
+                                <figcaption>
+                                    <p>Einbringung der nachwachsenden Rohstoffe(Detail)</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[3]|length > 0 %}
+                    {{ AnlageContent[3] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gärbehälter01.jpg" src="../../Images/Gärbehälter01.jpg"/>
+                            <figcaption>
+                                <p>Fermenter</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[4]|length > 0 %}
+                    {{ AnlageContent[4] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gasleitung01.jpg" src="../../Images/Gasleitung01.jpg"/>
+                            <figcaption>
+                                <p>Serviceschächte</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[5]|length > 0 %}
+                    {{ AnlageContent[5] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+
+                {% if AnlageContent[6]|length > 0 %}
+                    {{ AnlageContent[6] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Entwässerung01.jpg" src="../../Images/Entwässerung01.jpg"/>
+                            <figcaption>
+                                <p>Entwässerungssektion</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[7]|length > 0 %}
+                    {{ AnlageContent[7] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Hackschnitzel01.jpg" src="../../Images/Hackschnitzel01.jpg"/>
+                            <figcaption>
+                                <p>Trocknungshalle</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[8]|length > 0 %}
+                    {{ AnlageContent[8] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Gärrest01.jpg" src="../../Images/Gärrest01.jpg"/>
+                            <figcaption>
+                                <p>Drehrohrtrockner</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[9]|length > 0 %}
+                    {{ AnlageContent[9] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Umschlagshalle01.jpg" src="../../Images/Umschlagshalle01.jpg"/>
+                            <figcaption>
+                                <p>Umschlagshalle</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+                {% if AnlageContent[10]|length > 0 %}
+                    {{ AnlageContent[10] }}
+                {% else %}
+                    <p>ughniujfsd</p>
+                {% endif %}
+
+            <div id="slideshow">
+                <div class="slide-wrapper">
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark01.jpg" src="../../Images/Fuhrpark01.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark02.jpg" src="../../Images/Fuhrpark02.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark03.jpg" src="../../Images/Fuhrpark03.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark04.jpg" src="../../Images/Fuhrpark04.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark05.jpg" src="../../Images/Fuhrpark05.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark06.jpg" src="../../Images/Fuhrpark06.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark07.jpg" src="../../Images/Fuhrpark07.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark08.jpg" src="../../Images/Fuhrpark08.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure class="slide-img">
+                            <img alt="Fuhrpark09.jpg" src="../../Images/Fuhrpark09.jpg"/>
+                            <figcaption>
+                                <p>[ ]</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        {% endautoescape %}
+    {% endif %}
 
     {% endblock %}
