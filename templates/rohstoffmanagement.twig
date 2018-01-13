@@ -25,9 +25,10 @@
             </textarea>
             <input type="submit" value="save"/>
             <script>
+
                 ClassicEditor
                     .create(document.querySelector('#content'))
-                    .catch(error = > {
+                    .catch(error => {
                     console.error(error);
                 } )
                 ;

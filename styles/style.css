@@ -1,7 +1,7 @@
 @charset "utf-8";
 @font-face {
     font-family: 'Lato';
-    src: url('../../Fonts/Lato-Black.ttf') format('truetype'), url('../../Fonts/Lato-Bold.ttf') format('truetype'), url('../../Fonts/Lato-Hairline.ttf') format('truetype'), url('../../Fonts/Lato-Heavy.ttf') format('truetype'), url('../../Fonts/Lato-Light.ttf') format('truetype'), url('../../Fonts/Lato-Medium.ttf') format('truetype'), url('../../Fonts/Lato-Regular.ttf') format('truetype'), url('../../Fonts/Lato-Semibold.ttf') format('truetype'), url('../../Fonts/Lato-Thin.ttf') format('truetype');
+    src: url('../Fonts/Lato-Black.ttf') format('truetype'), url('../Fonts/Lato-Bold.ttf') format('truetype'), url('../Fonts/Lato-Hairline.ttf') format('truetype'), url('../Fonts/Lato-Heavy.ttf') format('truetype'), url('../Fonts/Lato-Light.ttf') format('truetype'), url('../Fonts/Lato-Medium.ttf') format('truetype'), url('../Fonts/Lato-Regular.ttf') format('truetype'), url('../Fonts/Lato-Semibold.ttf') format('truetype'), url('../Fonts/Lato-Thin.ttf') format('truetype');
 }
 
 

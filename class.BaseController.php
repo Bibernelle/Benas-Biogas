@@ -26,29 +26,28 @@ abstract class BaseController
                 $parameters[CSRF_TOKEN]=$_SESSION[CSRF_TOKEN];
         }
         $parameters['IsAdmin']=$this->IsAdmin();
-        print_r($parameters);
+
         return $this->twig->render($viewPath, $parameters);
     }
 
     protected function IsAdmin(){
         if(isset($_GET[CSRF_TOKEN], $_SESSION[CSRF_TOKEN])){
-            print("get token isset");
+
             if($_GET[CSRF_TOKEN] !== $_SESSION[CSRF_TOKEN]) {
-                print("get token is wrong");
+
                 return false;
             }
 
         }
         elseif(isset($_POST[CSRF_TOKEN], $_SESSION[CSRF_TOKEN])){
-            print("post token isset");
+
             if($_POST[CSRF_TOKEN] !== $_SESSION[CSRF_TOKEN]) {
-                print("post token is wrong");
-                print("$_POST[CSRF_TOKEN] !== $_SESSION[CSRF_TOKEN]");
+
                 return false;
             }
         }
         else{
-            print("no token set");
+
             return false;
         }
 

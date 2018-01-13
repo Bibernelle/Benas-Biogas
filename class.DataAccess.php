@@ -183,8 +183,6 @@ class DataAccess extends Database
         $sql = "select * from UserRole";
         foreach ($this->databaseHandle->query($sql) as $row) {
             array_push($results, $row['Name']);
-          // print_r($results);
-
         }
         return $results;
     }
@@ -280,7 +278,7 @@ class DataAccess extends Database
               LEFT JOIN User ON (Article.UserID=User.ID)";
         foreach ($this->databaseHandle->query($sql) as $row) {
             array_push($results, $row);
-            // print_r($results);
+
 
         }
         return $results;

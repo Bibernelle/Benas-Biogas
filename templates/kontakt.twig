@@ -29,6 +29,7 @@
         <li>04205 - 3195 440</li>
         <li>04205 - 3195 441</li>
     </ul>
+
 {% endset %}
 
 {% block content %}
@@ -46,7 +47,7 @@
             <script>
                 ClassicEditor
                     .create(document.querySelector('#content'))
-                    .catch(error = > {
+                    .catch(error => {
                     console.error(error);
                 } )
                 ;

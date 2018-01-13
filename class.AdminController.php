@@ -137,7 +137,7 @@ class AdminController extends BaseController
 
                 $path = null;
 
-                if(isset($data['fileToUpload'])) {
+                if(isset($_FILES["fileToUpload"])) {
                     $path = $this->UploadFile();
                 }
 
