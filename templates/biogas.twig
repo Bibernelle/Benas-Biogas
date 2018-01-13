@@ -23,6 +23,7 @@
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/biogas" method="post">
+ <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
             <textarea name="content" id="content" rows="10" cols="80">
                 {% if BiogasContent|length > 0 %}
                     {{ BiogasContent }}

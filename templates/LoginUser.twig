@@ -3,19 +3,20 @@
 
 {% block title %} LoginUser {% endblock %}
 
-{% block bodyClass %}LoginUser{% endblock %}
+{% block bodyClass %}mitarbeiter{% endblock %}
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
 
 {% block content %}
     {% include 'list.twig' %}
-<form action="../../index.php/Admin/LoginUser" method="post">
-    <label for="username">username</label>
-    <input name="username" type="text"/>
-    <label for="password">password</label>
-    <input name="password" type="password"/>
-    <input type="submit" value="Login"/>
-</form>
+    <form action="../../index.php/Admin/LoginUser" method="post">
+        <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
+        <label for="username">username</label>
+        <input name="username" type="text"/>
+        <label for="password">password</label>
+        <input name="password" type="password"/>
+        <input type="submit" value="Login"/>
+    </form>
 
 {% endblock %}

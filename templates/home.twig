@@ -3,6 +3,8 @@
 
 {% block title %} Home {% endblock %}
 
+{% block bodyClass %}home{% endblock %}
+
 {% block wrapperPrefix %}home{% endblock %}
 
 {% set homeInitContent %}
@@ -16,6 +18,7 @@
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/home" method="post">
+            <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
             <textarea name="content" id="content" rows="10" cols="80">
                 {% if HomeContent|length > 0 %}
                     {{ HomeContent }}
@@ -24,22 +27,23 @@
                 {% endif %}
             </textarea>
             <input type="submit" value="save"/>
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#content' ) )
-                .catch( error => {
-                console.error( error );
-            } );
-        </script>
-    </form>
-{% else %}
-    {% autoescape %}
-        {% if HomeContent|length > 0 %}
-            {{ HomeContent|raw }}
-        {% else %}
-            {{ homeInitContent }}
-        {% endif %}
-    {% endautoescape %}
+            <script>
+                ClassicEditor
+                    .create(document.querySelector('#content'))
+                    .catch(error = > {
+                    console.error(error);
+                } )
+                ;
+            </script>
+        </form>
+    {% else %}
+        {% autoescape %}
+            {% if HomeContent|length > 0 %}
+                {{ HomeContent|raw }}
+            {% else %}
+                {{ homeInitContent }}
+            {% endif %}
+        {% endautoescape %}
     {% endif %}
 {% endblock %}
 

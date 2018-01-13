@@ -3,7 +3,7 @@
 
 {% block title %} CreateArticle {% endblock %}
 
-{% block bodyClass %}CreateArticle{% endblock %}
+{% block bodyClass %}mitarbeiter{% endblock %}
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
@@ -11,7 +11,7 @@
 {% block content %}
     {% include 'list.twig' %}
 <form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
-
+    <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
     <h1>Der BENAS Blog</h1>
     <h2>eigenen Blogpost erstellen:</h2>
     <label for="header">Überschrift</label>

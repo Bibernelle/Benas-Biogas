@@ -17,24 +17,24 @@ class AdminController extends BaseController
     public function CreateUser(Request $request)
     {
         if (!$this->IsAdmin()) {
-            $html = $this->twig->render('Error.twig',
+            $html = $this->Render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
         }
         $data = $request->request->all();
       if (isset($data['username'], $data['password'], $data['role'])) {
             if ($this->dataAccess->AddUser($data['username'], $data['password'])) {
-                $html = $this->twig->render('UserCreated.twig',
+                $html = $this->Render('UserCreated.twig',
                     array('username' => $data['username'], 'role' => $data['role']));
                 $this->dataAccess->AssignUserRole($data['username'], $data['role']);
             } else {
-                $html = $this->twig->render('Error.twig',
+                $html = $this->Render('Error.twig',
                     ['error' => "Can't create user"]);
                 return new Response($html, Response::HTTP_FORBIDDEN);
             }
         } else {
             $roles = $this->dataAccess->GetAllRoles();
-            $html = $this->twig->render('CreateUser.twig', ['roles' => $roles]);
+            $html = $this->Render('CreateUser.twig', ['roles' => $roles]);
         }
 
         return new Response($html, Response::HTTP_OK);
@@ -43,25 +43,25 @@ class AdminController extends BaseController
     public function DeleteUser(Request $request)
     {
         if (!$this->isAdmin()) {
-            $html = $this->twig->render('Error.twig',
+            $html = $this->Render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
         }
         $data = $request->request->all();
         if (isset($data['username'])) {
             if ($this->dataAccess->DeleteUser($data['username'])) {
-                $html = $this->twig->render('UserDeleted.twig',
+                $html = $this->Render('UserDeleted.twig',
                     ['username' => $data['username']]);
 
             } else {
-                $html = $this->twig->render('Error.twig',
+                $html = $this->Render('Error.twig',
                     ['error' => "Can't delete user"]);
                 return new Response($html, Response::HTTP_FORBIDDEN);
             }
         } else {
             $users = $this->dataAccess->GetAllUsers();
             $users = array_diff($users, array($_SESSION['username']));
-            $html = $this->twig->render('DeleteUser.twig', array('users' => $users));
+            $html = $this->Render('DeleteUser.twig', array('users' => $users));
         }
 
         return new Response($html, Response::HTTP_OK);
@@ -74,15 +74,15 @@ class AdminController extends BaseController
 
         if (isset($data['username'], $data['password'])) {
             if ($this->dataAccess->LoginUser($data['username'], $data['password'])) {
-                $html = $this->twig->render('LoggedIn.twig',
+                $html = $this->Render('LoggedIn.twig',
                     ['username' => $data['username']]);
             } else {
-                $html = $this->twig->render('Error.twig',
+                $html = $this->Render('Error.twig',
                     ['error' => "Can't loggin user"]);
                 return new Response($html, Response::HTTP_FORBIDDEN);
             }
         } else {
-            $html = $this->twig->render('LoginUser.twig');
+            $html = $this->Render('LoginUser.twig');
         }
 
         return new Response($html, Response::HTTP_OK);
@@ -91,14 +91,15 @@ class AdminController extends BaseController
     public function LogoutUser()
     {
         unset($_SESSION['username']);
-        $html = $this->twig->render('LoggedOut.twig');
+        unset($_SESSION[CSRF_TOKEN]);
+        $html = $this->Render('LoggedOut.twig');
         return new Response($html, Response::HTTP_OK);
     }
 
     public function AssignRole(Request $request)
     {
         if (!$this->isAdmin()) {
-            $html = $this->twig->render('Error.twig',
+            $html = $this->Render('Error.twig',
                 ['error' => 'User not logged in or not permitted']);
             return new Response($html, Response::HTTP_FORBIDDEN);
         }
@@ -106,17 +107,17 @@ class AdminController extends BaseController
 
         if (isset($data['username'], $data['role'])) {
             if ($this->dataAccess->AssignUserRole($data['username'], $data['role'])) {
-                $html = $this->twig->render('RoleAssigned.twig',
+                $html = $this->Render('RoleAssigned.twig',
                     array('username' => $data['username'], 'role' => $data['role']));
             } else {
-                $html = $this->twig->render('Error.twig',
+                $html = $this->Render('Error.twig',
                     ['error' => "Can't assign role to user"]);
                 return new Response($html, Response::HTTP_FORBIDDEN);
             }
         } else {
             $roles = $this->dataAccess->GetAllRoles();
             $users = $this->dataAccess->GetAllUsers();
-            $html = $this->twig->render('AssignRole.twig', array('users' => $users, 'roles' => $roles));
+            $html = $this->Render('AssignRole.twig', array('users' => $users, 'roles' => $roles));
         }
 
         return new Response($html, Response::HTTP_OK);
@@ -144,16 +145,16 @@ class AdminController extends BaseController
 
                 $articles = $this->dataAccess->GetAllArticles();
 
-                $html = $this->twig->render('CreateArticle.twig', ['articles' => $articles]);
+                $html = $this->Render('CreateArticle.twig', ['articles' => $articles]);
 
             } catch (Exception $e) {
-                $html = $this->twig->render('Error.twig',
+                $html = $this->Render('Error.twig',
                     ['error' => $e->getMessage()]);
                 return new Response($html, Response::HTTP_FORBIDDEN);
             }
         } else {
             $articles = $this->dataAccess->GetAllArticles();
-            $html = $this->twig->render('CreateArticle.twig', ['articles' => $articles]);
+            $html = $this->Render('CreateArticle.twig', ['articles' => $articles]);
         }
 
         return new Response($html, Response::HTTP_OK);

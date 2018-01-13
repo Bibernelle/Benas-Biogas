@@ -15,6 +15,7 @@
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/rohstoffmanagement" method="post">
+            <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
             <textarea name="content" id="content" rows="10" cols="80">
                 {% if RohstoffmanagementContent|length > 0 %}
                     {{ RohstoffmanagementContent }}
@@ -25,10 +26,11 @@
             <input type="submit" value="save"/>
             <script>
                 ClassicEditor
-                    .create( document.querySelector( '#content' ) )
-                    .catch( error => {
-                    console.error( error );
-                } );
+                    .create(document.querySelector('#content'))
+                    .catch(error = > {
+                    console.error(error);
+                } )
+                ;
             </script>
         </form>
     {% else %}

@@ -1,4 +1,5 @@
 <?php
+define("CSRF_TOKEN",     "CSRF_TOKEN");
 date_default_timezone_set("Europe/Berlin");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -20,6 +21,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 $request = Request::createFromGlobals();
 

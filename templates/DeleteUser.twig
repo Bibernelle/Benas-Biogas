@@ -3,7 +3,7 @@
 
 {% block title %} DeleteUser {% endblock %}
 
-{% block bodyClass %}DeleteUser{% endblock %}
+{% block bodyClass %}mitarbeiter{% endblock %}
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
@@ -11,13 +11,14 @@
 {% block content %}
     {% include 'list.twig' %}
     <form action="../../index.php/Admin/DeleteUser" method="post">
+        <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
         <label for="username">username</label>
         <select name="username" type="text">
             {% for user in users %}
                 <option value="{{ user }}">{{ user }}</option>
             {% endfor %}
         </select>
-        <br />
+        <br/>
         <input type="submit" value="Delete"/>
     </form>
 

@@ -3,7 +3,7 @@
 
 {% block title %} AssignRole {% endblock %}
 
-{% block bodyClass %}AssignRole{% endblock %}
+{% block bodyClass %}mitarbeiter{% endblock %}
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
@@ -11,6 +11,7 @@
 {% block content %}
     {% include 'list.twig' %}
 <form action="../../index.php/Admin/AssignRole" method="post">
+ <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
     <label for="username">username</label>
     <select name="username" type="text">
         {% for user in users %}

@@ -18,7 +18,7 @@ body {
 
 ::selection {
     color: #FFFDF9;
-    background-color: #7EB880;
+    background-color: #8ca813;
 }
 body.home {
     background: url(../../Images/Home.jpg) no-repeat center center fixed;
@@ -43,26 +43,10 @@ body.das-team {
     -o-background-size: cover;
     background-size: cover;
 }
-/*body.biogas,
-body.das-team,
-body.anlage,
-body.rohstoffmanagement,
-body.weitere-infos,
-body.kontakt,
-body.anfahrt,
-body.impressum,
-body.timeline,
-body.dokumentation {
-    background: url(../../Images/ContentBG.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
 
 img.resize{
-   width:360px;
-   height:270px;
+    width:360px;
+    height:270px;
 }
 
 footer {
@@ -83,14 +67,14 @@ footer a {
 /*absichtlich grün wegen internem link*/
 
 footer a:hover {
-    color: #7EB880;
+    color: #8ca813;
 }
 h1 {
     text-transform: uppercase;
     color: #333231;
 }
 .links a:visited {
-    color: green;
+    color: #8ca813;
 }
 .links a:active {
     color: blue;
@@ -125,11 +109,11 @@ h1 {
     color: #FFF;
 }
 .menu-mobile a:hover {
-    background: #014A02;
+    background: #8ca813;
     color: #FFFFFF;
 }
 .menu-mobile a:active {
-    background: #014A02;
+    background: #8ca813;
     color: #FFFFFF;
 }
 .menu-desktop {
@@ -155,7 +139,7 @@ h1 {
 }
 .menu-icon {
     padding: 10px 20px;
-    background: #7EB880;
+    background: #8ca813;
     color: #111;
     cursor: pointer;
     float: right;
@@ -182,10 +166,11 @@ body.anlage li.anlage,
 body.rohstoffmanagement li.rohstoffmanagement,
 body.weitere-infos li.weitere-infos,
 body.kontakt li.kontakt,
+body.aktuelles li.aktuelles,
 body.anfahrt li.anfahrt,
-body.dokumentation li.dokumentation,
-body.timeline li.timeline {
-    background-color: #7EB880;
+body.mitarbeiter li.mitarbeiter,
+body.dokumentation li.dokumentation {
+    background-color: #e4ce05;
 }
 .menu-mobile {
     -webkit-user-select: none;
@@ -193,13 +178,11 @@ body.timeline li.timeline {
     -ms-user-select: none;
 }
 .dokumentation,
-.timeline {
-    background: #333;
-}
+
 .home-wrapper {
     background: rgba(0, 0, 0, .6);
 
-  
+
 
 }
 .home-wrapper p {
@@ -252,7 +235,7 @@ body.timeline li.timeline {
     margin: 50px;
 }
 #anlage-headtext {
-     text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px #000;
     color: white;
     margin: 50px;
     text-align: center;
@@ -271,12 +254,12 @@ body.timeline li.timeline {
     box-shadow: 10px 10px 20px #D4D0CC;
 }
 .anlage-content {
-    
+
     text-align: left;
 
     left: 50%;
-    
-margin-top: 30px;
+
+    margin-top: 30px;
     margin-left: 25px;
     margin-right: 25px;
 
@@ -333,12 +316,12 @@ margin-top: 30px;
     box-shadow: 10px 10px 20px #D4D0CC;
 }
 .rohstoffmanagement-content {
-    
+
     text-align: left;
 
     left: 50%;
-    
-margin-top: 30px;
+
+    margin-top: 30px;
     margin-left: 10px;
     margin-right: 10px;
 
@@ -435,7 +418,7 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background: #7EB880;
+    background: #8ca813;
 }
 .anfahrt-wrapper {
     display: block;
@@ -478,18 +461,7 @@ input[type=submit]:hover {
     text-align: center;
     margin: 50px;
 }
-.timeline p {
-    font-family: 'lato thin', 'helvetica', sans-serif;
-    font-size: 1.3em;
-    color: #FFFDF9;
-}
-.timelinethumbs {
-    display: inline-block;
-    width: 25%;
-    height: 25%;
-    min-width: 200px;
-    margin: 20px;
-}
+
 .content {
     text-align: center;
     margin-left: 80px;
@@ -497,83 +469,7 @@ input[type=submit]:hover {
     padding: 30px;
     background-color: #333;
 }
-.timeline-verticalline {
-    position: absolute;
-    left: 50%;
-    width: 4px;
-    margin-left: -2px;
-    margin-top: 20px;
-    background-color: #333;
-    height: 3000px;
-}
-.first-date-line {
-    position: absolute;
-    right: 50%;
-    width: 4%;
-    margin-left: -1px;
-    margin-top: 200px;
-    background-color: #333;
-    height: 4px;
-}
-.first {
-    position: absolute;
-    right: 50%;
-    margin-right: 4%;
-    margin-top: 120px;
-}
-.second-date-line {
-    position: absolute;
-    left: 50%;
-    width: 4%;
-    margin-right: -1px;
-    margin-top: 600px;
-    background-color: #333;
-    height: 4px;
-}
-.second {
-    position: absolute;
-    left: 50%;
-    margin-left: 4%;
-    margin-top: 420px;
-}
-.third-date-line {
-    position: absolute;
-    right: 50%;
-    width: 4%;
-    margin-left: -1px;
-    margin-top: 1000px;
-    background-color: #333;
-    height: 4px;
-}
-.third {
-    position: absolute;
-    right: 50%;
-    margin-right: 4%;
-    margin-top: 900px;
-}
-.fourth-date-line {
-    position: absolute;
-    left: 50%;
-    width: 4%;
-    margin-right: -1px;
-    margin-top: 1400px;
-    background-color: #333;
-    height: 4px;
-}
-.fourth {
-    position: absolute;
-    left: 50%;
-    margin-left: 4%;
-    margin-top: 1300px;
-}
-.fifth {
-    position: absolute;
-    left: 50%;
-    max-width: 400px;
-    margin-left: -240px;
-    margin-top: 3020px;
-    margin-bottom: 200px;
-}
+
 .dokumentation-wrapper {
     display: block;
     margin-left: 1%;
@@ -593,109 +489,20 @@ input[type=submit]:hover {
     text-align: left;
     margin: 50px;
 }
-.slideshow {
-    position: absolute;
-    max-width: 600px;
-    height: 450px;
-    bottom: 0px;
-}
-.slideshow figure {
-    margin-left: 20px;
-    max-width: 580px;
-    height: 420px;
-    background: #000;
-    position: absolute;
-}
+
 img {
     max-width: 580px;
     height: 420px;
-}
-.slideshow figcaption p {
-    position: absolute;
-    margin-top: 250px;
-    padding-top: 40px;
-    width: 560px;
-    height: 75px;
-    top: 0;
-    color: white;
-    background: rgba(0, 0, 0, .8);
-    font-family: 'lato thin';
-    font-size: 1.45em;
-    opacity: 0;
-    transition: opacity .5s;
-}
-.slideshow:hover figure figcaption p {
-    transition: opacity .5s;
-    opacity: 1;
-}
-.slideshow:active figure figcaption p {
-    transition: opacity .5s;
-    opacity: 1;
-}
-.slideshow figure {
-    opacity: 0;
-}
-.slideshow.neun figure:nth-child(1) {
-    animation: xfade9 54s 48s infinite;
-}
-.slideshow.neun figure:nth-child(2) {
-    animation: xfade9 54s 42s infinite;
-}
-.slideshow.neun figure:nth-child(3) {
-    animation: xfade9 54s 36s infinite;
-}
-.slideshow.neun figure:nth-child(4) {
-    animation: xfade9 54s 30s infinite;
-}
-.slideshow.neun figure:nth-child(5) {
-    animation: xfade9 54s 24s infinite;
-}
-.slideshow.neun figure:nth-child(6) {
-    animation: xfade9 54s 18s infinite;
-}
-.slideshow.neun figure:nth-child(7) {
-    animation: xfade9 54s 12s infinite;
-}
-.slideshow.neun figure:nth-child(8) {
-    animation: xfade9 54s 6s infinite;
-}
-.slideshow.neun figure:nth-child(9) {
-    animation: xfade9 54s 0s infinite;
-}
-
-.slideshow.vier figure:nth-child(1) {
-    animation: xfade4 24s 18s infinite;
-}
-.slideshow.vier figure:nth-child(2) {
-    animation: xfade4 24s 12s infinite;
-}
-.slideshow.vier figure:nth-child(3) {
-    animation: xfade4 24s 6s infinite;
-}
-.slideshow.vier figure:nth-child(4) {
-    animation: xfade4 24s 0s infinite;
-}
-.slideshow.drei figure:nth-child(1) {
-    animation: xfade3 18s 12s infinite;
-}
-.slideshow.drei figure:nth-child(2) {
-    animation: xfade3 18s 6s infinite;
-}
-.slideshow.drei figure:nth-child(3) {
-    animation: xfade3 18s 0s infinite;
-}
-.slideshow.eins figure:nth-child(1) {
-    animation: xfade1 6s 0s infinite;
 }
 
 /* The alert message box */
 .alert {
     padding: 20px;
     text-align: center;
-    background-color: #f40405; 
+    background-color: #f40405;
     color: white;
     margin-bottom: 15px;
-} 
+}
 
 /* The close button */
 .closebtn {
@@ -762,15 +569,15 @@ img {
 
 @media (min-width: 1224px) {
     .home-wrapper {
-    position: fixed;
-       bottom: 10%;
+        position: fixed;
+        bottom: 10%;
         width: 100%;
-       
+
     }
     .home-wrapper p {
-    margin-right: 240px;
+        margin-right: 240px;
     }
-    
+
     .das-team-wrapper {
         display: block;
         margin-left: 19%;
@@ -842,7 +649,7 @@ img {
         top: 0;
         width: 100%;
         height: 0;
-        background-color: #014A02;
+        background-color: #8ca813;
         transition: all 250ms;
         z-index: -1;
     }
@@ -857,10 +664,11 @@ img {
     body.rohstoffmanagement li.rohstoffmanagement,
     body.weitere-infos li.weitere-infos,
     body.kontakt li.kontakt,
+    body.aktuelles li.aktuelles,
     body.anfahrt li.anfahrt,
-    body.dokumentation li.dokumentation,
-    body.timeline li.timeline {
-        background-color: #7EB880;
+    body.mitarbeiter li.mitarbeiter,
+    body.dokumentation li.dokumentation {
+        background-color: #e4ce05;
     }
     .big-frame {
         display: block;

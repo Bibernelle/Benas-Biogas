@@ -9,17 +9,18 @@
 
 
 {% block content %}
-        <form action="../../index.php/Pages/impressum" method="post">
-            <h1>Impressum</h1>
-            <p>BENAS GmbH<br />
-               Diekweg 1<br />27412 Vorwerk
-            </p>
-            <p>Telefon: 04288 - 265<br />
-               Telefax: 04288 - 92 89 50<br />
-               E-Mail: <a href="mailto:mail@benas-biogas.com">mail@benas-biogas.com</a><br />
-            </p>
-            <p><strong>Vertreten durch:</strong><br />Geschäftsführer: Jürgen Heitmann <br />
-               Amtsgericht Tostedt HRB 120335
-            </p>
-        </form>
+    <form action="../../index.php/Pages/impressum" method="post">
+        <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
+        <h1>Impressum</h1>
+        <p>BENAS GmbH<br/>
+            Diekweg 1<br/>27412 Vorwerk
+        </p>
+        <p>Telefon: 04288 - 265<br/>
+            Telefax: 04288 - 92 89 50<br/>
+            E-Mail: <a href="mailto:mail@benas-biogas.com">mail@benas-biogas.com</a><br/>
+        </p>
+        <p><strong>Vertreten durch:</strong><br/>Geschäftsführer: Jürgen Heitmann <br/>
+            Amtsgericht Tostedt HRB 120335
+        </p>
+    </form>
 {% endblock %}

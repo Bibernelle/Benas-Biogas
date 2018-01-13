@@ -23,7 +23,7 @@
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/aktuelles" method="post">
-            <textarea name="content" id="content" rows="10" cols="80">
+ <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>            <textarea name="content" id="content" rows="10" cols="80">
                 {% if AktuellesContent|length > 0 %}
                     {{ AktuellesContent }}
                 {% else %}

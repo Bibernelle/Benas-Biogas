@@ -15,12 +15,12 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('HomeContent', $data['content']);
         }
 
-        $html = $this->twig->render('home.twig', array('IsAdmin'=>$this->IsAdmin(), 'HomeContent'=>$this->dataAccess->GetContent('HomeContent')));
+        $html = $this->Render('home.twig', array('IsAdmin'=>$this->IsAdmin(), 'HomeContent'=>$this->dataAccess->GetContent('HomeContent')));
         return new Response($html, Response::HTTP_OK);
     }
     public function dasTeam()
     {
-        $html = $this->twig->render('dasTeam.twig');
+        $html = $this->Render('dasTeam.twig');
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -32,7 +32,7 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('BiogasContent', $data['content']);
         }
 
-        $html = $this->twig->render('biogas.twig', array('IsAdmin'=>$this->IsAdmin(), 'BiogasContent'=>$this->dataAccess->GetContent('BiogasContent')));
+        $html = $this->Render('biogas.twig', array('IsAdmin'=>$this->IsAdmin(), 'BiogasContent'=>$this->dataAccess->GetContent('BiogasContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -49,7 +49,7 @@ class PagesController extends BaseController
         for($i = 0; $i < 11; $i++){
             array_push($content, $this -> dataAccess -> GetContent('AnlageContent'.$i));
         }
-        $html = $this->twig->render('anlage.twig', array('IsAdmin'=>$this->IsAdmin(), 'AnlageContent'=>$content));
+        $html = $this->Render('anlage.twig', array('IsAdmin'=>$this->IsAdmin(), 'AnlageContent'=>$content));
         return new Response($html, Response::HTTP_OK);
     }
     public function rohstoffmanagement($request)
@@ -60,7 +60,7 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('RohstoffmanagementContent', $data['content']);
         }
 
-        $html = $this->twig->render('rohstoffmanagement.twig', array('IsAdmin'=>$this->IsAdmin(), 'RohstoffmanagementContent'=>$this->dataAccess->GetContent('RohstoffmanagementContent')));
+        $html = $this->Render('rohstoffmanagement.twig', array('IsAdmin'=>$this->IsAdmin(), 'RohstoffmanagementContent'=>$this->dataAccess->GetContent('RohstoffmanagementContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -72,7 +72,7 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('WeitereInfosContent', $data['content']);
         }
 
-        $html = $this->twig->render('weitereInfos.twig', array('IsAdmin'=>$this->IsAdmin(), 'WeitereInfosContent'=>$this->dataAccess->GetContent('WeitereInfosContent')));
+        $html = $this->Render('weitereInfos.twig', array('IsAdmin'=>$this->IsAdmin(), 'WeitereInfosContent'=>$this->dataAccess->GetContent('WeitereInfosContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -85,7 +85,7 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('KontaktContent', $data['content']);
         }
 
-        $html = $this->twig->render('kontakt.twig', array('IsAdmin'=>$this->IsAdmin(), 'KontaktContent'=>$this->dataAccess->GetContent('KontaktContent')));
+        $html = $this->Render('kontakt.twig', array('IsAdmin'=>$this->IsAdmin(), 'KontaktContent'=>$this->dataAccess->GetContent('KontaktContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
@@ -98,24 +98,24 @@ class PagesController extends BaseController
             $this->dataAccess->AddContent('AktuellesContent', $data['content']);
         }
 
-        $html = $this->twig->render('aktuelles.twig', array('IsAdmin'=>$this->IsAdmin(), 'AktuellesContent'=>$this->dataAccess->GetContent('AktuellesContent')));
+        $html = $this->Render('aktuelles.twig', array('IsAdmin'=>$this->IsAdmin(), 'AktuellesContent'=>$this->dataAccess->GetContent('AktuellesContent')));
         return new Response($html, Response::HTTP_OK);
     }
 
     public function anfahrt()
 {
-    $html = $this->twig->render('anfahrt.twig');
+    $html = $this->Render('anfahrt.twig');
     return new Response($html, Response::HTTP_OK);
 }
     public function impressum()
     {
-        $html = $this->twig->render('impressum.twig');
+        $html = $this->Render('impressum.twig');
         return new Response($html, Response::HTTP_OK);
     }
 
     public function dokumentation()
     {
-        $html = $this->twig->render('dokumentation.twig');
+        $html = $this->Render('dokumentation.twig');
         return new Response($html, Response::HTTP_OK);
     }
 

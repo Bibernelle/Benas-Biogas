@@ -3,7 +3,7 @@
 
 {% block title %} CreateUser {% endblock %}
 
-{% block bodyClass %}CreateUser{% endblock %}
+{% block bodyClass %}mitarbeiter{% endblock %}
 
 {% block wrapperPrefix %}biogas{% endblock %}
 
@@ -11,6 +11,7 @@
 {% block content %}
     {% include 'list.twig' %}
 <form action="../../index.php/Admin/CreateUser" method="post">
+ <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
     <label for="username">username</label>
     <input name="username" type="text"/>
     <br />

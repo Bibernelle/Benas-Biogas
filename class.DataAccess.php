@@ -76,7 +76,8 @@ class DataAccess extends Database
         if($hash == $user ["Password"])
         {
             $_SESSION['username'] = $name;
-            //$_SESSION['csrf_token'] = uniqid('', true);
+            $_SESSION[CSRF_TOKEN] = uniqid('', true);
+            header('Location: ../../index.php/Admin/CreateArticle?'.CSRF_TOKEN.'='.$_SESSION['CSRF_TOKEN'], true, 301);
             return true;
         }
         return false;
