@@ -13,7 +13,7 @@ require_once("class.PagesController.php");
 $dal = new DataAccess("Database.db");
 $dal->AddUser("michi", "krankarsch");
 $dal->AddRole("Administrator");
-$dal->AddRole("Employee");
+$dal->AddRole("Angestellter");
 $dal->AssignUserRole("michi", "Administrator");
 
 require_once __DIR__ . '/vendor/autoload.php';

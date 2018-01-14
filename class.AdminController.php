@@ -137,7 +137,7 @@ class AdminController extends BaseController
 
                 $path = null;
 
-                if(isset($_FILES["fileToUpload"])) {
+                if($_FILES["fileToUpload"]["name"] != '') {
                     $path = $this->UploadFile();
                 }
 
@@ -178,9 +178,6 @@ class AdminController extends BaseController
             }
         }
 
-        if (file_exists($target_file)) {
-            throw new Exception("Sorry, file already exists.");
-        }
 
         if ($_FILES["fileToUpload"]["size"] > 5000000) {
             throw new Exception("Sorry, your file is too large.");

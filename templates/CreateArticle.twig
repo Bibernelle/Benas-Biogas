@@ -28,17 +28,16 @@
 
     </input>
     <br />
-    <input type="submit" value="Post"/>
+    <input type="submit" value="Erstellen"/>
 
-    {% for article in articles %}
+    {% for article in articles|reverse %}
         <div class="article">
         <h2>{{ article.Header }}</h2>
-        <h4>erstellt von {{ article.UserName }}</h4>
         <p>{{ article.Text }}</p>
         {% if article.ImagePath|length > 0 %}
-        <img src="../../{{ article.ImagePath }}"> </img>
+        <img class="grow" src="../../{{ article.ImagePath }}"> </img>
         {%  endif %}
-        <p>{{ article.Timestamp }}</p>
+        <p id="footnote">Autor: {{ article.UserName }}<br />{{ article.Timestamp }}</p>
         </div>
     {% endfor %}
 

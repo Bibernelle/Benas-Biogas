@@ -12,14 +12,14 @@
     {% include 'list.twig' %}
     <form action="../../index.php/Admin/DeleteUser" method="post">
         <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
-        <label for="username">username</label>
+        <label for="username">Benutzername</label>
         <select name="username" type="text">
             {% for user in users %}
                 <option value="{{ user }}">{{ user }}</option>
             {% endfor %}
         </select>
         <br/>
-        <input type="submit" value="Delete"/>
+        <input type="submit" value="Löschen"/>
     </form>
 
 

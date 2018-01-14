@@ -58,6 +58,7 @@ footer a:hover {
     color: #8ca813;
 }
 h1 {
+    margin-bottom: 20px;
     text-transform: uppercase;
     color: #333231;
 }
@@ -178,25 +179,7 @@ body.dokumentation li.dokumentation {
     font-size: 3.2em;
     text-transform: uppercase;
 }
-.das-team-wrapper {
-    display: block;
-    margin-left: 1%;
-    margin-right: 0%;
-}
-.das-team-content-wrapper {
-    padding-top: 25px;
-    padding-bottom: 50px;
-    text-align: center;
-    margin: 10px;
-    margin-top: 45px;
-    margin-bottom: 50px;
-    background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
-}
-.das-team-content-wrapper p {
-    text-align: left;
-    margin: 50px;
-}
+
 .biogas-wrapper {
     display: block;
     margin-left: 1%;
@@ -210,7 +193,6 @@ body.dokumentation li.dokumentation {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .biogas-content-wrapper h1 {
     padding-top: 15px;
@@ -219,7 +201,7 @@ body.dokumentation li.dokumentation {
     text-align: left;
     margin: 50px;
 }
-#anlage-headtext {
+/*#anlage-headtext {
     text-shadow: 2px 2px #000;
     color: white;
     margin: 50px;
@@ -251,37 +233,46 @@ body.dokumentation li.dokumentation {
 }
 .anlage-content-wrapper h1 {
     padding-top: 20px;
+}*/
+.anlage-wrapper {
+    display: block;
+    margin-left: 1%;
+    margin-right: 0%;
 }
+.anlage-content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    background-color: #FFFDF9;
+}
+.anlage-content-wrapper h1 {
+    padding-top: 15px;
+}
+.anlage-content-wrapper p {
+    text-align: center;
+    margin: 50px;
+}
+
 .anlage-content-wrapper ul {
-    width: 500px;
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    text-align: left;
+
+    list-style:none;
+    position:relative;
+    margin: 0px;
+    padding: 20px;
 }
 
-#slideshow {
-    overflow: hidden;
-    height: 510px;
-    width: 728px;
-    margin: 0 auto;
-}
-
-.slide-wrapper {
-    width: 2912px;
-    -webkit-animation: slide 18s ease infinite;
-}
-
-.slide {
-    float: left;
-    height: 510px;
-    width: 728px;
-}
-
-.slide-img {
+.anlage-boxes {
+    border-bottom: 4px solid rgba(0, 0, 0, .6);
+    padding: 30px;
+    margin: 5px;
 
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
 
 #rohstoffmanagement-headtext {
     margin: 50px;
@@ -298,7 +289,6 @@ body.dokumentation li.dokumentation {
     margin-left: -300px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .rohstoffmanagement-content {
 
@@ -334,7 +324,6 @@ body.dokumentation li.dokumentation {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .weitere-infos-content-wrapper h1 {
     margin: 25px;
@@ -358,7 +347,6 @@ body.dokumentation li.dokumentation {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .kontakte-content-wrapper h1 {
     margin: 15px;
@@ -370,14 +358,21 @@ body.dokumentation li.dokumentation {
     list-style: none;
 }
 .article{
-    border-top: 1px solid rgba(0, 0, 0, .6);
+    border-top: 4px solid rgba(0, 0, 0, .6);
     margin-top: 10px;
     padding: 5px;
 }
+
+#footnote{
+    font-style: oblique;
+    font-size: 0.8em;
+}
+
 form {
     padding-top: 25px;
 }
 label {
+    margin-top: 10px;
     display: block;
     cursor: pointer;
 }
@@ -396,15 +391,39 @@ textarea:focus {
     background-color: #FAFAFA;
 }
 input[type=submit] {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
     padding: 5px 15px;
     background: #333;
     color: #FFFDF9;
     border: 0 none;
     cursor: pointer;
+    height: 69px;
+    font-family: 'Lato', 'helvetica', sans-serif;
+    font-size: 1em;
 }
 input[type=submit]:hover {
+
     background: #8ca813;
 }
+
+
+
+select[type=text] {
+    margin: 15px;
+    padding: 5px 15px;
+    background: #333;
+    color: #FFFDF9;
+    border: 0 none;
+}
+
+select[type=text]:hover {
+
+    background: #8ca813;
+}
+
 .anfahrt-wrapper {
     display: block;
     margin-left: 1%;
@@ -418,7 +437,6 @@ input[type=submit]:hover {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .big-frame {
     display: none;
@@ -440,7 +458,6 @@ input[type=submit]:hover {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .impressum-content-wrapper p {
     text-align: center;
@@ -468,7 +485,6 @@ input[type=submit]:hover {
     margin-top: 45px;
     margin-bottom: 50px;
     background-color: #FFFDF9;
-    box-shadow: 10px 10px 20px #D4D0CC;
 }
 .dokumentation-content-wrapper p {
     text-align: left;
@@ -509,11 +525,7 @@ img {
 
 
 @media (min-width: 640px) {
-    .das-team-wrapper {
-        display: block;
-        margin-left: 9%;
-        margin-right: 10%;
-    }
+
     .biogas-wrapper {
         display: block;
         margin-left: 9%;
@@ -563,12 +575,13 @@ img {
         margin-right: 240px;
     }
 
-    .das-team-wrapper {
+    .biogas-wrapper {
         display: block;
         margin-left: 19%;
         margin-right: 20%;
     }
-    .biogas-wrapper {
+
+    .anlage-wrapper {
         display: block;
         margin-left: 19%;
         margin-right: 20%;
