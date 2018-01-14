@@ -62,6 +62,11 @@ h1 {
     text-transform: uppercase;
     color: #333231;
 }
+
+li {
+    margin: 10px;
+}
+
 .links a:visited {
     color: #8ca813;
 }
@@ -128,14 +133,27 @@ h1 {
 }
 .menu-icon {
     padding: 10px 20px;
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15vw;
+    font-size: 5em;
     background: #8ca813;
     color: #111;
     cursor: pointer;
     float: right;
+    width: 15vw;
+    height: 15vw;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
+.menu-icon:before{
+    display: block;
+    padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
 .menu-icon:active {
     background: #333;
     color: #FFFDF9;
@@ -157,10 +175,38 @@ body.weitere-infos li.weitere-infos,
 body.kontakt li.kontakt,
 body.aktuelles li.aktuelles,
 body.anfahrt li.anfahrt,
-body.mitarbeiter li.mitarbeiter,
+body.loginUser li.mitarbeiter,
+body.loginUser li.anmelden,
+body.createUser li.mitarbeiter,
+body.createUser li.benutzer-anlegen,
+body.deleteUser li.mitarbeiter,
+body.deleteUser li.benutzer-loeschen,
+body.createArticle li.mitarbeiter,
+body.createArticle li.benas-blog,
+body.logoutUser li.mitarbeiter,
+body.logoutUser li.abmelden,
+body.assignRole li.mitarbeiter,
+body.assignRole li.rolle-zuweisen,
 body.dokumentation li.dokumentation {
     background-color: #e4ce05;
 }
+
+.dokumentation {
+    background-color: #222222;
+}
+
+.benutzer-anlegen {
+    background-color: #222222;
+}
+
+.benutzer-loeschen {
+    background-color: #222222;
+}
+
+.rolle-zuweisen {
+    background-color: #222222;
+}
+
 .menu-mobile {
     -webkit-user-select: none;
     -moz-user-select: none;
