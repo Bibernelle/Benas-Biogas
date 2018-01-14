@@ -107,9 +107,15 @@ class PagesController extends BaseController
     $html = $this->Render('anfahrt.twig');
     return new Response($html, Response::HTTP_OK);
 }
-    public function impressum()
+    public function impressum($request)
     {
-        $html = $this->Render('impressum.twig');
+        $data = $request->request->all();
+
+        if (isset($data['content'])) {
+            $this->dataAccess->AddContent('ImpressumContent', $data['content']);
+        }
+
+        $html = $this->Render('impressum.twig', array('IsAdmin'=>$this->IsAdmin(), 'ImpressumContent'=>$this->dataAccess->GetContent('ImpressumContent')));
         return new Response($html, Response::HTTP_OK);
     }
 

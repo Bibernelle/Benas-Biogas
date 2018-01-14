@@ -1,21 +1,23 @@
 
 <nav class="menu-mobile">
 <ul class="menu-ul">
-        <li><a href="../../index.php/Admin/LoginUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Anmelden</a></li>
-        <li><a href="../../index.php/Admin/LogoutUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Abmelden</a></li>
-        <li><a href="../../index.php/Admin/CreateUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer anlegen</a></li>
-        <li><a href="../../index.php/Admin/DeleteUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer löschen</a></li>
-        <li><a href="../../index.php/Admin/AssignRole?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer-Rolle zuweisen</a></li>
-        <li><a href="../../index.php/Admin/CreateArticle?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benas Blog</a></li>
+        <li class="anmelden"><a href="../../index.php/Admin/LoginUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Anmelden</a></li>
+        <li class="abmelden"><a href="../../index.php/Admin/LogoutUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Abmelden</a></li>
+        <li class="benas-blog"><a href="../../index.php/Admin/CreateArticle?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benas Blog</a></li>
+        <li class="benutzer-anlegen"><a href="../../index.php/Admin/CreateUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer anlegen</a></li>
+        <li class="benutzer-loeschen"><a href="../../index.php/Admin/DeleteUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer löschen</a></li>
+        <li class="rolle-zuweisen"><a href="../../index.php/Admin/AssignRole?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer-Rolle zuweisen</a></li>
+
 </ul>
 </nav>
 <nav class="menu-desktop">
         <ul class="menu-ul">
-                <li><a href="../../index.php/Admin/LoginUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Anmelden</a></li>
-                <li><a href="../../index.php/Admin/LogoutUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Abmelden</a></li>
-                <li><a href="../../index.php/Admin/CreateUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer anlegen</a></li>
-                <li><a href="../../index.php/Admin/DeleteUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer löschen</a></li>
-                <li><a href="../../index.php/Admin/AssignRole?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer-Rolle zuweisen</a></li>
-                <li><a href="../../index.php/Admin/CreateArticle?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benas Blog</a></li>
+                <li class="anmelden"><a href="../../index.php/Admin/LoginUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Anmelden</a></li>
+                <li class="abmelden"><a href="../../index.php/Admin/LogoutUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Abmelden</a></li>
+                <li class="benas-blog"><a href="../../index.php/Admin/CreateArticle?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benas Blog</a></li>
+                <li class="benutzer-anlegen"><a href="../../index.php/Admin/CreateUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer anlegen</a></li>
+                <li class="benutzer-loeschen"><a href="../../index.php/Admin/DeleteUser?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer löschen</a></li>
+                <li class="rolle-zuweisen"><a href="../../index.php/Admin/AssignRole?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}">Benutzer-Rolle zuweisen</a></li>
+
         </ul>
 </nav>
