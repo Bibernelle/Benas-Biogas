@@ -155,7 +155,12 @@ li {
     background: #000;
     bottom: 0;
     left: 0px;
-
+    z-index: 99;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
 
 }
 
@@ -193,7 +198,7 @@ li {
 
 .menu-icon:before{
     display: block;
-    padding-top: 100%; 	/* initial ratio of 1:1*/
+    padding-top: 100%;
 }
 
 .menu-icon:active {
@@ -205,16 +210,10 @@ li {
     display: none;
 }
 
-
 input[type=checkbox]:checked ~ .menu-mobile {
     position: absolute;
     left: 0px;
 }
-
-input[type=checkbox]:checked ~ .menu-mobile2 {
-    display: none;
-}
-
 
 .menu-mobile ul li:active,
 body.home li.home,
