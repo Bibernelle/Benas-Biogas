@@ -96,7 +96,19 @@ li {
     width: 100%;
     text-align: left;
 }
+
+.menu-mobile2 {
+    opacity: 0.9;
+    width: 100%;
+    text-align: left;
+}
 .menu-mobile a {
+    display: block;
+    padding: 25px 0 30px 30px;
+    border-bottom: 1px solid #374041;
+    color: #FFF;
+}
+.menu-mobile2 a {
     display: block;
     padding: 25px 0 30px 30px;
     border-bottom: 1px solid #374041;
@@ -107,6 +119,14 @@ li {
     color: #FFFFFF;
 }
 .menu-mobile a:active {
+    background: #8ca813;
+    color: #FFFFFF;
+}
+.menu-mobile2 a:hover {
+    background: #8ca813;
+    color: #FFFFFF;
+}
+.menu-mobile2 a:active {
     background: #8ca813;
     color: #FFFFFF;
 }
@@ -127,7 +147,29 @@ li {
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
 }
+.menu-mobile2 {
+
+    width: 240px;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    bottom: 0;
+    left: 0px;
+
+
+}
+
+.menu-mobile2 ul {
+
+    list-style: none;
+
+}
+
 .menu-mobile a {
+    font-size: 1.3em;
+    text-decoration: none;
+}
+.menu-mobile2 a {
     font-size: 1.3em;
     text-decoration: none;
 }
@@ -136,14 +178,14 @@ li {
     margin: 10px;
     text-align: center;
     vertical-align: middle;
-    line-height: 15vw;
-    font-size: 5em;
+    line-height: 10vw;
+    font-size: 3em;
     background: #8ca813;
     color: #111;
     cursor: pointer;
     float: right;
-    width: 15vw;
-    height: 15vw;
+    width: 10vw;
+    height: 10vw;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -158,13 +200,22 @@ li {
     background: #333;
     color: #FFFDF9;
 }
+
 #menuToggle {
     display: none;
 }
-#menuToggle:checked ~ .menu-mobile {
+
+
+input[type=checkbox]:checked ~ .menu-mobile {
     position: absolute;
-    left: 0;
+    left: 0px;
 }
+
+input[type=checkbox]:checked ~ .menu-mobile2 {
+    display: none;
+}
+
+
 .menu-mobile ul li:active,
 body.home li.home,
 body.biogas li.biogas,
@@ -188,6 +239,7 @@ body.logoutUser li.abmelden,
 body.assignRole li.mitarbeiter,
 body.assignRole li.rolle-zuweisen,
 body.dokumentation li.dokumentation {
+
     background-color: #e4ce05;
 }
 
@@ -195,17 +247,6 @@ body.dokumentation li.dokumentation {
     background-color: #222222;
 }
 
-.benutzer-anlegen {
-    background-color: #222222;
-}
-
-.benutzer-loeschen {
-    background-color: #222222;
-}
-
-.rolle-zuweisen {
-    background-color: #222222;
-}
 
 .menu-mobile {
     -webkit-user-select: none;
@@ -546,7 +587,7 @@ img {
 .alert {
     padding: 20px;
     text-align: center;
-    background-color: #f40405;
+    background-color: darkorange;
     color: white;
     margin-bottom: 15px;
 }
@@ -611,6 +652,11 @@ img {
 }
 
 @media (min-width: 1224px) {
+
+    .menu-mobile2 {
+        display: none;
+    }
+
     .home-wrapper {
         position: fixed;
         bottom: 10%;
