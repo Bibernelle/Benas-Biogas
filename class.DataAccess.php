@@ -65,7 +65,7 @@ class DataAccess extends Database
     {
        if(!$this->UserExists($name))
        {
-           print "UserNotFound: $name";
+           print "Nutzer: $name existiert nicht.";
            return;
        }
 
@@ -249,14 +249,14 @@ class DataAccess extends Database
         foreach ($this->databaseHandle->query($sql) as $row) {
             return $row ['ID'];
         }
-        throw new Exception("Image not found.");
+        throw new Exception("Bild nicht gefunden.");
     }
 
     public function AddArticle($username, $header, $text, $imagePath)
     {
         if(!$this->UserExists($username))
         {
-            throw new Exception("User does not exist.");
+            throw new Exception("Dieser Nutzer existiert nicht.");
         }
         $userID = $this -> GetUserID($username);
         $imageID = $this -> AddImage($imagePath, $userID);

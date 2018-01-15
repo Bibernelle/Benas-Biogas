@@ -173,26 +173,26 @@ class AdminController extends BaseController
 
 
             } else {
-                throw new Exception("File is not an image.");
+                throw new Exception("Datei ist keine Bilddatei.");
 
             }
         }
 
 
         if ($_FILES["fileToUpload"]["size"] > 5000000) {
-            throw new Exception("Sorry, your file is too large.");
+            throw new Exception("Entschuldigung, das Bild ist zu groß (max. 5mb). ");
 
         }
 
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif") {
-            throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+            throw new Exception("Nur Dateien vom Typ JPG, JPEG, PNG & GIF sind erlaubt.");
 
         }
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+        //    echo "the file: " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
         } else {
-            throw new Exception("Sorry, there was an error uploading your file.");
+            throw new Exception("Entschuldigung es gab einen Fehler beim hochladen des Bildes.");
 
         }
 

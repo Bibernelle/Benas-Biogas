@@ -1,4 +1,6 @@
 {# dokumentation/dokumentation.twig #}
+{% set csrfRequestParam %}{% if IsAdmin %}?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}{% endif %}{% endset %}
+
 <!DOCTYPE html>
 <html lang="de-DE">
 
@@ -55,10 +57,15 @@
     <div class="dokumentation-content-wrapper">
 
         {% block content %}
-            {% set csrfRequestParam %}{% if IsAdmin %}?{{ constant('CSRF_TOKEN') }}={{ CSRF_TOKEN }}{% endif %}{% endset %}
+
+
             <p><h1>Dokumentation</h1></p>
-            <h2>Michael Heitmann - mihe9986 - 520149</br>
+            <h2>Michael Heitmann - mihe9986 - 520149<br />
                 Oliver Klemm - olkl7552 - 520148</h2>
+
+            <p id="importantText">Nutzerdaten für den Login als Admin:<br />
+            Benutzername: Tobias<br />
+            Passwort: coolestadmin</p>
 
             <p>Für das bereits in der GOM Hausarbeit entworfene Frontend Design des Webauftritts des Unternehmenes Benas GmbH,
                 welches im Bereich der Energieerzeugung aus nachwachsenden Rohstoffen tätig ist, haben wir das entsprechende
@@ -69,12 +76,12 @@
                 für registrierte, bzw. eingelogte Benutzer erreichbar ist.
                 Dieser Bereich ist unter dem Navigationselement Mitarbeiter zu finden.
                 Hier haben User die Möglichkeit sich ein- und auszuloggen und Artikel zu verfassen, sowie pro Artikel ein Bild
-                hoch zu laden.</br>
+                hoch zu laden.<br />
                 Die Artikel beinhalten zusätzlich zum verfassten Text und Bild eine Überschrift, eine Zeile mit Verfasser des
-                Artikels sowie einen Timestamp.</br>
+                Artikels sowie einen Timestamp.<br />
                 Der Administrator, der bereits in der Datenbank angelegt ist, kann neue Mitarbeiter Accounts anlegen, diese
                 wieder löschen, ihnen Rollen zuweisen (Administrator oder Employee) und das implementierte Contentmanagement
-                System bedienen, um Inhalte auf der Website verwalten zu können.</br>
+                System bedienen, um Inhalte auf der Website verwalten zu können.<br />
                 Die Employee Accounts haben lediglich Zugriff auf das interne Blog System.</p>
 
             <p>Die Umsetzung der Anwendung erfolgte mittels einer mehrschichtigen Architektur.
@@ -85,19 +92,19 @@
                 Die darüberliegende Abstraktionsschicht ist durch die Klasse DataAcces realisiert, welche Methoden für die
                 elementaren CRUD-Funktionen der entsprechenden und folgenden Entitätstypen bereit stellt:</p>
 
-            <p>("User");</br>
-                ("IsInUserRole");</br>
-                ("UserRole");</br>
-                ("Image");</br>
-                ("Article");</br>
+            <p>("User");<br />
+                ("IsInUserRole");<br />
+                ("UserRole");<br />
+                ("Image");<br />
+                ("Article");<br />
                 ("Content");</p>
 
             <p>Die Methoden, z.B. AddUser überführen hier die Daten entsprechend in das normalisierte Datenmodell.
-                So sind bsw. einem Benutzer Rollen (Administrator und Employee) zugeordnet und einem Artikel Bilder usw.</br>
+                So sind bsw. einem Benutzer Rollen (Administrator und Employee) zugeordnet und einem Artikel Bilder usw.<br />
                 Die Klasse AdminController stellt Methoden bereit die für die Verwaltung von Benutzern und Berechtigungen
-                erforderlich sind.</br>
+                erforderlich sind.<br />
                 Die Klasse PagesController stellt Methoden bereit, die für das Rendering der einzelnen Unterseiten der Website
-                benötigt werden.</br>
+                benötigt werden.<br />
                 Die Controller Actions beider Klassen nehmen jeweils ein request Objekt des Symphony Frameworks entgegen,um ggf.
                 request Parameter verarbeiten zu können.
                 Beide Klassen sind von der Klasse BaseController abgeleitet, welche neben einer Instanz der Twig Template Engine
@@ -115,13 +122,13 @@
                 Konvention ist hierbei, dass der Unterordner hinter der index.php den Namen des Controllers darstellt und der
                 Unterordner hinter dem Namen des Controllers die entsprechende Action darstellt.
                 Die Anwendung implementiert das MVC Entwurfsmuster, wobei die Entitätstypen die Models, die von Twig gerenderten
-                Templates die Views und die Klassen Admin- und Pages-Controller die Controller darstellen.</br>
+                Templates die Views und die Klassen Admin- und Pages-Controller die Controller darstellen.<br />
                 Um die Twig Templates der gerenderten Unterseiten möglichst schlank zu gestalten und Redundanzen zu vermeiden,
                 wurden diese von einem Basis Template abgeleitet.
                 Das Basistemplate enthält hierbei das Markup, welches sich auf allen Seiten wiederholt, wie bsw. Die Navigation
                 und der Footer.
                 Die abgeleiteten Templates überschreiben jeweils nur die Blöcke der Contentbereiche, die sich vom Basistemplate
-                unterscheiden.</br>
+                unterscheiden.<br />
                 Um die Inhalte der Unterseiten dynamisch verwalten zu können, wird dem angemeldeten Administrator, also dem
                 Benutzer, dem die Rolle Admisnistrator zugeordnet ist, statt dem Inhalt ein Formular mit einem Richtext Editor
                 (CK Editor) angezeigt, in dem die entsprechenden Inhalte eingepflegt werden können.
