@@ -11,10 +11,10 @@ require_once("class.AdminController.php");
 require_once("class.PagesController.php");
 
 $dal = new DataAccess("Database.db");
-$dal->AddUser("michi", "krankarsch");
+$dal->AddUser("Tobias", "coolestadmin");
 $dal->AddRole("Administrator");
 $dal->AddRole("Angestellter");
-$dal->AssignUserRole("michi", "Administrator");
+$dal->AssignUserRole("Tobias", "Administrator");
 
 require_once __DIR__ . '/vendor/autoload.php';
 

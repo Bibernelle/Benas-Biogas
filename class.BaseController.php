@@ -12,13 +12,18 @@ abstract class BaseController
 
     function __construct($filename)
     {
+
         $this -> dataAccess = new DataAccess($filename);
-        $loader = new \Twig_Loader_Filesystem(
+        $loader1 = new \Twig_Loader_Filesystem(
             realpath(dirname(__FILE__)) . '/templates');
+        $loader2 = new \Twig_Loader_Filesystem(
+            realpath(dirname(__FILE__)) . '/dokumentation');
+        $loader = new Twig_Loader_Chain(array($loader1, $loader2));
         $this->twig = new \Twig_Environment($loader, [
             'cache' => false,
             'debug' => true
         ]);
+
     }
 
     protected function Render($viewPath, $parameters = array()) {
