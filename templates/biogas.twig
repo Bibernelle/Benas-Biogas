@@ -9,21 +9,36 @@
 
 {% set biogasInitContent %}
     <h1>Die Funktionsweise von Biogas</h1>
-    <p>Biogas bildet sich in der Natur immer dann, wenn sich organische Verbindungen unter Luftabschluss zersetzen, z.B. bei der Verwesung von totem tierischem und pflanzlichem Material. Dafür sind anaerobe Bakterien, die ohne Sauerstoff leben können, verantwortlich. Der in mehreren Stufen ablaufende Prozess findet z.B. in Sümpfen und Mooren, auf Reisfeldern, im Dickdarm von Tieren und Menschen - vor allem in den Mägen der Wiederkäuer, in Misthaufen und Jauchegruben oder auf Müllkippen statt. Vereinfacht kann für die Biogasentstehung folgende Reaktionsgleichung angegeben werden:</p>
-    <p>Gülle ----anaerobe Bakterien/40°C----> Methan  +  Kohlendioxid  +  Faulschlamm</p>
-    <p>Methan gehört neben Kohlendioxid zu den Hauptverursachern des Treibhauseffekts. Bei der Nutzung von Biogas wird kein Methan und Lachgas freigesetzt - wie z.B. bei der normalen Lagerung von organischen Stoffen. Zudem wird durch den produzierten Strom durch Kohle oder Öl produzierter Strom ersetzt. Es werden somit zweimal klimaschädliche Gase eingespart. Die Geruchsbelästigung wird im Vergleich zur Kompostierung minimiert, da die Vergärung in geschlossenen Behältern erfolgt.</p>
+    <p>Biogas bildet sich in der Natur immer dann, wenn sich organische Verbindungen unter Luftabschluss zersetzen, z.B.
+        bei der Verwesung von totem tierischem und pflanzlichem Material. Dafür sind anaerobe Bakterien, die ohne
+        Sauerstoff leben können, verantwortlich. Der in mehreren Stufen ablaufende Prozess findet z.B. in Sümpfen und
+        Mooren, auf Reisfeldern, im Dickdarm von Tieren und Menschen - vor allem in den Mägen der Wiederkäuer, in
+        Misthaufen und Jauchegruben oder auf Müllkippen statt. Vereinfacht kann für die Biogasentstehung folgende
+        Reaktionsgleichung angegeben werden:</p>
+    <p>Gülle ----anaerobe Bakterien/40°C----> Methan + Kohlendioxid + Faulschlamm</p>
+    <p>Methan gehört neben Kohlendioxid zu den Hauptverursachern des Treibhauseffekts. Bei der Nutzung von Biogas wird
+        kein Methan und Lachgas freigesetzt - wie z.B. bei der normalen Lagerung von organischen Stoffen. Zudem wird
+        durch den produzierten Strom durch Kohle oder Öl produzierter Strom ersetzt. Es werden somit zweimal
+        klimaschädliche Gase eingespart. Die Geruchsbelästigung wird im Vergleich zur Kompostierung minimiert, da die
+        Vergärung in geschlossenen Behältern erfolgt.</p>
     <h1>Zusammensetzung und Eigenschaften von Biogas</h1>
-    <p>Biogas (= Sumpfgas, Faulgas) ist ein durch den anaeroben, mikrobiellen Abbau von organischen Stoffen entstehendes Gasgemisch, das zu 50 - 70 % aus dem hochwertigen Energieträger Methan (CH4) besteht. Weitere Bestandteile sind 30-40% Kohlendioxid (CO2) sowie Spuren von Schwefelwasserstoff (h1S), Stickstoff (N2), Wasserstoff (h1) und Kohlenmonoxid (CO):</p>
+    <p>Biogas (= Sumpfgas, Faulgas) ist ein durch den anaeroben, mikrobiellen Abbau von organischen Stoffen entstehendes
+        Gasgemisch, das zu 50 - 70 % aus dem hochwertigen Energieträger Methan (CH4) besteht. Weitere Bestandteile sind
+        30-40% Kohlendioxid (CO2) sowie Spuren von Schwefelwasserstoff (h1S), Stickstoff (N2), Wasserstoff (h1) und
+        Kohlenmonoxid (CO):</p>
     <img class="grow" alt="Tabelle" src="../../Images/Tabelle.svg" title="Tabelle" width="400" height="300">
-    <p>Aufgrund des relativ hohen Energiegehaltes lässt sich Biogas als Energieträger für die Wärme- und Krafterzeugung nutzen. Der durchschnittliche Heizwert von Biogas beträgt etwa 6 kWh/m³ (entsprechen 21,6 MJ/m³). Somit entspricht der durchschnittliche Heizwert eines Kubikmeters Biogas etwa 0,6 Liter Heizöl.</p>
+    <p>Aufgrund des relativ hohen Energiegehaltes lässt sich Biogas als Energieträger für die Wärme- und Krafterzeugung
+        nutzen. Der durchschnittliche Heizwert von Biogas beträgt etwa 6 kWh/m³ (entsprechen 21,6 MJ/m³). Somit
+        entspricht der durchschnittliche Heizwert eines Kubikmeters Biogas etwa 0,6 Liter Heizöl.</p>
     <h1>Zusammenfassung von wichtigen Zahlen:</h1>
-    <p>Das Biogas aus 1t organischer Reststoffe oder 3t Gülle/Festmist ersetzt ca. 60l Heizöl oder 120 kWh Strom-Netto und vermindert den Schadstoffausstoß von Kohlendioxid um 200 kg!</p>
+    <p>Das Biogas aus 1t organischer Reststoffe oder 3t Gülle/Festmist ersetzt ca. 60l Heizöl oder 120 kWh Strom-Netto
+        und vermindert den Schadstoffausstoß von Kohlendioxid um 200 kg!</p>
 {% endset %}
 
 {% block content %}
     {% if IsAdmin %}
         <form action="../../index.php/Pages/biogas" method="post">
- <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
+            <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
             <textarea name="content" id="content" rows="10" cols="80">
                 {% if BiogasContent|length > 0 %}
                     {{ BiogasContent }}
@@ -34,10 +49,11 @@
             <input type="submit" value="Speichern"/>
             <script>
                 ClassicEditor
-                    .create( document.querySelector( '#content' ) )
-                    .catch( error => {
-                    console.error( error );
-                } );
+                    .create(document.querySelector('#content'))
+                    .catch(error => {
+                    console.error(error);
+                } )
+                ;
             </script>
         </form>
     {% else %}

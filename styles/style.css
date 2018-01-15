@@ -4,16 +4,17 @@
     src: url('../Fonts/Lato-Black.ttf') format('truetype'), url('../Fonts/Lato-Bold.ttf') format('truetype'), url('../Fonts/Lato-Hairline.ttf') format('truetype'), url('../Fonts/Lato-Heavy.ttf') format('truetype'), url('../Fonts/Lato-Light.ttf') format('truetype'), url('../Fonts/Lato-Medium.ttf') format('truetype'), url('../Fonts/Lato-Regular.ttf') format('truetype'), url('../Fonts/Lato-Semibold.ttf') format('truetype'), url('../Fonts/Lato-Thin.ttf') format('truetype');
 }
 
-
 * {
     padding: 0;
     margin: 0;
     color: #242322;
 }
+
 body {
     font-family: 'Lato', 'helvetica', sans-serif;
     background-color: #FBF9F5;
 }
+
 /* Laut W3schools.com ist der ::selection Pseudoselector nicht mehr in CSS3 vorhanden, wir wollten den Effekt allerdings beibehalten und machen über diesen Kommentar darauf aufmerksam, dass wir wissen, dass es nicht valide ist */
 
 ::selection {
@@ -46,17 +47,20 @@ footer {
     opacity: 0.8;
     font-size: 2em;
 }
+
 footer p,
 footer a {
     bottom: 0px;
     text-align: center;
     color: #FFFDF9;
 }
+
 /*absichtlich grün wegen internem link*/
 
 footer a:hover {
     color: #8ca813;
 }
+
 h1 {
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -70,18 +74,23 @@ li {
 .links a:visited {
     color: #8ca813;
 }
+
 .links a:active {
     color: blue;
 }
+
 .mail-link:active {
     color: blue;
 }
+
 .links a:hover {
     color: blue;
 }
+
 .mail-link:hover {
     color: blue;
 }
+
 .logo {
     position: relative;
     left: 50%;
@@ -92,6 +101,7 @@ li {
     height: 160px;
     z-index: 1;
 }
+
 .menu-mobile {
     opacity: 0.9;
     width: 100%;
@@ -103,37 +113,45 @@ li {
     width: 100%;
     text-align: left;
 }
+
 .menu-mobile a {
     display: block;
     padding: 25px 0 30px 30px;
     border-bottom: 1px solid #374041;
     color: #FFF;
 }
+
 .menu-mobile2 a {
     display: block;
     padding: 25px 0 30px 30px;
     border-bottom: 1px solid #374041;
     color: #FFF;
 }
+
 .menu-mobile a:hover {
     background: #8ca813;
     color: #FFFFFF;
 }
+
 .menu-mobile a:active {
     background: #8ca813;
     color: #FFFFFF;
 }
+
 .menu-mobile2 a:hover {
     background: #8ca813;
     color: #FFFFFF;
 }
+
 .menu-mobile2 a:active {
     background: #8ca813;
     color: #FFFFFF;
 }
+
 .menu-desktop {
     display: none;
 }
+
 .menu-mobile {
     width: 240px;
     height: 100%;
@@ -148,6 +166,7 @@ li {
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
 }
+
 .menu-mobile2 {
 
     width: 240px;
@@ -175,10 +194,12 @@ li {
     font-size: 1.6em;
     text-decoration: none;
 }
+
 .menu-mobile2 a {
     font-size: 1.6em;
     text-decoration: none;
 }
+
 .menu-icon {
     padding: 10px 20px;
     margin: 10px;
@@ -198,7 +219,7 @@ li {
     -ms-user-select: none;
 }
 
-.menu-icon:before{
+.menu-icon:before {
     display: block;
     padding-top: 100%;
 }
@@ -248,7 +269,6 @@ body.dokumentation li.dokumentation {
     background-color: #222222;
 }
 
-
 .menu-mobile {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -259,6 +279,7 @@ body.dokumentation li.dokumentation {
     background: rgba(0, 0, 0, .6);
 
 }
+
 .home-wrapper p {
     font-family: 'lato light', 'helvetica', sans-serif;
     color: #FFFDF9;
@@ -273,6 +294,7 @@ body.dokumentation li.dokumentation {
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .biogas-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -282,13 +304,16 @@ body.dokumentation li.dokumentation {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .biogas-content-wrapper h1 {
     padding-top: 15px;
 }
+
 .biogas-content-wrapper p {
     text-align: left;
     margin: 50px;
 }
+
 /*#anlage-headtext {
     text-shadow: 2px 2px #000;
     color: white;
@@ -327,6 +352,7 @@ body.dokumentation li.dokumentation {
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .anlage-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -336,10 +362,12 @@ body.dokumentation li.dokumentation {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .anlage-content-wrapper h1 {
     padding-top: 15px;
     text-align: center;
 }
+
 .anlage-content-wrapper p {
     text-align: left;
     margin: 50px;
@@ -347,8 +375,8 @@ body.dokumentation li.dokumentation {
 
 .anlage-content-wrapper ul {
 
-    list-style:none;
-    position:relative;
+    list-style: none;
+    position: relative;
     margin: 0px;
     padding: 20px;
 }
@@ -360,8 +388,13 @@ body.dokumentation li.dokumentation {
 
 }
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.05); }
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.05);
+}
 
 #rohstoffmanagement-headtext {
     margin: 50px;
@@ -369,6 +402,7 @@ body.dokumentation li.dokumentation {
     font-size: 1.5em;
     font-family: 'lato light', 'helvetica', sans-serif;
 }
+
 .rohstoffmanagement-content-wrapper {
     position: relative;
     text-align: center;
@@ -379,6 +413,7 @@ body.dokumentation li.dokumentation {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .rohstoffmanagement-content {
 
     text-align: left;
@@ -390,9 +425,11 @@ body.dokumentation li.dokumentation {
     margin-right: 10px;
 
 }
+
 .rohstoffmanagement-content-wrapper h1 {
     padding-top: 20px;
 }
+
 .rohstoffmanagement-content-wrapper ul {
     width: 500px;
     margin-top: 20px;
@@ -400,11 +437,13 @@ body.dokumentation li.dokumentation {
     margin-right: 50px;
     text-align: left;
 }
+
 .weitere-infos-wrapper {
     display: block;
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .weitere-infos-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -414,6 +453,7 @@ body.dokumentation li.dokumentation {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .weitere-infos-content-wrapper h1 {
     font-size: 4em;
     margin: 25px;
@@ -426,14 +466,17 @@ body.dokumentation li.dokumentation {
 .weitere-infos-content-wrapper ul {
     list-style: none;
 }
+
 .weitere-infos-content-wrapper ul li {
     margin-bottom: 20px;
 }
+
 .kontakte-wrapper {
     display: block;
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .kontakte-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -443,25 +486,29 @@ body.dokumentation li.dokumentation {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .kontakte-content-wrapper h1 {
     font-size: 4em;
     margin: 15px;
 }
+
 .kontakte-content-wrapper h2 {
     font-size: 1.4em;
     padding: 15px;
 }
+
 .kontakte-content-wrapper ul {
     font-size: 1.2em;
     list-style: none;
 }
-.article{
+
+.article {
     border-top: 4px solid rgba(0, 0, 0, .6);
     margin-top: 10px;
     padding: 5px;
 }
 
-#footnote{
+#footnote {
     font-style: oblique;
     font-size: 0.8em;
 }
@@ -469,11 +516,13 @@ body.dokumentation li.dokumentation {
 form {
     padding-top: 25px;
 }
+
 label {
     margin-top: 10px;
     display: block;
     cursor: pointer;
 }
+
 input#absender,
 textarea {
     width: 300px;
@@ -481,13 +530,16 @@ textarea {
     margin-bottom: 1em;
     resize: none;
 }
+
 textarea {
     height: 7em;
 }
+
 input:focus,
 textarea:focus {
     background-color: #FAFAFA;
 }
+
 input[type=submit] {
     display: block;
     margin: auto;
@@ -502,12 +554,11 @@ input[type=submit] {
     font-family: 'Lato', 'helvetica', sans-serif;
     font-size: 1em;
 }
+
 input[type=submit]:hover {
 
     background: #8ca813;
 }
-
-
 
 select[type=text] {
     margin: 15px;
@@ -527,6 +578,7 @@ select[type=text]:hover {
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .anfahrt-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -536,18 +588,22 @@ select[type=text]:hover {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .big-frame {
     display: none;
 }
+
 .small-frame {
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
 .impressum-wrapper {
     display: block;
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .impressum-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -557,6 +613,7 @@ select[type=text]:hover {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .impressum-content-wrapper p {
     text-align: center;
     margin: 50px;
@@ -575,6 +632,7 @@ select[type=text]:hover {
     margin-left: 1%;
     margin-right: 0%;
 }
+
 .dokumentation-content-wrapper {
     padding-top: 25px;
     padding-bottom: 50px;
@@ -584,6 +642,7 @@ select[type=text]:hover {
     margin-bottom: 50px;
     background-color: #FFFDF9;
 }
+
 .dokumentation-content-wrapper p {
     text-align: left;
     margin: 50px;
@@ -606,7 +665,6 @@ img {
 p {
     font-size: 0.8em;
 }
-
 
 /* The alert message box */
 .alert {
@@ -635,8 +693,6 @@ p {
     color: black;
 }
 
-
-
 @media (min-width: 640px) {
 
     .biogas-wrapper {
@@ -644,26 +700,31 @@ p {
         margin-left: 9%;
         margin-right: 10%;
     }
+
     .weitere-infos-wrapper {
         display: block;
         margin-left: 9%;
         margin-right: 10%;
     }
+
     .kontakte-wrapper {
         display: block;
         margin-left: 9%;
         margin-right: 10%;
     }
+
     .anfahrt-wrapper {
         display: block;
         margin-left: 9%;
         margin-right: 10%;
     }
+
     .impressum-wrapper {
         display: block;
         margin-left: 9%;
         margin-right: 10%;
     }
+
     .dokumentation-wrapper {
         display: block;
         margin-left: 9%;
@@ -693,6 +754,7 @@ p {
         width: 100%;
 
     }
+
     .home-wrapper p {
         margin-right: 240px;
     }
@@ -708,6 +770,7 @@ p {
         margin-left: 19%;
         margin-right: 20%;
     }
+
     .weitere-infos-wrapper {
         display: block;
         margin-left: 19%;
@@ -732,10 +795,12 @@ p {
         font-size: 2em;
         margin: 15px;
     }
+
     .kontakte-content-wrapper h2 {
         font-size: 1.2em;
         padding: 15px;
     }
+
     .kontakte-content-wrapper ul {
         font-size: 1em;
         list-style: none;
@@ -746,25 +811,31 @@ p {
         margin-left: 19%;
         margin-right: 20%;
     }
+
     .impressum-wrapper {
         display: block;
         margin-left: 19%;
         margin-right: 20%;
     }
+
     .dokumentation-wrapper {
         display: block;
         margin-left: 19%;
         margin-right: 20%;
     }
+
     .menu-desktop {
         display: inherit;
     }
+
     .menu-mobile {
         display: none;
     }
+
     .menu-icon {
         display: none;
     }
+
     .menu-desktop ul {
         opacity: 0.8;
         width: 100%;
@@ -772,11 +843,13 @@ p {
         padding: 0;
         text-align: center;
     }
+
     .menu-desktop ul li {
         display: inline-block;
         margin: 0;
         padding: 0;
     }
+
     .menu-desktop ul li a {
         position: relative;
         display: block;
@@ -785,6 +858,7 @@ p {
         text-decoration: none;
         z-index: 1;
     }
+
     .menu-desktop ul li a::before {
         content: '';
         position: absolute;
@@ -796,9 +870,11 @@ p {
         transition: all 250ms;
         z-index: -1;
     }
+
     .menu-desktop ul li a:hover::before {
         height: 100%;
     }
+
     /*  .menu-desktop ul li:active::before{
           background-color: #e4ce05;
       }
@@ -823,6 +899,7 @@ p {
         padding: 25px;
         padding-bottom: 75px;
     }
+
     .small-frame {
         display: none;
     }

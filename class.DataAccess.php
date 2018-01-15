@@ -1,58 +1,57 @@
 <?php
 session_start();
-require_once ("class.Database.php");
+require_once("class.Database.php");
+
 class DataAccess extends Database
 {
 
-	function __construct($filename)
-	{
-		parent::__construct($filename);
-	}
+    function __construct($filename)
+    {
+        parent::__construct($filename);
+    }
 
-	public function AddUser($name, $password)
-	{
-        if($this->UserExists($name))
-        {
+    public function AddUser($name, $password)
+    {
+        if ($this->UserExists($name)) {
             return false;
         }
-        if($name == '' || $password == '')
-        {
+        if ($name == '' || $password == '') {
             return false;
         }
         $salt = uniqid();
-        $hash = sha1($password.$salt);
-		$sql = "insert into User (Name,Password,Salt) 
+        $hash = sha1($password . $salt);
+        $sql
+            = "insert into User (Name,Password,Salt) 
 	  		VALUES('$name','$hash','$salt');";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->databaseHandle->errorInfo());
             return false;
         }
         return true;
-	}
+    }
 
     public function DeleteUser($name)
     {
-        if(!$this->UserExists($name))
-        {
+        if (!$this->UserExists($name)) {
 
             return false;
         }
         $user = $this->GetUser($name);
 
 
-        $sql = "delete from IsInUserRole where UserID = ".$user['ID'].";" ;
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $sql = "delete from IsInUserRole where UserID = " . $user['ID'] . ";";
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
 
-        $sql = "delete from User where ID = ".$user['ID'].";" ;
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $sql = "delete from User where ID = " . $user['ID'] . ";";
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->databaseHandle->errorInfo());
@@ -63,21 +62,20 @@ class DataAccess extends Database
 
     public function LoginUser($name, $password)
     {
-       if(!$this->UserExists($name))
-       {
-           print "Nutzer: $name existiert nicht.";
-           return;
-       }
+        if (!$this->UserExists($name)) {
+            print "Nutzer: $name existiert nicht.";
+            return;
+        }
 
-        $user = $this -> GetUser($name);
+        $user = $this->GetUser($name);
 
-        $hash = sha1($password.$user ["Salt"]);
+        $hash = sha1($password . $user ["Salt"]);
 
-        if($hash == $user ["Password"])
-        {
+        if ($hash == $user ["Password"]) {
             $_SESSION['username'] = $name;
             $_SESSION[CSRF_TOKEN] = uniqid('', true);
-            header('Location: ../../index.php/Admin/CreateArticle?'.CSRF_TOKEN.'='.$_SESSION['CSRF_TOKEN'], true, 301);
+            header('Location: ../../index.php/Admin/CreateArticle?' . CSRF_TOKEN
+                . '=' . $_SESSION['CSRF_TOKEN'], true, 301);
             return true;
         }
         return false;
@@ -93,11 +91,11 @@ class DataAccess extends Database
         return false;
     }
 
-	public function GetUser($name)
+    public function GetUser($name)
     {
         $sql = "select * from User where Name = '$name'";
         foreach ($this->databaseHandle->query($sql) as $row) {
-            $row ['Roles'] = $this -> GetUserRoles($name);
+            $row ['Roles'] = $this->GetUserRoles($name);
             return $row;
         }
         return null;
@@ -106,7 +104,7 @@ class DataAccess extends Database
     public function GetUserID($name)
     {
 
-        return $this -> GetUser($name) ['ID'];
+        return $this->GetUser($name) ['ID'];
     }
 
     public function GetAllUsers()
@@ -125,17 +123,17 @@ class DataAccess extends Database
 
     public function AddRole($name)
     {
-        if($this->RoleExists($name))
-        {
+        if ($this->RoleExists($name)) {
 
             return;
         }
 
-        $sql = "insert into UserRole (Name) 
+        $sql
+            = "insert into UserRole (Name) 
 	  		VALUES('$name');";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->databaseHandle->errorInfo());
@@ -156,7 +154,8 @@ class DataAccess extends Database
     public function IsUserInRole($username, $rolename)
     {
 
-        $sql = "select UserRole.Name Name from UserRole 
+        $sql
+            = "select UserRole.Name Name from UserRole 
             LEFT JOIN IsInUserRole
             ON (UserRole.ID=IsInUserRole.RoleID) 
             LEFT JOIN User 
@@ -189,28 +188,26 @@ class DataAccess extends Database
 
     public function AssignUserRole($username, $rolename)
     {
-        if(!$this->RoleExists($rolename))
-        {
+        if (!$this->RoleExists($rolename)) {
 
             return false;
         }
-        if(!$this->UserExists($username))
-        {
+        if (!$this->UserExists($username)) {
 
             return false;
         }
-        if($this->IsUserInRole($username, $rolename))
-        {
+        if ($this->IsUserInRole($username, $rolename)) {
 
             return false;
         }
-        $user = $this -> GetUser($username);
-        $role = $this -> GetRole($rolename);
-        $sql = "insert into IsInUserRole (UserID, RoleID) 
-	  		VALUES(".$user ['ID'].",".$role ['ID'].");";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $user = $this->GetUser($username);
+        $role = $this->GetRole($rolename);
+        $sql
+            = "insert into IsInUserRole (UserID, RoleID) 
+	  		VALUES(" . $user ['ID'] . "," . $role ['ID'] . ");";
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         return true;
     }
 
@@ -218,30 +215,32 @@ class DataAccess extends Database
     {
         $roles = array();
 
-        $sql = "select UserRole.Name Name from UserRole 
+        $sql
+            = "select UserRole.Name Name from UserRole 
             LEFT JOIN IsInUserRole
             ON (UserRole.ID=IsInUserRole.RoleID) 
             LEFT JOIN User 
             ON (User.ID=IsInUserRole.UserID) 
             WHERE User.Name = '$username'";
         foreach ($this->databaseHandle->query($sql) as $row) {
-            array_push($roles,$row['Name']);
+            array_push($roles, $row['Name']);
         }
         return $roles;
     }
 
     public function isAdministrator($username)
     {
-        return $this -> IsUserInRole($username, 'Administrator');
+        return $this->IsUserInRole($username, 'Administrator');
     }
 
     public function AddImage($path, $userID)
     {
-        $sql = "insert into Image (Path, UserID) 
+        $sql
+            = "insert into Image (Path, UserID) 
 	  		VALUES('$path','$userID')";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             throw new Exception("\nPDO::errorInfo():\n");
         }
@@ -254,17 +253,17 @@ class DataAccess extends Database
 
     public function AddArticle($username, $header, $text, $imagePath)
     {
-        if(!$this->UserExists($username))
-        {
+        if (!$this->UserExists($username)) {
             throw new Exception("Dieser Nutzer existiert nicht.");
         }
-        $userID = $this -> GetUserID($username);
-        $imageID = $this -> AddImage($imagePath, $userID);
-        $sql = "insert into Article (UserID,Header,Text,ImageID) 
+        $userID = $this->GetUserID($username);
+        $imageID = $this->AddImage($imagePath, $userID);
+        $sql
+            = "insert into Article (UserID,Header,Text,ImageID) 
 	  		VALUES('$userID','$header','$text','$imageID');";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             throw new Exception("\nPDO::errorInfo():\n");
         }
@@ -273,7 +272,8 @@ class DataAccess extends Database
     public function GetAllArticles()
     {
         $results = array();
-        $sql = "select User.Name UserName, Article.Header Header, Article.Text Text, Article.Timestamp Timestamp, Image.Path ImagePath from Article 
+        $sql
+            = "select User.Name UserName, Article.Header Header, Article.Text Text, Article.Timestamp Timestamp, Image.Path ImagePath from Article 
               LEFT JOIN Image ON (Article.ImageID=Image.ID) 
               LEFT JOIN User ON (Article.UserID=User.ID)";
         foreach ($this->databaseHandle->query($sql) as $row) {
@@ -287,17 +287,17 @@ class DataAccess extends Database
     public function AddContent($index, $content)
     {
 
-        if($this->ContentExists($index))
-        {
-            $this -> UpdateContent($index, $content);
+        if ($this->ContentExists($index)) {
+            $this->UpdateContent($index, $content);
             return;
         }
 
-        $sql = "insert into Content ([Index], Content) 
+        $sql
+            = "insert into Content ([Index], Content) 
 	  		VALUES('$index', '$content');";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->databaseHandle->errorInfo());
@@ -317,16 +317,16 @@ class DataAccess extends Database
 
     public function UpdateContent($index, $content)
     {
-        if(!$this->ContentExists($index))
-        {
+        if (!$this->ContentExists($index)) {
 
             return;
         }
 
-        $sql = "update Content set Content = '$content' where [Index] = '$index';";
-        $stmt = $this -> databaseHandle -> prepare($sql);
+        $sql
+            = "update Content set Content = '$content' where [Index] = '$index';";
+        $stmt = $this->databaseHandle->prepare($sql);
 
-        $stmt -> execute();
+        $stmt->execute();
         if (!$stmt) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->databaseHandle->errorInfo());
@@ -344,4 +344,5 @@ class DataAccess extends Database
     }
 
 }
+
 ?>

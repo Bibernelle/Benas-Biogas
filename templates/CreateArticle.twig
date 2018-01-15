@@ -10,37 +10,37 @@
 
 {% block content %}
     {% include 'list.twig' %}
-<form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
-    <h1>Der BENAS Blog</h1>
-    <h2>eigenen Blogpost erstellen:</h2>
-    <label for="header">Überschrift</label>
-    <input name="header" type="text">
+    <form action="../../index.php/Admin/CreateArticle" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="{{ constant('CSRF_TOKEN') }}" value="{{ CSRF_TOKEN }}"/>
+        <h1>Der BENAS Blog</h1>
+        <h2>eigenen Blogpost erstellen:</h2>
+        <label for="header">Überschrift</label>
+        <input name="header" type="text">
 
-    </input>
-    <label for="text">Text</label>
-    <textarea name="text" type="text" rows="20" cols="5"></textarea>
+        </input>
+        <label for="text">Text</label>
+        <textarea name="text" type="text" rows="20" cols="5"></textarea>
 
 
-    <br />
-    <label for="image">Bild</label>
-    <input name="fileToUpload" type="file" id="fileToUpload">
+        <br/>
+        <label for="image">Bild</label>
+        <input name="fileToUpload" type="file" id="fileToUpload">
 
-    </input>
-    <br />
-    <input type="submit" value="Erstellen"/>
+        </input>
+        <br/>
+        <input type="submit" value="Erstellen"/>
 
-    {% for article in articles|reverse %}
-        <div class="article">
-        <h2>{{ article.Header }}</h2>
-        <p>{{ article.Text }}</p>
-        {% if article.ImagePath|length > 0 %}
-        <img class="grow" src="../../{{ article.ImagePath }}"> </img>
-        {%  endif %}
-        <p id="footnote">Autor: {{ article.UserName }}<br />{{ article.Timestamp }}</p>
-        </div>
-    {% endfor %}
+        {% for article in articles|reverse %}
+            <div class="article">
+                <h2>{{ article.Header }}</h2>
+                <p>{{ article.Text }}</p>
+                {% if article.ImagePath|length > 0 %}
+                    <img class="grow" src="../../{{ article.ImagePath }}"> </img>
+                {% endif %}
+                <p id="footnote">Autor: {{ article.UserName }}<br/>{{ article.Timestamp }}</p>
+            </div>
+        {% endfor %}
 
-</form>
+    </form>
 
 {% endblock %}
